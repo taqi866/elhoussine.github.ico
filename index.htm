@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plateforme E-learning - El Houssine Taqi</title>
+    
+    <!-- Favicon (Icône de l'onglet) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+    
+    <!-- Intégration de Tailwind CSS pour le style -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Intégration des icônes Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Police moderne Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Cacher la barre de défilement pour l'iframe */
+        iframe {
+            scrollbar-width: none;
+        }
+        /* Utilitaires pour masquer la scrollbar sur les navigateurs webkit */
+        iframe::-webkit-scrollbar { 
+            display: none; 
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased selection:bg-indigo-100 selection:text-indigo-900">
+
+    <!-- ========================================== -->
+    <!-- VUE 1 : PAGE D'ACCUEIL (Liste des formations) -->
+    <!-- ========================================== -->
+    <div id="home-view" class="min-h-screen flex flex-col transition-opacity duration-500">
+        
+        <!-- En-tête Fixé (Glassmorphism) -->
+        <header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="bg-gradient-to-br from-indigo-600 to-blue-500 p-2.5 rounded-xl shadow-lg shadow-indigo-200">
+                        <i data-lucide="graduation-cap" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-extrabold text-gray-900 tracking-tight leading-tight">HT<span class="text-indigo-600">Learning</span></h1>
+                        <p class="text-xs text-gray-500 font-medium uppercase tracking-wider">El Houssine Taqi</p>
+                    </div>
+                </div>
+                
+                <!-- Navigation Bureau (Desktop) -->
+                <nav class="hidden md:flex gap-8">
+                    <a href="#" class="text-sm font-semibold text-gray-600 hover:text-indigo-600 transition-colors">Accueil</a>
+                    <a href="#formations" class="text-sm font-semibold text-gray-600 hover:text-indigo-600 transition-colors">Formations</a>
+                    <a href="#apropos" class="text-sm font-semibold text-gray-600 hover:text-indigo-600 transition-colors">Le formateur</a>
+                </nav>
+
+                <!-- Bouton Menu Mobile (Hamburger) -->
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center p-2 text-gray-600 hover:text-indigo-600 transition-colors focus:outline-none">
+                    <i data-lucide="menu" id="mobile-menu-icon" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <!-- Navigation Mobile (Dropdown caché par défaut) -->
+            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-b border-gray-200 shadow-lg z-40">
+                <div class="px-6 pt-4 pb-8 flex flex-col gap-5">
+                    <a href="#" class="mobile-link flex items-center gap-3 text-base font-semibold text-gray-700 hover:text-indigo-600 transition-colors">
+                        <i data-lucide="home" class="w-5 h-5 text-indigo-500"></i> Accueil
+                    </a>
+                    <a href="#formations" class="mobile-link flex items-center gap-3 text-base font-semibold text-gray-700 hover:text-indigo-600 transition-colors">
+                        <i data-lucide="book-open" class="w-5 h-5 text-indigo-500"></i> Formations
+                    </a>
+                    <a href="#apropos" class="mobile-link flex items-center gap-3 text-base font-semibold text-gray-700 hover:text-indigo-600 transition-colors">
+                        <i data-lucide="user" class="w-5 h-5 text-indigo-500"></i> Le formateur
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Contenu principal (avec padding pour décaler par rapport au menu fixe) -->
+        <main class="flex-1 pt-24">
+            
+            <!-- Section Héro Moderne -->
+            <div class="relative overflow-hidden bg-white pt-16 pb-24 sm:pt-24 sm:pb-32 border-b border-gray-100">
+                <!-- Décoration d'arrière-plan -->
+                <div class="absolute inset-y-0 left-1/2 -z-10 -ml-[38rem] w-[81.25rem] opacity-20" style="mask-image: radial-gradient(64rem 64rem at top, white, transparent); -webkit-mask-image: radial-gradient(64rem 64rem at top, white, transparent);">
+                    <div class="absolute inset-0 bg-gradient-to-r from-indigo-400 to-blue-400" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%);"></div>
+                </div>
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 text-indigo-700 font-semibold text-sm mb-8 border border-indigo-100">
+                        <span class="flex h-2 w-2 rounded-full bg-indigo-600"></span>
+                        Apprentissage 100% pratique
+                    </div>
+                    <h2 class="text-5xl font-extrabold text-gray-900 mb-6 tracking-tight sm:text-6xl max-w-4xl mx-auto leading-tight">
+                        Développez vos compétences <br class="hidden md:block" />
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500">professionnelles</span>
+                    </h2>
+                    <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+                        Accédez à nos programmes de formation en ligne conçus pour vous apporter une expertise directement applicable en entreprise.
+                    </p>
+                    <div class="flex justify-center gap-4">
+                        <a href="#formations" class="bg-gray-900 hover:bg-indigo-600 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-indigo-500/30">
+                            Explorer les formations
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ajout de scroll-mt-28 pour que l'ancre s'arrête en dessous du menu fixe -->
+            <div id="formations" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 scroll-mt-28">
+                <!-- Titre de section -->
+                <div class="flex items-center justify-between mb-12">
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-900">Nos Formations</h2>
+                        <p class="text-gray-500 mt-2">Programmes conçus pour l'excellence professionnelle</p>
+                    </div>
+                </div>
+
+                <!-- Grille des formations (Style Thumbnail) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Formation 1 : Comptabilité -->
+                    <div class="group bg-white rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden relative cursor-pointer" onclick="openCourse('compta')">
+                        <!-- Couverture -->
+                        <div class="h-48 bg-gradient-to-br from-blue-600 to-indigo-700 relative overflow-hidden flex items-center justify-center">
+                            <!-- Badge -->
+                            <div class="absolute top-4 left-4 bg-white/20 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-lg border border-white/30">
+                                Populaire
+                            </div>
+                            <!-- Motif de fond -->
+                            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent"></div>
+                            <!-- Icone centrale -->
+                            <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 border border-white/20">
+                                <i data-lucide="calculator" class="w-10 h-10 text-white"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6 md:p-8 flex flex-col flex-1">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors line-clamp-2">Comptabilité pratique</h3>
+                            <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed">Maîtrisez les bases de la comptabilité générale et pratique pour la gestion optimale des entreprises.</p>
+                            
+                            <div class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-6 bg-slate-50 w-fit px-3 py-1.5 rounded-lg border border-slate-100">
+                                <i data-lucide="clock" class="w-4 h-4 text-indigo-500"></i>
+                                <span>36 heures</span>
+                            </div>
+                            
+                            <div class="pt-6 border-t border-gray-100 mt-auto">
+                                <button class="w-full flex justify-between items-center text-indigo-600 font-semibold group-hover:text-indigo-700 transition-colors">
+                                    <span>Accéder à la formation</span>
+                                    <div class="w-8 h-8 rounded-full bg-indigo-50 flex items-center justify-center group-hover:bg-indigo-100 transition-colors">
+                                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formation 2 : Informatique -->
+                    <div class="group bg-white rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden relative cursor-pointer" onclick="openCourse('informatique')">
+                        <!-- Couverture -->
+                        <div class="h-48 bg-gradient-to-br from-fuchsia-600 to-purple-700 relative overflow-hidden flex items-center justify-center">
+                            <div class="absolute top-4 left-4 bg-white/20 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-lg border border-white/30">
+                                Essentiel
+                            </div>
+                            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent"></div>
+                            <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center transform group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-500 border border-white/20">
+                                <i data-lucide="monitor" class="w-10 h-10 text-white"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6 md:p-8 flex flex-col flex-1">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors line-clamp-2">Informatique bureautique</h3>
+                            <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed">Développez des compétences solides sur les outils essentiels : Word, Excel, PowerPoint et les outils web.</p>
+                            
+                            <div class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-6 bg-slate-50 w-fit px-3 py-1.5 rounded-lg border border-slate-100">
+                                <i data-lucide="clock" class="w-4 h-4 text-purple-500"></i>
+                                <span>36 heures</span>
+                            </div>
+                            
+                            <div class="pt-6 border-t border-gray-100 mt-auto">
+                                <button class="w-full flex justify-between items-center text-purple-600 font-semibold group-hover:text-purple-700 transition-colors">
+                                    <span>Accéder à la formation</span>
+                                    <div class="w-8 h-8 rounded-full bg-purple-50 flex items-center justify-center group-hover:bg-purple-100 transition-colors">
+                                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formation 3 : Gestion (Activée) -->
+                    <div class="group bg-white rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden relative cursor-pointer" onclick="openCourse('gestion')">
+                        <!-- Couverture -->
+                        <div class="h-48 bg-gradient-to-br from-emerald-500 to-teal-600 relative overflow-hidden flex items-center justify-center">
+                            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent"></div>
+                            <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 border border-white/20">
+                                <i data-lucide="briefcase" class="w-10 h-10 text-white"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6 md:p-8 flex flex-col flex-1">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors line-clamp-2">Gestion commerciale</h3>
+                            <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed">Apprenez à gérer efficacement le cycle de vente, les achats, la facturation et la relation client.</p>
+                            
+                            <div class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-6 bg-slate-50 w-fit px-3 py-1.5 rounded-lg border border-slate-100">
+                                <i data-lucide="clock" class="w-4 h-4 text-emerald-500"></i>
+                                <span>36 heures</span>
+                            </div>
+                            
+                            <div class="pt-6 border-t border-gray-100 mt-auto">
+                                <button class="w-full flex justify-between items-center text-emerald-600 font-semibold group-hover:text-emerald-700 transition-colors">
+                                    <span>Accéder à la formation</span>
+                                    <div class="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center group-hover:bg-emerald-100 transition-colors">
+                                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Section En Chiffres (Style Dark/SaaS) -->
+            <div id="chiffres" class="bg-slate-900 py-24 relative overflow-hidden">
+                <!-- Glow effects -->
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full overflow-hidden pointer-events-none">
+                    <div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-indigo-600/20 blur-[120px]"></div>
+                    <div class="absolute top-[60%] -right-[10%] w-[40%] h-[50%] rounded-full bg-blue-600/20 blur-[100px]"></div>
+                </div>
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl font-extrabold text-white sm:text-4xl tracking-tight">L'impact en chiffres</h2>
+                        <p class="mt-4 text-lg text-slate-400">Une méthode qui a fait ses preuves</p>
+                    </div>
+                    <div class="grid grid-cols-1 gap-12 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-slate-800 text-center">
+                        <!-- Stat 1 -->
+                        <div class="flex flex-col items-center pt-8 sm:pt-0">
+                            <p class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-3">+50</p>
+                            <p class="text-slate-300 font-medium tracking-wide uppercase text-sm">Stagiaires formés</p>
+                        </div>
+                        <!-- Stat 2 -->
+                        <div class="flex flex-col items-center pt-8 sm:pt-0">
+                            <p class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-3">+150h</p>
+                            <p class="text-slate-300 font-medium tracking-wide uppercase text-sm">De contenu pratique</p>
+                        </div>
+                        <!-- Stat 3 -->
+                        <div class="flex flex-col items-center pt-8 sm:pt-0">
+                            <p class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 mb-3">98%</p>
+                            <p class="text-slate-300 font-medium tracking-wide uppercase text-sm">Taux de satisfaction</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section À propos (Style Profil Formateur avec décalage au scroll) -->
+            <div id="apropos" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 scroll-mt-28">
+                <div class="bg-white rounded-[2rem] shadow-xl shadow-gray-200/50 border border-gray-100 overflow-hidden relative">
+                    <!-- Bannière de fond -->
+                    <div class="h-40 bg-gradient-to-r from-indigo-600 via-blue-600 to-blue-400 w-full object-cover"></div>
+                    
+                    <div class="px-8 sm:px-12 pb-12 flex flex-col md:flex-row gap-8 md:gap-12 relative">
+                        <!-- Avatar Formateur -->
+                        <div class="-mt-20 shrink-0 flex flex-col items-center">
+                            <div class="w-40 h-40 rounded-full border-8 border-white shadow-lg relative bg-white overflow-hidden">
+                                <img src="https://image2url.com/r2/default/images/1775307048677-44df2c02-c6b4-42f8-b1e0-fa448b5b6caa.png">
+                            </div>
+                            <div class="mt-4 flex items-center gap-2 bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm font-semibold border border-green-100">
+                                <i data-lucide="check-circle-2" class="w-4 h-4"></i> Expert vérifié
+                            </div>
+                        </div>
+                        
+                        <!-- Informations Formateur -->
+                        <div class="flex-1 text-center md:text-left mt-4 md:mt-6">
+                            <h2 class="text-sm font-bold tracking-widest text-indigo-600 uppercase mb-1">Votre Formateur</h2>
+                            <h3 class="text-3xl font-extrabold text-gray-900 mb-2">El Houssine Taqi</h3>
+                            <p class="text-lg text-gray-500 mb-6">Formateur en Comptabilité et Gestion</p>
+                            
+                            <div class="inline-flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 mb-8 bg-gray-50 p-2 sm:pr-6 rounded-2xl border border-gray-100">
+                                <div class="bg-white p-3 rounded-xl shadow-sm shrink-0">
+                                    <i data-lucide="award" class="w-6 h-6 text-indigo-600"></i>
+                                </div>
+                                <span class="text-center sm:text-left text-sm text-gray-600">
+                                    Master spécialisé en Finance-Contrôle de Gestion<br>
+                                    <span class="font-bold text-gray-900">ISIAM Business School d'Aagdir</span>
+                                </span>
+                            </div>
+                            
+                            <div class="flex justify-center md:justify-start">
+                                <a href="https://www.linkedin.com/in/el-houssine-taqi-87b56413a/" target="_blank" class="inline-flex justify-center items-center gap-2 px-6 py-3 bg-[#0A66C2] text-white hover:bg-[#004182] rounded-xl font-semibold transition-all duration-200 shadow-lg shadow-[#0A66C2]/20">
+                                    <i data-lucide="linkedin" class="w-5 h-5 fill-current"></i>
+                                    Profil LinkedIn
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Pied de page -->
+        <footer class="bg-white border-t border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm font-medium">
+                <div class="flex items-center gap-2">
+                    <div class="w-6 h-6 bg-indigo-600 rounded-md flex items-center justify-center">
+                        <i data-lucide="graduation-cap" class="w-3 h-3 text-white"></i>
+                    </div>
+                    <span>HTLearning</span>
+                </div>
+                <p id="copyright-year">© 2026 El Houssine Taqi. Tous droits réservés.</p>
+            </div>
+        </footer>
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- VUE 2 : LECTEUR DE FORMATION (Iframe)      -->
+    <!-- ========================================== -->
+    <div id="course-view" class="hidden h-screen flex flex-col bg-slate-50">
+        
+        <!-- Barre de navigation supérieure (Mode Lecteur / Blanc) -->
+        <header class="bg-white text-gray-900 shadow-sm border-b border-gray-200 px-4 sm:px-6 py-3 flex items-center justify-between z-10 shrink-0">
+            <div class="flex items-center gap-4 sm:gap-6 w-full">
+                <button onclick="closeCourse()" class="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors font-medium bg-gray-50 hover:bg-gray-100 border border-gray-200 px-4 py-2 rounded-lg text-sm">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                    <span class="hidden sm:inline">Quitter la formation</span>
+                    <span class="sm:hidden">Retour</span>
+                </button>
+                <div class="h-6 w-px bg-gray-200"></div>
+                <h1 class="text-sm sm:text-base font-semibold flex items-center gap-3 truncate">
+                    <div class="p-1.5 rounded bg-gray-50 border border-gray-100" id="course-header-icon-container">
+                        <span id="course-header-icon"></span>
+                    </div>
+                    <span id="course-title" class="truncate">Titre de la formation</span>
+                </h1>
+            </div>
+        </header>
+
+        <!-- Zone d'affichage Iframe -->
+        <main class="flex-1 w-full bg-white relative overflow-hidden shadow-inner border-t border-slate-200">
+            <!-- Animation de chargement -->
+            <div class="absolute inset-0 flex flex-col items-center justify-center z-0 bg-slate-50">
+                <i data-lucide="loader-2" class="w-10 h-10 text-indigo-600 animate-spin mb-4"></i>
+                <p class="text-slate-500 font-medium text-sm animate-pulse">Préparation de l'environnement...</p>
+            </div>
+            
+            <!-- Le cadre qui charge votre lien Google Apps Script -->
+            <iframe id="course-iframe" src="" class="w-full h-full border-none relative z-10 bg-transparent" sandbox="allow-scripts allow-same-origin allow-forms allow-top-navigation allow-downloads allow-popups"></iframe>
+        </main>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- JAVASCRIPT (Logique de l'application)      -->
+    <!-- ========================================== -->
+    <script>
+        // Initialisation des icônes Lucide
+        lucide.createIcons();
+
+        // Mise à jour de l'année dans le footer
+        document.getElementById('copyright-year').textContent = `© ${new Date().getFullYear()} El Houssine Taqi. Tous droits réservés.`;
+
+        // Gestion du Menu Mobile
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenuIcon.setAttribute('data-lucide', 'x'); // Change en croix
+            } else {
+                mobileMenu.classList.add('hidden');
+                mobileMenuIcon.setAttribute('data-lucide', 'menu'); // Change en hamburger
+            }
+            lucide.createIcons();
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+
+        // Fermer le menu quand on clique sur un lien (sur mobile)
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if(isMenuOpen) toggleMenu();
+            });
+        });
+
+        // Configuration des formations avec VOS LIENS APPS SCRIPT
+        const coursesData = {
+            'compta': {
+                title: 'Comptabilité pratique',
+                icon: 'calculator',
+                color: 'text-indigo-600', 
+                url: 'https://script.google.com/macros/s/AKfycbx0B52BtYBUlGynjevO__2l4XY0XRTQod4hD6JlBvAucefJwWNgn5zaKDLy0ubFxrIUwQ/exec' 
+            },
+            'gestion': {
+                title: 'Gestion commerciale',
+                icon: 'briefcase',
+                color: 'text-emerald-600',
+                url: 'https://script.google.com/macros/s/AKfycby7-fUmbCaOUmu0ij2PT4ikWXtcbjademga-3I-oFoOLQQeAPCUp-H4-mPFigsDIsXb/exec'
+            },
+            'informatique': {
+                title: 'Informatique bureautique',
+                icon: 'monitor',
+                color: 'text-purple-600', 
+                url: 'https://script.google.com/macros/s/AKfycbzg4jSVXdCpnSvTfVmh9CIg4cDUTHCeC70Be_uX_2xdlfldR-cdzrgMd6jMg1LLnKEI/exec'
+            }
+        };
+
+        // Fonction pour ouvrir une formation
+        function openCourse(courseId) {
+            const course = coursesData[courseId];
+            
+            // Mettre à jour les informations dans la vue du cours
+            document.getElementById('course-title').textContent = course.title;
+            document.getElementById('course-iframe').src = course.url;
+            
+            // Mettre à jour l'icône dans l'en-tête dynamique
+            const iconContainer = document.getElementById('course-header-icon');
+            iconContainer.innerHTML = `<i data-lucide="${course.icon}" class="w-5 h-5 ${course.color}"></i>`;
+            lucide.createIcons(); // Ré-initialiser les icônes pour le nouvel élément injecté
+
+            // Masquer l'accueil, afficher le cours
+            document.getElementById('home-view').classList.add('hidden');
+            document.getElementById('course-view').classList.remove('hidden');
+            
+            // Faire défiler tout en haut
+            window.scrollTo(0, 0);
+        }
+
+        // Fonction pour fermer la formation et revenir à l'accueil
+        function closeCourse() {
+            // Masquer le cours, afficher l'accueil
+            document.getElementById('course-view').classList.add('hidden');
+            document.getElementById('home-view').classList.remove('hidden');
+            
+            // Vider l'iframe pour arrêter le chargement ou la lecture audio/vidéo
+            document.getElementById('course-iframe').src = '';
+            
+            // Retourner en haut de la page principale
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
