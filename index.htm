@@ -27,12 +27,14 @@
         html[lang="fr"] body { font-family: var(--font-fr); }
         html[lang="ar"] body { font-family: var(--font-ar); }
 
+        /* Optimisation de la hauteur sur mobile pour éviter les sauts du footer */
+        .min-h-screen-custom {
+            min-height: 100vh;
+            min-height: 100dvh;
+        }
+
         iframe::-webkit-scrollbar { display: none; }
         iframe { scrollbar-width: none; }
-
-        .lang-transition {
-            transition: all 0.3s ease;
-        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased selection:bg-indigo-100 selection:text-indigo-900">
@@ -40,7 +42,7 @@
     <!-- ========================================== -->
     <!-- VUE 1 : PAGE D'ACCUEIL -->
     <!-- ========================================== -->
-    <div id="home-view" class="min-h-screen flex flex-col transition-opacity duration-500">
+    <div id="home-view" class="min-h-screen-custom flex flex-col transition-opacity duration-500">
         
         <!-- En-tête Fixé -->
         <header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/80">
@@ -127,7 +129,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
                     <!-- Formation 1 : Comptabilité -->
                     <div class="group bg-white rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('compta')">
                         <div class="h-48 bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center">
@@ -258,15 +259,22 @@
 
         </main>
 
-        <footer class="bg-white border-t border-gray-200 py-8">
-            <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm">
-                <div class="flex items-center gap-2">
-                    <div class="w-6 h-6 bg-indigo-600 rounded-md flex items-center justify-center">
-                        <i data-lucide="graduation-cap" class="w-3 h-3 text-white"></i>
+        <!-- FOOTER CORRIGÉ -->
+        <footer class="bg-white border-t border-gray-200 mt-auto py-10">
+            <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 text-gray-600 text-sm">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center shadow-md shadow-indigo-100">
+                        <i data-lucide="graduation-cap" class="w-5 h-5 text-white"></i>
                     </div>
-                    <span>HTLearning</span>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-gray-900 text-base">HTLearning</span>
+                        <span class="text-xs text-gray-400" data-i18n="nav-courses">Formations</span>
+                    </div>
                 </div>
-                <p id="copyright-year">© 2026 El Houssine Taqi. Tous droits réservés.</p>
+                <div class="text-center md:text-end">
+                    <p data-i18n="copyright" class="font-medium">© 2026 El Houssine Taqi. Tous droits réservés.</p>
+                    <p class="text-xs text-gray-400 mt-1" data-i18n="instructor-name">El Houssine Taqi</p>
+                </div>
             </div>
         </footer>
     </div>
@@ -302,6 +310,8 @@
     <!-- LOGIQUE DE L'APPLICATION -->
     <!-- ========================================== -->
     <script>
+        const currentYear = new Date().getFullYear();
+
         // 1. Dictionnaire de traductions
         const translations = {
             'fr': {
@@ -334,7 +344,7 @@
                 'course-3-title': 'Gestion commerciale',
                 'course-3-desc': 'Apprenez à gérer efficacement le cycle de vente, les achats et la facturation.',
                 'lang-btn': 'العربية',
-                'copyright': '© 2026 El Houssine Taqi. Tous droits réservés.'
+                'copyright': `© ${currentYear} El Houssine Taqi. Tous droits réservés.`
             },
             'ar': {
                 'nav-home': 'الرئيسية',
@@ -366,7 +376,7 @@
                 'course-3-title': 'التسيير التجاري',
                 'course-3-desc': 'تعلم كيفية إدارة دورة المبيعات والمشتريات والفواتير وعلاقات العملاء بفعالية.',
                 'lang-btn': 'Français',
-                'copyright': '© 2026 الحسين تقي. جميع الحقوق محفوظة.'
+                'copyright': `© ${currentYear} الحسين تقي. جميع الحقوق محفوظة.`
             }
         };
 
@@ -386,7 +396,6 @@
             document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
             document.documentElement.lang = currentLang;
             document.getElementById('lang-label').textContent = currentLang === 'fr' ? 'العربية' : 'Français';
-            document.getElementById('copyright-year').textContent = content['copyright'];
             
             lucide.createIcons();
         }
@@ -396,7 +405,7 @@
             updateContent();
         }
 
-        // 3. Logique Application (Navigation / Iframe)
+        // 3. Logique Application
         lucide.createIcons();
 
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
