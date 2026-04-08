@@ -24,8 +24,17 @@
             --font-fr: 'Inter', sans-serif;
             --font-ar: 'Cairo', sans-serif;
         }
+        /* تطبيق خط Cairo على النصوص العربية دائماً لضمان الجمالية */
+        @font-face {
+            font-family: 'Cairo';
+            unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF;
+        }
+
         html[lang="fr"] body { font-family: var(--font-fr); }
         html[lang="ar"] body { font-family: var(--font-ar); }
+        
+        /* ضمان استخدام خط Cairo لأي نص عربي يظهر في الواجهة الفرنسية */
+        .arabic-text { font-family: var(--font-ar) !important; }
 
         /* Optimisation de la hauteur sur mobile */
         .min-h-screen-custom {
@@ -87,12 +96,9 @@
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased selection:bg-indigo-100 selection:text-indigo-900 overflow-hidden">
 
-    <!-- ========================================== -->
-    <!-- ÉCRAN DE CHARGEMENT (SPLASH SCREEN) -->
-    <!-- ========================================== -->
+    <!-- SPLASH SCREEN -->
     <div id="splash-screen">
         <div class="flex flex-col items-center">
-            <!-- Logo animé -->
             <div class="bg-gradient-to-br from-indigo-600 to-blue-500 p-6 rounded-3xl shadow-2xl shadow-indigo-200 mb-6 logo-pulse">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
             </div>
@@ -100,17 +106,13 @@
                 <h1 class="text-2xl font-extrabold text-gray-900 tracking-tight">HT<span class="text-indigo-600">Learning</span></h1>
                 <p class="text-xs text-gray-400 font-medium uppercase tracking-[0.2em] mt-1" data-i18n="instructor-name">El Houssine Taqi</p>
             </div>
-            <!-- Barre de chargement -->
             <div class="loader-line"></div>
         </div>
     </div>
 
-    <!-- ========================================== -->
     <!-- VUE 1 : PAGE D'ACCUEIL -->
-    <!-- ========================================== -->
     <div id="home-view" class="min-h-screen-custom flex flex-col transition-opacity duration-500 opacity-0">
         
-        <!-- En-tête Fixé -->
         <header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/80">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
                 <div class="flex items-center gap-3">
@@ -123,20 +125,16 @@
                     </div>
                 </div>
                 
-                <!-- Navigation Bureau -->
                 <nav class="hidden md:flex items-center gap-8">
                     <a href="#" class="text-sm font-semibold text-gray-600 hover:text-indigo-600 transition-colors" data-i18n="nav-home">Accueil</a>
                     <a href="#formations" class="text-sm font-semibold text-gray-600 hover:text-indigo-600 transition-colors" data-i18n="nav-courses">Formations</a>
                     <a href="#apropos" class="text-sm font-semibold text-gray-600 hover:text-indigo-600 transition-colors" data-i18n="nav-about">Le formateur</a>
-                    
-                    <!-- Sélecteur de langue -->
                     <button onclick="toggleLanguage()" class="flex items-center gap-2 bg-gray-100 hover:bg-gray-200 px-3 py-1.5 rounded-full text-sm font-bold transition-all border border-gray-200">
                         <i data-lucide="languages" class="w-4 h-4 text-indigo-600"></i>
                         <span id="lang-label">العربية</span>
                     </button>
                 </nav>
 
-                <!-- Bouton Menu Mobile -->
                 <div class="flex items-center gap-2 md:hidden">
                     <button onclick="toggleLanguage()" class="p-2 text-gray-600 hover:text-indigo-600">
                         <i data-lucide="languages" class="w-5 h-5"></i>
@@ -147,7 +145,6 @@
                 </div>
             </div>
 
-            <!-- Navigation Mobile -->
             <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-b border-gray-200 shadow-lg z-40">
                 <div class="px-6 pt-4 pb-8 flex flex-col gap-5">
                     <a href="#" class="mobile-link flex items-center gap-3 text-base font-semibold text-gray-700" data-i18n="nav-home">Accueil</a>
@@ -158,7 +155,6 @@
         </header>
 
         <main class="flex-1 pt-24">
-            
             <!-- Section Héro -->
             <div class="relative overflow-hidden bg-white pt-16 pb-24 sm:pt-24 sm:pb-32 border-b border-gray-100">
                 <div class="absolute inset-y-0 left-1/2 -z-10 -ml-[38rem] w-[81.25rem] opacity-20" style="mask-image: radial-gradient(64rem 64rem at top, white, transparent);">
@@ -175,7 +171,7 @@
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500" data-i18n="hero-title-2">professionnelles</span>
                     </h2>
                     <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed" data-i18n="hero-desc">
-                        Accédez à nos programmes de formation en ligne conçus pour vous apporter une expertise directement applicable en entreprise.
+                        Accédez à nos programmes de formation en ligne conçوسة لتزويدك بخبرة عملية قابلة للتطبيق مباشرة في مقاولتك.
                     </p>
                     <div class="flex justify-center gap-4">
                         <a href="#formations" class="bg-gray-900 hover:bg-indigo-600 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-indigo-500/30" data-i18n="hero-btn">
@@ -241,7 +237,7 @@
                         </div>
                     </div>
 
-                    <!-- Formation 3 : Gestion -->
+                    <!-- Formation 3 : Gestion (Générique) -->
                     <div class="group bg-white rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('gestion')">
                         <div class="h-48 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
                             <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500">
@@ -263,15 +259,38 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Formation 4 : التدبير التجاري للتجار (عربي دائماً) -->
+                    <div class="group bg-white rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('merchants')">
+                        <div class="h-48 bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center">
+                            <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500">
+                                <i data-lucide="store" class="w-10 h-10 text-white"></i>
+                            </div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-1">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-orange-600 transition-colors arabic-text text-right" data-i18n="course-4-title">التدبير التجاري للتجار</h3>
+                            <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed arabic-text text-right" data-i18n="course-4-desc">تمكين التاجر من فهم واجباته القانونية والجبائية والمحاسبية وإدارة نشاطه التجاري بكفاءة.</p>
+                            <div class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-6 bg-slate-50 w-fit px-3 py-1.5 rounded-lg border border-slate-100">
+                                <i data-lucide="clock" class="w-4 h-4 text-orange-500"></i>
+                                <span data-i18n="course-4-duration">10 heures</span>
+                            </div>
+                            <div class="pt-6 border-t border-gray-100 mt-auto">
+                                <button class="w-full flex justify-between items-center text-orange-600 font-semibold">
+                                    <span data-i18n="course-btn">Accéder à la formation</span>
+                                    <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-            <!-- Section Stats -->
+            <!-- Stats -->
             <div class="bg-slate-900 py-24 relative overflow-hidden">
                 <div class="absolute inset-0 pointer-events-none">
                     <div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-indigo-600/20 blur-[120px]"></div>
                 </div>
-
                 <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
                     <h2 class="text-3xl font-extrabold text-white mb-16" data-i18n="sec-stats-title">L'impact en chiffres</h2>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
@@ -291,7 +310,7 @@
                 </div>
             </div>
 
-            <!-- Section À propos -->
+            <!-- À propos -->
             <div id="apropos" class="max-w-5xl mx-auto px-4 py-24 scroll-mt-28">
                 <div class="bg-white rounded-[2rem] shadow-xl border border-gray-100 overflow-hidden relative">
                     <div class="h-40 bg-gradient-to-r from-indigo-600 via-blue-600 to-blue-400"></div>
@@ -308,7 +327,7 @@
                             <div class="inline-flex flex-col sm:flex-row items-center gap-4 mb-8 bg-gray-50 p-4 rounded-2xl border border-gray-100 text-start">
                                 <i data-lucide="award" class="w-6 h-6 text-indigo-600 shrink-0"></i>
                                 <span class="text-sm text-gray-600" data-i18n="about-edu">
-                                    Master spécialisé en Finance-Contrôle de Gestion<br>
+                                    Master spécialisé en Finance-Contرول de Gestion<br>
                                     <span class="font-bold text-gray-900">ISIAM Business School d'Agadir</span>
                                 </span>
                             </div>
@@ -322,10 +341,8 @@
                     </div>
                 </div>
             </div>
-
         </main>
 
-        <!-- FOOTER -->
         <footer class="bg-white border-t border-gray-200 mt-auto py-10">
             <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 text-gray-600 text-sm">
                 <div class="flex items-center gap-3">
@@ -345,10 +362,7 @@
         </footer>
     </div>
 
-
-    <!-- ========================================== -->
     <!-- VUE 2 : LECTEUR DE FORMATION -->
-    <!-- ========================================== -->
     <div id="course-view" class="hidden h-screen flex flex-col bg-slate-50">
         <header class="bg-white shadow-sm border-b px-4 py-3 flex items-center justify-between z-10 shrink-0">
             <div class="flex items-center gap-4 w-full">
@@ -372,13 +386,9 @@
         </main>
     </div>
 
-    <!-- ========================================== -->
-    <!-- LOGIQUE DE L'APPLICATION -->
-    <!-- ========================================== -->
     <script>
         const currentYear = new Date().getFullYear();
 
-        // 1. Dictionnaire de traductions
         const translations = {
             'fr': {
                 'nav-home': 'Accueil',
@@ -393,6 +403,7 @@
                 'sec-courses-title': 'Nos Formations',
                 'sec-courses-subtitle': 'Programmes conçus pour l\'excellence professionnelle',
                 'course-duration': '36 heures',
+                'course-4-duration': '10 heures',
                 'course-btn': 'Accéder à la formation',
                 'sec-stats-title': 'L\'impact en chiffres',
                 'stat-1': 'Stagiaires formés',
@@ -400,7 +411,7 @@
                 'stat-3': 'Taux de satisfaction',
                 'about-badge': 'Votre Formateur',
                 'about-job': 'Formateur en Comptabilité et Gestion',
-                'about-edu': 'Master spécialisé en Finance-Contrôle de Gestion <br> <b>ISIAM Business School d\'Agadir</b>',
+                'about-edu': 'Master spécialisé en Finance-Contرول de Gestion <br> <b>ISIAM Business School d\'Agadir</b>',
                 'reader-back': 'Quitter la formation',
                 'reader-loading': 'Préparation de l\'environnement...',
                 'course-1-title': 'Comptabilité pratique',
@@ -409,6 +420,8 @@
                 'course-2-desc': 'Développez des compétences solides sur les outils essentiels : Word, Excel, PowerPoint.',
                 'course-3-title': 'Gestion commerciale',
                 'course-3-desc': 'Apprenez à gérer efficacement le cycle de vente, les achats et la facturation.',
+                'course-4-title': 'التدبير التجاري للتجار', 
+                'course-4-desc': 'تمكين التاجر من فهم واجباته القانونية والجبائية والمحاسبية وإدارة نشاطه التجاري بكفاءة.',
                 'lang-btn': 'العربية',
                 'copyright': `© ${currentYear} El Houssine Taqi. Tous droits réservés.`
             },
@@ -425,6 +438,7 @@
                 'sec-courses-title': 'دوراتنا التدريبية',
                 'sec-courses-subtitle': 'برامج مصممة للتميز المهني',
                 'course-duration': '36 ساعة',
+                'course-4-duration': '10 ساعات',
                 'course-btn': 'الدخول للدورة',
                 'sec-stats-title': 'تأثيرنا بالأرقام',
                 'stat-1': 'متدرب مكون',
@@ -441,13 +455,127 @@
                 'course-2-desc': 'تطوير مهارات قوية في الأدوات الأساسية: Word و Excel و PowerPoint.',
                 'course-3-title': 'التسيير التجاري',
                 'course-3-desc': 'تعلم كيفية إدارة دورة المبيعات والمشتريات والفواتير وعلاقات العملاء بفعالية.',
+                'course-4-title': 'التدبير التجاري للتجار',
+                'course-4-desc': 'تمكين التاجر من فهم واجباته القانونية والجبائية والمحاسبية وإدارة نشاطه التجاري بكفاءة.',
                 'lang-btn': 'Français',
                 'copyright': `© ${currentYear} الحسين تاقي. جميع الحقوق محفوظة.`
             }
         };
 
-        // 2. Gestion de la langue
         let currentLang = 'fr';
+
+        const merchantSyllabusHtml = `
+            <!DOCTYPE html>
+            <html lang="ar" dir="rtl">
+            <head>
+                <meta charset="UTF-8">
+                <script src="https://cdn.tailwindcss.com"><\/script>
+                <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+                <style>body { font-family: 'Cairo', sans-serif; text-align: right; }</style>
+            </head>
+            <body class="bg-white p-6 sm:p-10 text-gray-800">
+                <div class="max-w-3xl mx-auto">
+                    <h1 class="text-3xl font-extrabold text-indigo-700 mb-8 border-b-4 border-indigo-100 pb-4 arabic-text">التدبير التجاري للتجار</h1>
+                    
+                    <section class="mb-10">
+                        <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                            <span class="w-2 h-8 bg-indigo-600 rounded-full"></span>
+                            الهدف العام:
+                        </h2>
+                        <p class="text-lg bg-indigo-50 p-4 rounded-2xl text-indigo-900 leading-relaxed shadow-sm">
+                            تمكين التاجر من فهم واجباته القانونية و الجبائية والمحاسبية وإدارة نشاطه التجاري بكفاءة
+                        </p>
+                    </section>
+
+                    <section class="mb-10">
+                        <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                            <span class="w-2 h-8 bg-blue-500 rounded-full"></span>
+                            الأهداف الخاصة:
+                        </h2>
+                        <ul class="space-y-3 pr-4 list-none">
+                            <li class="flex items-start gap-3">
+                                <span class="text-blue-500 mt-1">●</span>
+                                <span>تمكين التاجر من فهم أسس التدبير التجاري وتنظيم نشاطه بشكل فعال</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-blue-500 mt-1">●</span>
+                                <span>تعزيز قدرة التاجر على التحكم في المبيعات والمخزون والمصاريف</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-blue-500 mt-1">●</span>
+                                <span>تطوير مهارات تحليل الأداء التجاري واتخاذ قرارات مبنية على معطيات</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-blue-500 mt-1">●</span>
+                                <span>مساعدة التاجر على تحسين أرباحه وضمان استمرارية نشاطه</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section class="mb-12">
+                        <h2 class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                            <span class="w-2 h-8 bg-emerald-500 rounded-full"></span>
+                            📋 برنامج الدورة الكامل في التدبير التجاري:
+                        </h2>
+                        <div class="grid gap-4">
+                            <div class="p-4 border border-gray-100 rounded-xl bg-gray-50 flex items-center gap-4">
+                                <span class="bg-blue-600 text-white w-8 h-8 rounded-lg flex items-center justify-center shrink-0">1</span>
+                                <span class="font-bold">المحور 1: الالتزامات القانونية والمحاسباتية والجبائية للتاجر</span>
+                            </div>
+                            <div class="p-4 border border-gray-100 rounded-xl bg-gray-50 flex items-center gap-4">
+                                <span class="bg-blue-600 text-white w-8 h-8 rounded-lg flex items-center justify-center shrink-0">2</span>
+                                <span class="font-bold">المحور 2: أساسيات التدبير التجاري</span>
+                            </div>
+                            <div class="p-4 border border-gray-100 rounded-xl bg-gray-50 flex items-center gap-4">
+                                <span class="bg-blue-600 text-white w-8 h-8 rounded-lg flex items-center justify-center shrink-0">3</span>
+                                <span class="font-bold">المحور 3: إدارة المخزون (Stock)</span>
+                            </div>
+                            <div class="p-4 border border-gray-100 rounded-xl bg-gray-50 flex items-center gap-4">
+                                <span class="bg-blue-600 text-white w-8 h-8 rounded-lg flex items-center justify-center shrink-0">4</span>
+                                <span class="font-bold">المحور 4: المبيعات والفوترة</span>
+                            </div>
+                            <div class="p-4 border border-gray-100 rounded-xl bg-gray-50 flex items-center gap-4">
+                                <span class="bg-blue-600 text-white w-8 h-8 rounded-lg flex items-center justify-center shrink-0">5</span>
+                                <span class="font-bold">المحور 5: تتبع المصاريف والأرباح</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="flex justify-center mt-10">
+                        <a href="https://script.google.com/macros/s/AKfycbzuMwZOseAZIC13zzyyQcwVUblCcGQiW0-Wj-xlh2LDXD5BFscLCLZTp-g7LeouyJYgiA/exec" 
+                           class="bg-indigo-600 text-white px-10 py-5 rounded-2xl font-extrabold text-xl shadow-xl shadow-indigo-200 hover:bg-indigo-700 transition-all transform hover:scale-105 active:scale-95 text-center w-full sm:w-auto arabic-text">
+                            التسجيل في الدورة
+                        </a>
+                    </div>
+                    <div class="h-20"></div>
+                </div>
+            </body>
+            </html>
+        `;
+
+        const coursesData = {
+            'compta': {
+                title_fr: 'Comptabilité pratique',
+                title_ar: 'المحاسبة التطبيقية',
+                url: 'https://script.google.com/macros/s/AKfycbx0B52BtYBUlGynjevO__2l4XY0XRTQod4hD6JlBvAucefJwWNgn5zaKDLy0ubFxrIUwQ/exec' 
+            },
+            'gestion': {
+                title_fr: 'Gestion commerciale',
+                title_ar: 'التسيير التجاري',
+                url: 'https://script.google.com/macros/s/AKfycby7-fUmbCaOUmu0ij2PT4ikWXtcbjademga-3I-oFoOLQQeAPCUp-H4-mPFigsDIsXb/exec'
+            },
+            'informatique': {
+                title_fr: 'Informatique bureautique',
+                title_ar: 'المعلوميات المكتبية',
+                url: 'https://script.google.com/macros/s/AKfycbzg4jSVXdCpnSvTfVmh9CIg4cDUTHCeC70Be_uX_2xdlfldR-cdzrgMd6jMg1LLnKEI/exec'
+            },
+            'merchants': {
+                title_fr: 'التدبير التجاري للتجار',
+                title_ar: 'التدبير التجاري للتجار',
+                isCustom: true,
+                content: merchantSyllabusHtml
+            }
+        };
 
         function updateContent() {
             const content = translations[currentLang];
@@ -458,7 +586,6 @@
                 }
             });
             
-            // Mise à jour de la direction
             document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
             document.documentElement.lang = currentLang;
             document.getElementById('lang-label').textContent = currentLang === 'fr' ? 'العربية' : 'Français';
@@ -471,15 +598,43 @@
             updateContent();
         }
 
-        // 3. Logique Application
+        function openCourse(courseId) {
+            const course = coursesData[courseId];
+            const iframe = document.getElementById('course-iframe');
+            
+            document.getElementById('course-title').textContent = currentLang === 'fr' ? course.title_fr : course.title_ar;
+            
+            if (course.isCustom) {
+                iframe.src = 'about:blank';
+                setTimeout(() => {
+                    if (iframe.contentWindow) {
+                        const doc = iframe.contentWindow.document;
+                        doc.open();
+                        doc.write(course.content);
+                        doc.close();
+                    }
+                }, 100);
+            } else {
+                iframe.src = course.url;
+            }
+
+            document.getElementById('home-view').classList.add('hidden');
+            document.getElementById('course-view').classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        function closeCourse() {
+            document.getElementById('course-view').classList.add('hidden');
+            document.getElementById('home-view').classList.remove('hidden');
+            document.getElementById('course-iframe').src = '';
+            window.scrollTo(0, 0);
+        }
+
         lucide.createIcons();
 
-        // Gestion du Splash Screen au chargement
         window.addEventListener('load', () => {
             const splash = document.getElementById('splash-screen');
             const home = document.getElementById('home-view');
-            
-            // On laisse le splash au moins 1.5s pour l'effet visuel
             setTimeout(() => {
                 splash.style.opacity = '0';
                 splash.style.visibility = 'hidden';
@@ -500,41 +655,6 @@
             lucide.createIcons();
         });
 
-        const coursesData = {
-            'compta': {
-                title_fr: 'Comptabilité pratique',
-                title_ar: 'المحاسبة التطبيقية',
-                url: 'https://script.google.com/macros/s/AKfycbx0B52BtYBUlGynjevO__2l4XY0XRTQod4hD6JlBvAucefJwWNgn5zaKDLy0ubFxrIUwQ/exec' 
-            },
-            'gestion': {
-                title_fr: 'Gestion commerciale',
-                title_ar: 'التسيير التجاري',
-                url: 'https://script.google.com/macros/s/AKfycby7-fUmbCaOUmu0ij2PT4ikWXtcbjademga-3I-oFoOLQQeAPCUp-H4-mPFigsDIsXb/exec'
-            },
-            'informatique': {
-                title_fr: 'Informatique bureautique',
-                title_ar: 'المعلوميات المكتبية',
-                url: 'https://script.google.com/macros/s/AKfycbzg4jSVXdCpnSvTfVmh9CIg4cDUTHCeC70Be_uX_2xdlfldR-cdzrgMd6jMg1LLnKEI/exec'
-            }
-        };
-
-        function openCourse(courseId) {
-            const course = coursesData[courseId];
-            document.getElementById('course-title').textContent = currentLang === 'fr' ? course.title_fr : course.title_ar;
-            document.getElementById('course-iframe').src = course.url;
-            document.getElementById('home-view').classList.add('hidden');
-            document.getElementById('course-view').classList.remove('hidden');
-            window.scrollTo(0, 0);
-        }
-
-        function closeCourse() {
-            document.getElementById('course-view').classList.add('hidden');
-            document.getElementById('home-view').classList.remove('hidden');
-            document.getElementById('course-iframe').src = '';
-            window.scrollTo(0, 0);
-        }
-
-        // Initialisation
         updateContent();
     </script>
 </body>
