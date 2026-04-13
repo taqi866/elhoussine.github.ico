@@ -624,7 +624,7 @@
                     }
                 }, 100);
             } else {
-    window.open(course.url, "_blank");
+                iframe.src = course.url;
             }
 
             document.getElementById('home-view').classList.add('hidden');
