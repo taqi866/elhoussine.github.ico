@@ -171,7 +171,7 @@
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500" data-i18n="hero-title-2">professionnelles</span>
                     </h2>
                     <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed" data-i18n="hero-desc">
-                        Accédez à nos programmes de formation en ligne conçوسة لتزويدك بخبرة عملية قابلة للتطبيق مباشرة في مقاولتك.
+                        Accédez à nos programmes de formation en ligne conçus pour vous apporter une expertise directement applicable en entreprise.
                     </p>
                     <div class="flex justify-center gap-4">
                         <a href="#formations" class="bg-gray-900 hover:bg-indigo-600 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-indigo-500/30" data-i18n="hero-btn">
@@ -260,7 +260,28 @@
                         </div>
                     </div>
 
-                
+                    <!-- Formation 4 : Excel Professionnel -->
+                    <div class="group bg-white rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('excel')">
+                        <div class="h-48 bg-gradient-to-br from-green-500 to-emerald-700 flex items-center justify-center">
+                            <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500">
+                                <i data-lucide="table" class="w-10 h-10 text-white"></i>
+                            </div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-1">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors" data-i18n="course-5-title">Excel Professionnel</h3>
+                            <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed" data-i18n="course-5-desc">Maîtrisez les fonctions avancées, les tableaux croisés dynamiques et l'analyse de données.</p>
+                            <div class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-6 bg-slate-50 w-fit px-3 py-1.5 rounded-lg border border-slate-100">
+                                <i data-lucide="clock" class="w-4 h-4 text-green-500"></i>
+                                <span data-i18n="course-5-duration">24 heures</span>
+                            </div>
+                            <div class="pt-6 border-t border-gray-100 mt-auto">
+                                <button class="w-full flex justify-between items-center text-green-600 font-semibold">
+                                    <span data-i18n="course-btn">Accéder à la formation</span>
+                                    <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -306,7 +327,7 @@
                             <div class="inline-flex flex-col sm:flex-row items-center gap-4 mb-8 bg-gray-50 p-4 rounded-2xl border border-gray-100 text-start">
                                 <i data-lucide="award" class="w-6 h-6 text-indigo-600 shrink-0"></i>
                                 <span class="text-sm text-gray-600" data-i18n="about-edu">
-                                    Master spécialisé en Finance-Contرول de Gestion<br>
+                                    Master spécialisé en Finance-Contrôle de Gestion<br>
                                     <span class="font-bold text-gray-900">ISIAM Business School d'Agadir</span>
                                 </span>
                             </div>
@@ -382,7 +403,7 @@
                 'sec-courses-title': 'Nos Formations',
                 'sec-courses-subtitle': 'Programmes conçus pour l\'excellence professionnelle',
                 'course-duration': '36 heures',
-                'course-4-duration': '10 heures',
+                'course-5-duration': '24 heures',
                 'course-btn': 'Accéder à la formation',
                 'sec-stats-title': 'L\'impact en chiffres',
                 'stat-1': 'Stagiaires formés',
@@ -399,8 +420,9 @@
                 'course-2-desc': 'Développez des compétences solides sur les outils essentiels : Word, Excel, PowerPoint.',
                 'course-3-title': 'Gestion commerciale',
                 'course-3-desc': 'Apprenez à gérer efficacement le cycle de vente, les achats et la facturation.',
-                'course-4-title': 'التدبير التجاري للتجار', 
-                'course-4-desc': 'تمكين التاجر من فهم واجباته القانونية والجبائية والمحاسبية وإدارة نشاطه التجاري بكفاءة.',
+                'course-5-title': 'Excel Professionnel',
+                'course-5-desc': 'Maîtrisez les fonctions avancées, les tableaux croisés dynamiques et l\'analyse de données.',
+                'course-locked': 'Accès bloqué',
                 'lang-btn': 'العربية',
                 'copyright': `© ${currentYear} El Houssine Taqi. Tous droits réservés.`
             },
@@ -417,7 +439,7 @@
                 'sec-courses-title': 'دوراتنا التدريبية',
                 'sec-courses-subtitle': 'برامج مصممة للتميز المهني',
                 'course-duration': '36 ساعة',
-                'course-4-duration': '10 ساعات',
+                'course-5-duration': '24 ساعة',
                 'course-btn': 'الدخول للدورة',
                 'sec-stats-title': 'تأثيرنا بالأرقام',
                 'stat-1': 'متدرب مكون',
@@ -434,8 +456,9 @@
                 'course-2-desc': 'تطوير مهارات قوية في الأدوات الأساسية: Word و Excel و PowerPoint.',
                 'course-3-title': 'التدبير التجاري',
                 'course-3-desc': 'تعلم كيفية إدارة دورة المبيعات والمشتريات والفواتير وعلاقات العملاء بفعالية.',
-                'course-4-title': 'التدبير التجاري للتجار',
-                'course-4-desc': 'تمكين التاجر من فهم واجباته القانونية والجبائية والمحاسبية وإدارة نشاطه التجاري بكفاءة.',
+                'course-5-title': 'إكسيل الاحترافي',
+                'course-5-desc': 'إتقان الدوال المتقدمة، الجداول المحورية، وتحليل البيانات لتعزيز إنتاجيتك.',
+                'course-locked': 'دورة مقفلة',
                 'lang-btn': 'Français',
                 'copyright': `© ${currentYear} الحسين تاقي. جميع الحقوق محفوظة.`
             }
@@ -443,92 +466,29 @@
 
         let currentLang = 'fr';
 
-        const merchantSyllabusHtml = `
+        const maintenanceHtml = `
             <!DOCTYPE html>
-            <html lang="ar" dir="rtl">
+            <html lang="fr" class="h-full">
             <head>
                 <meta charset="UTF-8">
                 <script src="https://cdn.tailwindcss.com"><\/script>
-                <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-                <style>body { font-family: 'Cairo', sans-serif; text-align: right; }</style>
+                <script src="https://unpkg.com/lucide@latest"><\/script>
+                <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
             </head>
-            <body class="bg-white p-6 sm:p-10 text-gray-800">
-                <div class="max-w-3xl mx-auto">
-                    <h1 class="text-3xl font-extrabold text-indigo-700 mb-8 border-b-4 border-indigo-100 pb-4 arabic-text">التدبير التجاري للتجار</h1>
+            <body class="h-full flex items-center justify-center bg-slate-50 p-4">
+                <div class="max-w-md w-full bg-white rounded-3xl shadow-xl border border-gray-100 p-8 text-center relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-amber-400 to-orange-500"></div>
                     
-                    <section class="mb-10">
-                        <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                            <span class="w-2 h-8 bg-indigo-600 rounded-full"></span>
-                            الهدف العام:
-                        </h2>
-                        <p class="text-lg bg-indigo-50 p-4 rounded-2xl text-indigo-900 leading-relaxed shadow-sm">
-                            تمكين التاجر من فهم واجباته القانونية و الجبائية والمحاسبية وإدارة نشاطه التجاري بكفاءة
-                        </p>
-                    </section>
-
-                    <section class="mb-10">
-                        <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                            <span class="w-2 h-8 bg-blue-500 rounded-full"></span>
-                            الأهداف الخاصة:
-                        </h2>
-                        <ul class="space-y-3 pr-4 list-none">
-                            <li class="flex items-start gap-3">
-                                <span class="text-blue-500 mt-1">●</span>
-                                <span>تمكين التاجر من فهم أسس التدبير التجاري وتنظيم نشاطه بشكل فعال</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-blue-500 mt-1">●</span>
-                                <span>تعزيز قدرة التاجر على التحكم في المبيعات والمخزون والمصاريف</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-blue-500 mt-1">●</span>
-                                <span>تطوير مهارات تحليل الأداء التجاري واتخاذ قرارات مبنية على معطيات</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-blue-500 mt-1">●</span>
-                                <span>مساعدة التاجر على تحسين أرباحه وضمان استمرارية نشاطه</span>
-                            </li>
-                        </ul>
-                    </section>
-
-                    <section class="mb-12">
-                        <h2 class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                            <span class="w-2 h-8 bg-emerald-500 rounded-full"></span>
-                            📋 برنامج الدورة الكامل في التدبير التجاري:
-                        </h2>
-                        <div class="grid gap-4">
-                            <div class="p-4 border border-gray-100 rounded-xl bg-gray-50 flex items-center gap-4">
-                                <span class="bg-blue-600 text-white w-8 h-8 rounded-lg flex items-center justify-center shrink-0">1</span>
-                                <span class="font-bold">المحور 1: الالتزامات القانونية والمحاسباتية والجبائية للتاجر</span>
-                            </div>
-                            <div class="p-4 border border-gray-100 rounded-xl bg-gray-50 flex items-center gap-4">
-                                <span class="bg-blue-600 text-white w-8 h-8 rounded-lg flex items-center justify-center shrink-0">2</span>
-                                <span class="font-bold">المحور 2: أساسيات التدبير التجاري</span>
-                            </div>
-                            <div class="p-4 border border-gray-100 rounded-xl bg-gray-50 flex items-center gap-4">
-                                <span class="bg-blue-600 text-white w-8 h-8 rounded-lg flex items-center justify-center shrink-0">3</span>
-                                <span class="font-bold">المحور 3: إدارة المخزون (Stock)</span>
-                            </div>
-                            <div class="p-4 border border-gray-100 rounded-xl bg-gray-50 flex items-center gap-4">
-                                <span class="bg-blue-600 text-white w-8 h-8 rounded-lg flex items-center justify-center shrink-0">4</span>
-                                <span class="font-bold">المحور 4: المبيعات والفوترة</span>
-                            </div>
-                            <div class="p-4 border border-gray-100 rounded-xl bg-gray-50 flex items-center gap-4">
-                                <span class="bg-blue-600 text-white w-8 h-8 rounded-lg flex items-center justify-center shrink-0">5</span>
-                                <span class="font-bold">المحور 5: تتبع المصاريف والأرباح</span>
-                            </div>
-                        </div>
-                    </section>
-
-                    <div class="flex justify-center mt-10">
-                        <a href="https://script.google.com/macros/s/AKfycbzuMwZOseAZIC13zzyyQcwVUblCcGQiW0-Wj-xlh2LDXD5BFscLCLZTp-g7LeouyJYgiA/exec" 
-                           target="_self"
-                           class="bg-indigo-600 text-white px-10 py-5 rounded-2xl font-extrabold text-xl shadow-xl shadow-indigo-200 hover:bg-indigo-700 transition-all transform hover:scale-105 active:scale-95 text-center w-full sm:w-auto arabic-text">
-                            التسجيل في الدورة
-                        </a>
+                    <div class="w-24 h-24 bg-amber-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="wrench" class="w-12 h-12 text-amber-500"></i>
                     </div>
-                    <div class="h-20"></div>
+                    
+                    <h2 class="text-2xl font-bold text-gray-900 mb-3" style="font-family: 'Inter', sans-serif;">Espace en maintenance</h2>
+                    <p class="text-gray-500 mb-8 leading-relaxed" style="font-family: 'Inter', sans-serif;">
+                        Cette formation est actuellement en cours de mise à jour. Nous l'améliorerons pour vous offrir une meilleure expérience d'apprentissage. Veuillez revenir plus tard.
+                    </p>
                 </div>
+                <script>lucide.createIcons();<\/script>
             </body>
             </html>
         `;
@@ -549,11 +509,11 @@
                 title_ar: 'المعلوميات المكتبية',
                 url: 'https://script.google.com/macros/s/AKfycbxHyTZ7kFnJoHd_ALZvPqRJ_TA-NwlO2Z9XNeXw98EjK-TyAm8DUWwm_5Sx_ULk1rwT/exec'
             },
-            'merchants': {
-                title_fr: 'التدبير التجاري للتجار',
-                title_ar: 'التدبير التجاري للتجار',
+            'excel': {
+                title_fr: 'Excel Professionnel',
+                title_ar: 'إكسيل الاحترافي',
                 isCustom: true,
-                content: merchantSyllabusHtml
+                content: maintenanceHtml
             }
         };
 
@@ -580,17 +540,12 @@
 
         function openCourse(courseId) {
             const course = coursesData[courseId];
+            
             const iframe = document.getElementById('course-iframe');
             const loaderMsg = document.querySelector('[data-i18n="reader-loading"]');
             
             document.getElementById('course-title').textContent = currentLang === 'fr' ? course.title_fr : course.title_ar;
-            
-            // تخصيص رسالة التحميل لدورة التجار
-            if (courseId === 'merchants') {
-                loaderMsg.textContent = currentLang === 'ar' ? 'جاري تحميل الإستمارة...' : 'Chargement du formulaire...';
-            } else {
-                loaderMsg.textContent = translations[currentLang]['reader-loading'];
-            }
+            loaderMsg.textContent = translations[currentLang]['reader-loading'];
 
             if (course.isCustom) {
                 iframe.src = 'about:blank';
