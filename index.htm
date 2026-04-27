@@ -5,16 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTLearning - El Houssine Taqi</title>
     
-    <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Google Fonts: Inter (Latin) & Cairo (Arabic) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -24,7 +20,6 @@
             --font-fr: 'Inter', sans-serif;
             --font-ar: 'Cairo', sans-serif;
         }
-        /* تطبيق خط Cairo على النصوص العربية دائماً لضمان الجمالية */
         @font-face {
             font-family: 'Cairo';
             unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF;
@@ -32,11 +27,8 @@
 
         html[lang="fr"] body { font-family: var(--font-fr); }
         html[lang="ar"] body { font-family: var(--font-ar); }
-        
-        /* ضمان استخدام خط Cairo لأي نص عربي يظهر في الواجهة الفرنسية */
         .arabic-text { font-family: var(--font-ar) !important; }
 
-        /* Optimisation de la hauteur sur mobile */
         .min-h-screen-custom {
             min-height: 100vh;
             min-height: 100dvh;
@@ -45,7 +37,6 @@
         iframe::-webkit-scrollbar { display: none; }
         iframe { scrollbar-width: none; }
 
-        /* Styles pour l'écran de chargement */
         #splash-screen {
             position: fixed;
             inset: 0;
@@ -96,7 +87,6 @@
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased selection:bg-indigo-100 selection:text-indigo-900 overflow-hidden">
 
-    <!-- SPLASH SCREEN -->
     <div id="splash-screen">
         <div class="flex flex-col items-center">
             <div class="bg-gradient-to-br from-indigo-600 to-blue-500 p-6 rounded-3xl shadow-2xl shadow-indigo-200 mb-6 logo-pulse">
@@ -110,15 +100,14 @@
         </div>
     </div>
 
-    <!-- VUE 1 : PAGE D'ACCUEIL -->
     <div id="home-view" class="min-h-screen-custom flex flex-col transition-opacity duration-500 opacity-0">
         
         <header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/80">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
                 <div class="flex items-center gap-3">
-    <div class="bg-gradient-to-br from-indigo-600 to-blue-500 p-2.5 rounded-xl shadow-lg shadow-indigo-200">
-        <i data-lucide="graduation-cap" class="w-6 h-6 text-white"></i>
-    </div>
+                    <div class="bg-gradient-to-br from-indigo-600 to-blue-500 p-2.5 rounded-xl shadow-lg shadow-indigo-200">
+                        <i data-lucide="graduation-cap" class="w-6 h-6 text-white"></i>
+                    </div>
                     <div>
                         <h1 class="text-xl font-extrabold text-gray-900 tracking-tight leading-tight">HT<span class="text-indigo-600">Learning</span></h1>
                         <p class="text-xs text-gray-500 font-medium uppercase tracking-wider" data-i18n="instructor-name">El Houssine Taqi</p>
@@ -128,7 +117,12 @@
                 <nav class="hidden md:flex items-center gap-8">
                     <a href="#" class="text-sm font-semibold text-gray-600 hover:text-indigo-600 transition-colors" data-i18n="nav-home">Accueil</a>
                     <a href="#formations" class="text-sm font-semibold text-gray-600 hover:text-indigo-600 transition-colors" data-i18n="nav-courses">Formations</a>
-                    <a href="#apropos" class="text-sm font-semibold text-gray-600 hover:text-indigo-600 transition-colors" data-i18n="nav-about">Le formateur</a>
+                    
+                    <button onclick="openCourse('formateur')" class="flex items-center gap-2 bg-indigo-50 text-indigo-700 hover:bg-indigo-100 px-4 py-2 rounded-lg text-sm font-bold transition-all border border-indigo-100">
+                        <i data-lucide="user-cog" class="w-4 h-4"></i>
+                        <span data-i18n="nav-formateur">Espace Formateur</span>
+                    </button>
+
                     <button onclick="toggleLanguage()" class="flex items-center gap-2 bg-gray-100 hover:bg-gray-200 px-3 py-1.5 rounded-full text-sm font-bold transition-all border border-gray-200">
                         <i data-lucide="languages" class="w-4 h-4 text-indigo-600"></i>
                         <span id="lang-label">العربية</span>
@@ -149,13 +143,15 @@
                 <div class="px-6 pt-4 pb-8 flex flex-col gap-5">
                     <a href="#" class="mobile-link flex items-center gap-3 text-base font-semibold text-gray-700" data-i18n="nav-home">Accueil</a>
                     <a href="#formations" class="mobile-link flex items-center gap-3 text-base font-semibold text-gray-700" data-i18n="nav-courses">Formations</a>
-                    <a href="#apropos" class="mobile-link flex items-center gap-3 text-base font-semibold text-gray-700" data-i18n="nav-about">Le formateur</a>
+                    <button onclick="openCourse('formateur')" class="flex items-center gap-3 text-base font-bold text-indigo-600">
+                        <i data-lucide="user-cog" class="w-5 h-5"></i>
+                        <span data-i18n="nav-formateur">Espace Formateur</span>
+                    </button>
                 </div>
             </div>
         </header>
 
         <main class="flex-1 pt-24">
-            <!-- Section Héro -->
             <div class="relative overflow-hidden bg-white pt-16 pb-24 sm:pt-24 sm:pb-32 border-b border-gray-100">
                 <div class="absolute inset-y-0 left-1/2 -z-10 -ml-[38rem] w-[81.25rem] opacity-20" style="mask-image: radial-gradient(64rem 64rem at top, white, transparent);">
                     <div class="absolute inset-0 bg-gradient-to-r from-indigo-400 to-blue-400" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%);"></div>
@@ -181,7 +177,6 @@
                 </div>
             </div>
 
-            <!-- Section Formations -->
             <div id="formations" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 scroll-mt-28">
                 <div class="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-4">
                     <div>
@@ -191,7 +186,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Formation 1 : Comptabilité -->
                     <div class="group bg-white rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('compta')">
                         <div class="h-48 bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center">
                             <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500">
@@ -214,7 +208,6 @@
                         </div>
                     </div>
 
-                    <!-- Formation 2 : Informatique -->
                     <div class="group bg-white rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('informatique')">
                         <div class="h-48 bg-gradient-to-br from-fuchsia-600 to-purple-700 flex items-center justify-center">
                             <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500">
@@ -237,7 +230,6 @@
                         </div>
                     </div>
 
-                    <!-- Formation 3 : Gestion (Générique) -->
                     <div class="group bg-white rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('gestion')">
                         <div class="h-48 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
                             <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500">
@@ -259,34 +251,9 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Formation 4 : Excel Professionnel -->
-                    <div class="group bg-white rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('excel')">
-                        <div class="h-48 bg-gradient-to-br from-green-500 to-emerald-700 flex items-center justify-center">
-                            <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500">
-                                <i data-lucide="table" class="w-10 h-10 text-white"></i>
-                            </div>
-                        </div>
-                        <div class="p-8 flex flex-col flex-1">
-                            <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors" data-i18n="course-5-title">Excel Professionnel</h3>
-                            <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed" data-i18n="course-5-desc">Maîtrisez les fonctions avancées, les tableaux croisés dynamiques et l'analyse de données.</p>
-                            <div class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-6 bg-slate-50 w-fit px-3 py-1.5 rounded-lg border border-slate-100">
-                                <i data-lucide="clock" class="w-4 h-4 text-green-500"></i>
-                                <span data-i18n="course-5-duration">24 heures</span>
-                            </div>
-                            <div class="pt-6 border-t border-gray-100 mt-auto">
-                                <button class="w-full flex justify-between items-center text-green-600 font-semibold">
-                                    <span data-i18n="course-btn">Accéder à la formation</span>
-                                    <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
 
-            <!-- Stats -->
             <div class="bg-slate-900 py-24 relative overflow-hidden">
                 <div class="absolute inset-0 pointer-events-none">
                     <div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-indigo-600/20 blur-[120px]"></div>
@@ -310,7 +277,6 @@
                 </div>
             </div>
 
-            <!-- À propos -->
             <div id="apropos" class="max-w-5xl mx-auto px-4 py-24 scroll-mt-28">
                 <div class="bg-white rounded-[2rem] shadow-xl border border-gray-100 overflow-hidden relative">
                     <div class="h-40 bg-gradient-to-r from-indigo-600 via-blue-600 to-blue-400"></div>
@@ -356,23 +322,21 @@
                 </div>
                 <div class="text-center md:text-end">
                     <p data-i18n="copyright" class="font-medium">© 2026 El Houssine Taqi. Tous droits réservés.</p>
-                    <p class="text-xs text-gray-400 mt-1" data-i18n="instructor-name">El Houssine Taqi</p>
                 </div>
             </div>
         </footer>
     </div>
 
-    <!-- VUE 2 : LECTEUR DE FORMATION -->
     <div id="course-view" class="hidden h-screen flex flex-col bg-slate-50">
         <header class="bg-white shadow-sm border-b px-4 py-3 flex items-center justify-between z-10 shrink-0">
             <div class="flex items-center gap-4 w-full">
                 <button onclick="closeCourse()" class="flex items-center gap-2 text-gray-600 hover:bg-gray-100 border px-4 py-2 rounded-lg text-sm transition-all">
                     <i data-lucide="arrow-left" class="w-4 h-4 rtl:rotate-180"></i>
-                    <span data-i18n="reader-back">Quitter la formation</span>
+                    <span data-i18n="reader-back">Retour</span>
                 </button>
                 <div class="h-6 w-px bg-gray-200"></div>
                 <h1 class="text-sm sm:text-base font-semibold flex items-center gap-3 truncate">
-                    <span id="course-title" class="truncate">Titre de la formation</span>
+                    <span id="course-title" class="truncate">Titre</span>
                 </h1>
             </div>
         </header>
@@ -380,7 +344,7 @@
         <main class="flex-1 w-full bg-white relative overflow-hidden">
             <div class="absolute inset-0 flex flex-col items-center justify-center z-0 bg-slate-50">
                 <i data-lucide="loader-2" class="w-10 h-10 text-indigo-600 animate-spin mb-4"></i>
-                <p class="text-slate-500 font-medium text-sm" data-i18n="reader-loading">Préparation de l'environnement...</p>
+                <p class="text-slate-500 font-medium text-sm" data-i18n="reader-loading">Chargement du formulaire...</p>
             </div>
             <iframe id="course-iframe" src="" class="w-full h-full border-none relative z-10 bg-transparent" sandbox="allow-scripts allow-same-origin allow-forms allow-top-navigation allow-downloads allow-popups"></iframe>
         </main>
@@ -394,6 +358,7 @@
                 'nav-home': 'Accueil',
                 'nav-courses': 'Formations',
                 'nav-about': 'Le formateur',
+                'nav-formateur': 'Espace Formateur',
                 'instructor-name': 'El Houssine Taqi',
                 'hero-badge': 'Apprentissage 100% pratique',
                 'hero-title-1': 'Développez vos compétences',
@@ -403,7 +368,6 @@
                 'sec-courses-title': 'Nos Formations',
                 'sec-courses-subtitle': 'Programmes conçus pour l\'excellence professionnelle',
                 'course-duration': '36 heures',
-                'course-5-duration': '24 heures',
                 'course-btn': 'Accéder à la formation',
                 'sec-stats-title': 'L\'impact en chiffres',
                 'stat-1': 'Stagiaires formés',
@@ -412,17 +376,14 @@
                 'about-badge': 'Votre Formateur',
                 'about-job': 'Formateur indépendant',
                 'about-edu': 'Master spécialisé en Finance-Contrôle de Gestion <br> <b>ISIAM Business School d\'Agadir</b>',
-                'reader-back': 'Quitter la formation',
-                'reader-loading': 'Préparation de l\'environnement...',
+                'reader-back': 'Quitter',
+                'reader-loading': 'Chargement du formulaire...',
                 'course-1-title': 'Comptabilité pratique',
                 'course-1-desc': 'Un parcours essentiel pour maîtriser l’ensemble des opérations de la comptabilité complète.',
                 'course-2-title': 'Informatique bureautique',
                 'course-2-desc': 'Développez des compétences solides sur les outils essentiels : Word, Excel, PowerPoint.',
                 'course-3-title': 'Gestion commerciale',
                 'course-3-desc': 'Apprenez à gérer efficacement le cycle de vente, les achats et la facturation.',
-                'course-5-title': 'Excel Professionnel',
-                'course-5-desc': 'Maîtrisez les fonctions avancées, les tableaux croisés dynamiques et l\'analyse de données.',
-                'course-locked': 'Accès bloqué',
                 'lang-btn': 'العربية',
                 'copyright': `© ${currentYear} El Houssine Taqi. Tous droits réservés.`
             },
@@ -430,6 +391,7 @@
                 'nav-home': 'الرئيسية',
                 'nav-courses': 'الدورات',
                 'nav-about': 'المكون',
+                'nav-formateur': 'فضاء المكون',
                 'instructor-name': 'الحسين تاقي',
                 'hero-badge': 'تعلم تطبيقي 100%',
                 'hero-title-1': 'طور مهاراتك',
@@ -439,7 +401,6 @@
                 'sec-courses-title': 'دوراتنا التدريبية',
                 'sec-courses-subtitle': 'برامج مصممة للتميز المهني',
                 'course-duration': '36 ساعة',
-                'course-5-duration': '24 ساعة',
                 'course-btn': 'الدخول للدورة',
                 'sec-stats-title': 'تأثيرنا بالأرقام',
                 'stat-1': 'متدرب مكون',
@@ -448,50 +409,20 @@
                 'about-badge': 'مكونكم',
                 'about-job': 'مكون مستقل',
                 'about-edu': 'ماستر متخصص في المالية ومراقبة التسيير <br> <b>ISIAM Business School d\'Agadir</b>',
-                'reader-back': 'مغادرة الدورة',
-                'reader-loading': 'جاري تحضير بيئة التعلم...',
+                'reader-back': 'رجوع',
+                'reader-loading': 'جاري تحميل النموذج...',
                 'course-1-title': 'المحاسبة التطبيقية',
                 'course-1-desc': 'مسار أساسي لإتقان جميع عمليات المحاسبة الكاملة والتصاريح الضريبية.',
                 'course-2-title': 'المعلوميات المكتبية',
                 'course-2-desc': 'تطوير مهارات قوية في الأدوات الأساسية: Word و Excel و PowerPoint.',
                 'course-3-title': 'التدبير التجاري',
                 'course-3-desc': 'تعلم كيفية إدارة دورة المبيعات والمشتريات والفواتير وعلاقات العملاء بفعالية.',
-                'course-5-title': 'إكسيل الاحترافي',
-                'course-5-desc': 'إتقان الدوال المتقدمة، الجداول المحورية، وتحليل البيانات لتعزيز إنتاجيتك.',
-                'course-locked': 'دورة مقفلة',
                 'lang-btn': 'Français',
                 'copyright': `© ${currentYear} الحسين تاقي. جميع الحقوق محفوظة.`
             }
         };
 
         let currentLang = 'fr';
-
-        const maintenanceHtml = `
-            <!DOCTYPE html>
-            <html lang="fr" class="h-full">
-            <head>
-                <meta charset="UTF-8">
-                <script src="https://cdn.tailwindcss.com"><\/script>
-                <script src="https://unpkg.com/lucide@latest"><\/script>
-                <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-            </head>
-            <body class="h-full flex items-center justify-center bg-slate-50 p-4">
-                <div class="max-w-md w-full bg-white rounded-3xl shadow-xl border border-gray-100 p-8 text-center relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-amber-400 to-orange-500"></div>
-                    
-                    <div class="w-24 h-24 bg-amber-50 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i data-lucide="wrench" class="w-12 h-12 text-amber-500"></i>
-                    </div>
-                    
-                    <h2 class="text-2xl font-bold text-gray-900 mb-3" style="font-family: 'Inter', sans-serif;">Espace en maintenance</h2>
-                    <p class="text-gray-500 mb-8 leading-relaxed" style="font-family: 'Inter', sans-serif;">
-                        Cette formation est actuellement en cours de mise à jour. Nous l'améliorerons pour vous offrir une meilleure expérience d'apprentissage. Veuillez revenir plus tard.
-                    </p>
-                </div>
-                <script>lucide.createIcons();<\/script>
-            </body>
-            </html>
-        `;
 
         const coursesData = {
             'compta': {
@@ -509,11 +440,10 @@
                 title_ar: 'المعلوميات المكتبية',
                 url: 'https://script.google.com/macros/s/AKfycbxHyTZ7kFnJoHd_ALZvPqRJ_TA-NwlO2Z9XNeXw98EjK-TyAm8DUWwm_5Sx_ULk1rwT/exec'
             },
-            'excel': {
-                title_fr: 'Excel Professionnel',
-                title_ar: 'إكسيل الاحترافي',
-                isCustom: true,
-                content: maintenanceHtml
+            'formateur': {
+                title_fr: 'Espace Formateur',
+                title_ar: 'فضاء المكون',
+                url: 'https://script.google.com/macros/s/AKfycbzt_9rWLIMXc1VOP66NCWpBG8Rsc8c8BBF7Q1Ji80BEFZgbRlDZ0PbPwRUdeOjz6Pj7xw/exec'
             }
         };
 
@@ -521,15 +451,12 @@
             const content = translations[currentLang];
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (content[key]) {
-                    el.innerHTML = content[key];
-                }
+                if (content[key]) el.innerHTML = content[key];
             });
             
             document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
             document.documentElement.lang = currentLang;
             document.getElementById('lang-label').textContent = currentLang === 'fr' ? 'العربية' : 'Français';
-            
             lucide.createIcons();
         }
 
@@ -540,30 +467,22 @@
 
         function openCourse(courseId) {
             const course = coursesData[courseId];
-            
             const iframe = document.getElementById('course-iframe');
-            const loaderMsg = document.querySelector('[data-i18n="reader-loading"]');
             
             document.getElementById('course-title').textContent = currentLang === 'fr' ? course.title_fr : course.title_ar;
-            loaderMsg.textContent = translations[currentLang]['reader-loading'];
-
-            if (course.isCustom) {
-                iframe.src = 'about:blank';
-                setTimeout(() => {
-                    if (iframe.contentWindow) {
-                        const doc = iframe.contentWindow.document;
-                        doc.open();
-                        doc.write(course.content);
-                        doc.close();
-                    }
-                }, 100);
-            } else {
-                iframe.src = course.url;
-            }
+            iframe.src = course.url;
 
             document.getElementById('home-view').classList.add('hidden');
             document.getElementById('course-view').classList.remove('hidden');
             window.scrollTo(0, 0);
+
+            // Fermer le menu mobile si ouvert
+            if (isMenuOpen) {
+                isMenuOpen = false;
+                mobileMenu.classList.add('hidden');
+                mobileMenuIcon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            }
         }
 
         function closeCourse() {
@@ -572,8 +491,6 @@
             document.getElementById('course-iframe').src = '';
             window.scrollTo(0, 0);
         }
-
-        lucide.createIcons();
 
         window.addEventListener('load', () => {
             const splash = document.getElementById('splash-screen');
