@@ -3,31 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EL HOUSSINE TAQI</title>
-
-<link rel="icon" type="image/svg+xml" href='data:image/svg+xml,
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="%2300C6FF"/>
-      <stop offset="100%" stop-color="%230072FF"/>
-    </linearGradient>
-  </defs>
-
-  <rect width="100" height="100" rx="24" fill="%230B1120"/>
-  
-  <path d="M28 65 L28 40 Q28 30 38 30 L62 30"
-        stroke="url(%23g)"
-        stroke-width="8"
-        fill="none"
-        stroke-linecap="round"/>
-
-  <path d="M72 35 L72 60 Q72 70 62 70 L38 70"
-        stroke="url(%23g)"
-        stroke-width="8"
-        fill="none"
-        stroke-linecap="round"/>
-</svg>'>
+    <title>EL HOUSSINE TAQI</title> <link rel="icon" type="image/png" href="/logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -121,20 +97,17 @@
     <div id="splash-screen">
         <div class="flex flex-col items-center px-4 w-full max-w-lg">
             <div class="logo-pulse flex justify-center items-center w-full">
-                <!-- LOGO DU SPLASH SCREEN (Agrandissement : h-32 md:h-48) -->
-                <img src="https://www.image2url.com/r2/default/images/1778019605066-13be66fc-af4f-427b-84cf-1f01c028765f.png" alt="Logo El Houssine TAQI" class="h-32 md:h-48 w-auto max-w-[90vw] object-contain drop-shadow-sm" onerror="this.src='https://placehold.co/500x150/ffffff/1e3a8a?text=EL+HOUSSINE+TAQI&font=Montserrat'">
+                <img src="https://www.image2url.com/r2/default/images/1778019605066-13be66fc-af4f-427b-84cf-1f01c028765f.png" alt="Logo El Houssine Taqi" class="h-32 md:h-48 w-auto max-w-[90vw] object-contain drop-shadow-sm" onerror="this.src='https://placehold.co/500x150/ffffff/1e3a8a?text=EL+HOUSSINE+TAQI&font=Montserrat'">
             </div>
             <div class="loader-line"></div>
         </div>
     </div>
 
-    <!-- Header Global (Visible sur Accueil et Formations) -->
+    <!-- Header Global -->
     <header id="main-header" class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200/80 transition-opacity duration-500 opacity-0 hidden-on-course">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 md:py-4 flex justify-between items-center">
             
-            <!-- Lien du logo du site (Header) -->
             <a href="#" class="flex items-center gap-3 cursor-pointer group flex-shrink-0" onclick="showHome()">
-                <!-- LOGO EN HAUT À GAUCHE (Agrandissement : h-14 md:h-20 et augmentation de max-w) -->
                 <img src="https://www.image2url.com/r2/default/images/1778019605066-13be66fc-af4f-427b-84cf-1f01c028765f.png" alt="Logo El Houssine Taqi" class="h-14 md:h-20 w-auto max-w-[250px] md:max-w-[400px] object-contain group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/300x80/ffffff/1e3a8a?text=ET+Solutions&font=Montserrat'">
             </a>
 
@@ -142,6 +115,7 @@
                 <button onclick="showHome()" class="text-sm font-semibold text-gray-600 hover:text-blue-600 transition-colors" data-i18n="nav-home">Accueil</button>
                 <button onclick="showServices()" class="text-sm font-semibold text-gray-600 hover:text-blue-600 transition-colors" data-i18n="nav-services">Solutions de Gestion</button>
                 <button onclick="showFormations()" class="text-sm font-semibold text-gray-600 hover:text-blue-600 transition-colors" data-i18n="nav-courses">Formations</button>
+                <button onclick="showContact()" class="text-sm font-semibold text-gray-600 hover:text-blue-600 transition-colors" data-i18n="nav-contact">Contact</button>
 
                 <button onclick="openCourse('formateur')" class="flex items-center gap-2 bg-blue-50 text-blue-700 hover:bg-blue-100 px-4 py-2 rounded-lg text-sm font-bold transition-all border border-blue-100">
                     <i data-lucide="user-cog" class="w-4 h-4"></i>
@@ -170,6 +144,7 @@
                 <button onclick="showHome()" class="mobile-link flex items-center gap-3 text-base font-semibold text-gray-700 text-start hover:text-blue-600 transition-colors" data-i18n="nav-home">Accueil</button>
                 <button onclick="showServices()" class="mobile-link flex items-center gap-3 text-base font-semibold text-gray-700 text-start hover:text-blue-600 transition-colors" data-i18n="nav-services">Solutions de Gestion</button>
                 <button onclick="showFormations()" class="mobile-link flex items-center gap-3 text-base font-semibold text-gray-700 text-start hover:text-blue-600 transition-colors" data-i18n="nav-courses">Formations</button>
+                <button onclick="showContact()" class="mobile-link flex items-center gap-3 text-base font-semibold text-gray-700 text-start hover:text-blue-600 transition-colors" data-i18n="nav-contact">Contact</button>
                 <button onclick="openCourse('formateur')" class="flex items-center gap-3 text-base font-bold text-blue-600 text-start">
                     <i data-lucide="user-cog" class="w-5 h-5"></i>
                     <span data-i18n="nav-formateur">Espace Formateur</span>
@@ -181,7 +156,7 @@
     <!-- Conteneur Principal -->
     <main class="flex-1 pt-16 md:pt-20 transition-opacity duration-500 opacity-0" id="main-wrapper">
         
-        <!-- VUE : ACCUEIL (Développement & Solutions) -->
+        <!-- VUE : ACCUEIL -->
         <div id="home-view" class="view-section">
             <!-- Hero Section -->
             <div class="relative overflow-hidden bg-white pt-16 pb-24 sm:pt-24 sm:pb-32 border-b border-gray-100">
@@ -246,7 +221,7 @@
                 </div>
             </div>
 
-            <!-- Nos Clients (Logos sans liens) -->
+            <!-- Nos Clients -->
             <div class="py-24 bg-white border-t border-gray-100">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-12">
@@ -258,15 +233,12 @@
                         <div class="col-span-1 flex justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100 p-4 rounded-xl cursor-default">
                             <img class="h-16 md:h-20 object-contain" src="https://www.image2url.com/r2/default/images/1778020899733-1c26fdc4-32d7-4e7e-9428-3c4b218f2967.png" alt="Client 1">
                         </div>
-                        
                         <div class="col-span-1 flex justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100 p-4 rounded-xl cursor-default">
                             <img class="h-12 md:h-16 object-contain" src="https://image2url.com/r2/default/images/1769967730671-de511dbd-7f92-44ff-bff5-ea5ba0252a63.png" alt="Client 2">
                         </div>
-
                         <div class="col-span-1 flex justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100 p-4 rounded-xl cursor-default">
                             <img class="h-14 md:h-16 object-contain" src="https://www.image2url.com/r2/default/images/1777482925311-96d6aac2-7fd0-4b79-8ea8-2a13c372e468.png" alt="Client 3">
                         </div>
-
                         <div class="col-span-1 flex justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100 p-4 rounded-xl cursor-default">
                             <img class="h-14 md:h-16 object-contain" src="https://www.image2url.com/r2/default/images/1778021717657-a61a2a66-88f9-49c7-98c7-82e0bbaf6d2f.png" alt="Client 3">
                         </div>
@@ -276,32 +248,68 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Section A Propos du Formateur/Developpeur -->
-            <div class="max-w-5xl mx-auto px-4 py-24">
-                <div class="bg-white rounded-[2rem] shadow-xl border border-gray-100 overflow-hidden relative">
-                    <div class="h-40 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-400"></div>
-                    <div class="px-6 md:px-8 pb-12 flex flex-col md:flex-row gap-8 relative">
-                        <div class="-mt-20 shrink-0 flex flex-col items-center mx-auto md:mx-0">
-                            <div class="w-32 h-32 md:w-40 md:h-40 rounded-full border-8 border-white shadow-lg bg-white overflow-hidden">
+
+            <!-- Section Formateur & Contact Unifiée -->
+            <div id="about-section" class="max-w-6xl mx-auto px-4 py-24">
+                <div class="bg-white rounded-[2.5rem] shadow-xl border border-gray-100 overflow-hidden relative">
+                    <div class="h-48 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-400"></div>
+                    <div class="px-6 md:px-12 pb-16 flex flex-col md:flex-row gap-12 relative">
+                        <!-- Colonne Gauche : Photo & LinkedIn -->
+                        <div class="-mt-24 shrink-0 flex flex-col items-center">
+                            <div class="w-40 h-40 md:w-48 md:h-48 rounded-full border-8 border-white shadow-lg bg-white overflow-hidden mb-6">
                                 <img src="https://image2url.com/r2/default/images/1775307048677-44df2c02-c6b4-42f8-b1e0-fa448b5b6caa.png" alt="El Houssine Taqi" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=El+Houssine+Taqi&background=2563eb&color=fff&size=200'">
                             </div>
+                            <a href="https://www.linkedin.com/in/el-houssine-taqi-87b56413a/" target="_blank" class="inline-flex items-center gap-2 px-8 py-3 bg-[#0A66C2] text-white hover:bg-[#004182] rounded-xl font-bold transition-all shadow-lg hover:shadow-blue-500/20">
+                                <i data-lucide="linkedin" class="w-5 h-5 fill-current"></i>
+                                LinkedIn
+                            </a>
                         </div>
-                        <div class="flex-1 text-center md:text-start mt-4">
-                            <h3 class="text-3xl font-extrabold text-gray-900 mb-2" data-i18n="instructor-name">El Houssine Taqi</h3>
-                            <p class="text-lg text-gray-500 mb-6" data-i18n="about-job">Entrepreneur et Formateur</p>
-                            <div class="inline-flex flex-col sm:flex-row items-center gap-4 mb-8 bg-gray-50 p-4 rounded-2xl border border-gray-100 text-start">
-                                <i data-lucide="award" class="w-6 h-6 text-blue-600 shrink-0"></i>
-                                <span class="text-sm text-gray-600" data-i18n="about-edu">
-                                    Master spécialisé en Finance-Contrôle de Gestion<br>
-                                    <span class="font-bold text-gray-900">ISIAM Business School d'Agadir</span>
-                                </span>
+
+                        <!-- Colonne Droite : Infos & Contact -->
+                        <div class="flex-1 mt-6">
+                            <div class="mb-10 text-center md:text-start">
+                                <h3 class="text-4xl font-black text-gray-900 mb-2" data-i18n="instructor-name">El Houssine Taqi</h3>
+                                <p class="text-xl text-blue-600 font-bold mb-6" data-i18n="about-job">Entrepreneur et Formateur</p>
+                                
+                                <div class="inline-flex flex-col sm:flex-row items-center gap-4 bg-blue-50/50 p-5 rounded-2xl border border-blue-100 text-start w-full md:w-fit">
+                                    <i data-lucide="award" class="w-8 h-8 text-blue-600 shrink-0"></i>
+                                    <span class="text-sm text-gray-700 leading-relaxed" data-i18n="about-edu">
+                                        Master spécialisé en Finance-Contrôle de Gestion<br>
+                                        <span class="font-bold text-gray-900">ISIAM Business School d'Agadir</span>
+                                    </span>
+                                </div>
                             </div>
-                            <div class="flex justify-center md:justify-start">
-                                <a href="https://www.linkedin.com/in/el-houssine-taqi-87b56413a/" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-[#0A66C2] text-white hover:bg-[#004182] rounded-xl font-semibold transition-all">
-                                    <i data-lucide="linkedin" class="w-5 h-5 fill-current"></i>
-                                    LinkedIn
-                                </a>
+
+                            <!-- Bloc Contact intégré avec accroche -->
+                            <div class="border-t border-gray-100 pt-10">
+                                <h4 class="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2 justify-center md:justify-start" data-i18n="contact-catchphrase">
+                                    <i data-lucide="message-square" class="w-5 h-5 text-blue-600"></i>
+                                    Prêt à démarrer votre projet ? Contactez-moi directement :
+                                </h4>
+                                
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                    <!-- Téléphone -->
+                                    <a href="tel:+212689178241" class="flex items-center gap-4 p-4 rounded-2xl bg-gray-50 border border-gray-100 hover:border-blue-200 hover:bg-white hover:shadow-md transition-all group">
+                                        <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                            <i data-lucide="phone" class="w-6 h-6"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest" data-i18n="contact-phone-label">Téléphone</p>
+                                            <p class="text-base font-bold text-gray-900">+212 689 17 82 41</p>
+                                        </div>
+                                    </a>
+
+                                    <!-- Email -->
+                                    <a href="mailto:taqihoussine@gmail.com" class="flex items-center gap-4 p-4 rounded-2xl bg-gray-50 border border-gray-100 hover:border-blue-200 hover:bg-white hover:shadow-md transition-all group">
+                                        <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                            <i data-lucide="mail" class="w-6 h-6"></i>
+                                        </div>
+                                        <div class="truncate">
+                                            <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest" data-i18n="contact-email-label">Email</p>
+                                            <p class="text-base font-bold text-gray-900 truncate">taqihoussine@gmail.com</p>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -442,19 +450,18 @@
     <footer id="main-footer" class="bg-white border-t border-gray-200 mt-auto py-10 transition-opacity duration-500 hidden-on-course">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 text-gray-600 text-sm">
             <div class="flex items-center gap-3">
-                <!-- LOGO DU FOOTER (Agrandissement : h-12 md:h-16) -->
                 <img src="https://www.image2url.com/r2/default/images/1778019605066-13be66fc-af4f-427b-84cf-1f01c028765f.png" alt="Logo El Houssine Taqi" class="h-12 md:h-16 w-auto max-w-[250px] object-contain" onerror="this.src='https://placehold.co/150x50/ffffff/1e3a8a?text=Logo&font=Montserrat'">
                 <div class="flex flex-col border-l border-gray-200 pl-3 ml-1">
                     <span class="text-xs text-gray-400 font-semibold" data-i18n="footer-sub">Gestion & Formations</span>
                 </div>
             </div>
             <div class="text-center md:text-end">
-                <p data-i18n="copyright" class="font-medium">© 2026 El Houssine TAQI Tous droits réservés.</p>
+                <p data-i18n="copyright" class="font-medium">© 2026 El Houssine Taqi. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
-    <!-- VUE : LECTEUR DE COURS (Plein écran) -->
+    <!-- VUE : LECTEUR DE COURS -->
     <div id="course-view" class="hidden fixed inset-0 z-[100] flex flex-col bg-slate-50 view-section">
         <header class="bg-white shadow-sm border-b px-4 py-3 flex items-center justify-between shrink-0 relative">
             <div class="flex items-center gap-4 w-full">
@@ -476,7 +483,7 @@
                 <p class="text-slate-500 font-medium text-sm" data-i18n="reader-loading">Chargement de l'espace...</p>
             </div>
             
-            <!-- Espace en maintenance -->
+            <!-- Maintenance -->
             <div id="course-maintenance" class="hidden absolute inset-0 flex-col items-center justify-center z-20 bg-white">
                 <div class="bg-blue-50 p-6 rounded-full mb-6">
                     <i data-lucide="settings" class="w-12 h-12 text-blue-600 animate-[spin_4s_linear_infinite]"></i>
@@ -485,7 +492,7 @@
                 <p class="text-gray-500 text-center max-w-md px-4 leading-relaxed" data-i18n="maintenance-desc">Ce module est actuellement en cours de mise à jour. Il sera bientôt disponible.</p>
             </div>
 
-            <!-- Iframe du cours -->
+            <!-- Iframe -->
             <iframe id="course-iframe" src="" class="w-full h-full border-none relative z-10 bg-transparent" sandbox="allow-scripts allow-same-origin allow-forms allow-top-navigation allow-downloads allow-popups"></iframe>
         </main>
     </div>
@@ -498,16 +505,15 @@
                 'nav-home': 'Accueil',
                 'nav-services': 'Solutions de Gestion',
                 'nav-courses': 'Formations',
+                'nav-contact': 'Contact',
                 'nav-formateur': 'Espace Formateur',
-                'instructor-name': 'El Houssine TAQI',
-                
+                'instructor-name': 'El Houssine Taqi',
                 'hero-badge-dev': 'Solutions Digitales Sur Mesure',
                 'hero-title-dev-1': 'Transformez votre façon de gérer',
                 'hero-title-dev-2': 'votre activité',
                 'hero-desc-dev': 'Des applications intelligentes et intuitives pour une gestion globale. Que vous soyez une entreprise, un établissement ou un commerçant, nos solutions vous permettent de centraliser toutes vos opérations et d\'optimiser vos performances.',
                 'hero-btn-dev': 'Découvrir nos solutions',
                 'hero-btn-formations': 'Voir nos formations',
-                
                 'services-title': 'Passez à une gestion digitale efficace et professionnelle',
                 'services-subtitle': 'Nous développons et commercialisons des applications de gestion avec un accompagnement dédié pour garantir votre succès.',
                 'feat-1-title': 'Applications Intelligentes',
@@ -516,10 +522,12 @@
                 'feat-2-desc': 'Regroupez vos ressources, finances, opérations et facturation dans un seul outil puissant et sécurisé.',
                 'feat-3-title': 'Accompagnement Sur Mesure',
                 'feat-3-desc': 'Nous accompagnons les professionnels et les entreprises de A à Z : installation, formation et support technique.',
-                
                 'clients-title': 'Ils nous font confiance',
                 'clients-subtitle': 'Découvrez les entreprises et professionnels qui utilisent nos applications de gestion globale.',
-                
+                'contact-title': 'Contactez-nous',
+                'contact-catchphrase': 'Prêt à démarrer votre projet ? Contactez-moi directement :',
+                'contact-phone-label': 'Téléphone',
+                'contact-email-label': 'Email',
                 'sec-courses-title': 'Nos Formations',
                 'sec-courses-subtitle': 'Programmes conçus pour l\'excellence professionnelle. Développez vos compétences avec nos parcours 100% pratiques.',
                 'course-duration': '36 heures',
@@ -529,10 +537,8 @@
                 'stat-1': 'Stagiaires formés',
                 'stat-2': 'De contenu pratique',
                 'stat-3': 'Taux de satisfaction',
-                
                 'about-job': 'Entrepreneur et Formateur',
                 'about-edu': 'Master spécialisé en Finance-Contrôle de Gestion <br> <b>ISIAM Business School d\'Agadir</b>',
-                
                 'reader-back': 'Quitter',
                 'reader-loading': 'Chargement de l\'espace', 
                 'course-1-title': 'Comptabilité pratique',
@@ -546,22 +552,21 @@
                 'maintenance-title': 'Espace en maintenance',
                 'maintenance-desc': 'Ce module est actuellement en cours de mise à jour. Il sera bientôt disponible.',
                 'footer-sub': 'Gestion & Formations',
-                'copyright': `© ${currentYear} El Houssine TAQI. Tous droits réservés.`
+                'copyright': `© ${currentYear} El Houssine Taqi. Tous droits réservés.`
             },
             'ar': {
                 'nav-home': 'الرئيسية',
                 'nav-services': 'حلول الإدارة',
                 'nav-courses': 'التكوينات',
+                'nav-contact': 'اتصل بنا',
                 'nav-formateur': 'فضاء المكون',
                 'instructor-name': 'الحسين تاقي',
-                
                 'hero-badge-dev': 'حلول رقمية مخصصة',
                 'hero-title-dev-1': 'غيّر طريقة إدارة',
                 'hero-title-dev-2': 'أعمالك',
                 'hero-desc-dev': 'تطبيقات ذكية وسهلة الاستخدام لإدارة شاملة. سواء كنت شركة، مؤسسة أو تاجرًا، حلولنا تمكنك من مركزة جميع عملياتك وتحسين أدائك.',
                 'hero-btn-dev': 'اكتشف حلولنا',
                 'hero-btn-formations': 'اطلع على دوراتنا',
-                
                 'services-title': 'انتقل إلى إدارة رقمية فعالة واحترافية',
                 'services-subtitle': 'نقوم بتطوير وتسويق تطبيقات إدارة مع مرافقة مخصصة لضمان نجاحك.',
                 'feat-1-title': 'تطبيقات ذكية',
@@ -570,10 +575,12 @@
                 'feat-2-desc': 'اجمع مواردك، شؤونك المالية، عملياتك اليومية وفواتيرك في أداة واحدة قوية وآمنة.',
                 'feat-3-title': 'مرافقة مخصصة',
                 'feat-3-desc': 'نرافق المهنيين والشركات خطوة بخطوة: التثبيت، التكوين والدعم التقني.',
-                
                 'clients-title': 'يثقون بنا',
                 'clients-subtitle': 'اكتشف الشركات والمهنيين الذين يستخدمون تطبيقاتنا للإدارة الشاملة.',
-
+                'contact-title': 'اتصل بنا',
+                'contact-catchphrase': 'هل أنت جاهز لبدء مشروعك؟ اتصل بي مباشرة:',
+                'contact-phone-label': 'الهاتف',
+                'contact-email-label': 'البريد الإلكتروني',
                 'sec-courses-title': 'دوراتنا التكوينية',
                 'sec-courses-subtitle': 'برامج مصممة للتميز المهني. طور مهاراتك من خلال مساراتنا التطبيقية 100%.',
                 'course-duration': '36 ساعة',
@@ -583,10 +590,8 @@
                 'stat-1': 'متدرب مكون',
                 'stat-2': 'من المحتوى التطبيقي',
                 'stat-3': 'نسبة الرضا',
-                
                 'about-job': 'مقاول ومكون',
                 'about-edu': 'ماستر متخصص في المالية ومراقبة التسيير <br> <b>ISIAM Business School d\'Agadir</b>',
-                
                 'reader-back': 'رجوع',
                 'reader-loading': 'جاري التحميل ...',
                 'course-1-title': 'المحاسبة التطبيقية',
@@ -663,7 +668,7 @@
             updateContent();
         }
 
-        /* --- SYSTÈME DE NAVIGATION SPA --- */
+        /* NAVIGATION SPA */
         function showHome() {
             const homeView = document.getElementById('home-view');
             const formationsView = document.getElementById('formations-view');
@@ -691,15 +696,22 @@
         }
 
         function showServices() {
-            // Afficher l'accueil si on est ailleurs
             showHome();
-            
-            // Attendre un instant que l'affichage soit actualisé puis défiler
             setTimeout(() => {
                 const servicesSection = document.getElementById('services-dev');
                 if (servicesSection) {
-                    // Calcul de la position (en prenant en compte la hauteur du header fixe d'environ 80px)
                     const y = servicesSection.getBoundingClientRect().top + window.scrollY - 80;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                }
+            }, 50);
+        }
+
+        function showContact() {
+            showHome();
+            setTimeout(() => {
+                const contactSection = document.getElementById('about-section');
+                if (contactSection) {
+                    const y = contactSection.getBoundingClientRect().top + window.scrollY - 80;
                     window.scrollTo({ top: y, behavior: 'smooth' });
                 }
             }, 50);
@@ -752,11 +764,10 @@
             if(mainWrapper) mainWrapper.classList.remove('hidden');
             
             document.querySelectorAll('.hidden-on-course').forEach(el => el.classList.remove('hidden'));
-            
             if(iframe) iframe.src = '';
         }
 
-        /* --- MENU MOBILE --- */
+        /* MENU MOBILE */
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileMenuIcon = document.getElementById('mobile-menu-icon');
@@ -780,7 +791,7 @@
             });
         }
 
-        /* --- CHARGEMENT --- */
+        /* CHARGEMENT */
         window.addEventListener('load', () => {
             const splash = document.getElementById('splash-screen');
             const mainContent = document.getElementById('main-wrapper');
