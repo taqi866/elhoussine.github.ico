@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTLearning - El Houssine Taqi</title>
-
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
-
+    <title>EL HOUSSINE TAQI</title> <link rel="icon" type="image/png" href="/logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -54,7 +51,7 @@
 
         @keyframes pulse-custom {
             0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.8; }
+            50% { transform: scale(1.02); opacity: 0.9; }
         }
 
         .loader-line {
@@ -63,7 +60,7 @@
             background: #f3f4f6;
             border-radius: 10px;
             overflow: hidden;
-            margin-top: 24px;
+            margin-top: 32px;
             position: relative;
         }
 
@@ -73,7 +70,7 @@
             left: -50%;
             height: 100%;
             width: 50%;
-            background: linear-gradient(90deg, #4f46e5, #3b82f6);
+            background: linear-gradient(90deg, #2563eb, #3b82f6);
             border-radius: 10px;
             animation: line-anim 1.5s infinite linear;
         }
@@ -82,244 +79,195 @@
             0% { left: -50%; }
             100% { left: 100%; }
         }
+
+        /* Vue transitions */
+        .view-section {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900 antialiased selection:bg-indigo-100 selection:text-indigo-900 overflow-hidden">
+<body class="bg-gray-50 text-gray-900 antialiased selection:bg-blue-100 selection:text-blue-900 overflow-hidden flex flex-col min-h-screen">
 
+    <!-- Splash Screen -->
     <div id="splash-screen">
-        <div class="flex flex-col items-center">
-            <div class="bg-gradient-to-br from-indigo-600 to-blue-500 p-6 rounded-3xl shadow-2xl shadow-indigo-200 mb-6 logo-pulse">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-            </div>
-            <div class="text-center">
-                <h1 class="text-2xl font-extrabold text-gray-900 tracking-tight">HT<span class="text-indigo-600">Learning</span></h1>
-                <p class="text-xs text-gray-400 font-medium uppercase tracking-[0.2em] mt-1" data-i18n="instructor-name">El Houssine Taqi</p>
+        <div class="flex flex-col items-center px-4 w-full max-w-lg">
+            <div class="logo-pulse flex justify-center items-center w-full">
+                <!-- LOGO DU SPLASH SCREEN (Agrandissement : h-32 md:h-48) -->
+                <img src="https://www.image2url.com/r2/default/images/1778019605066-13be66fc-af4f-427b-84cf-1f01c028765f.png" alt="Logo El Houssine Taqi" class="h-32 md:h-48 w-auto max-w-[90vw] object-contain drop-shadow-sm" onerror="this.src='https://placehold.co/500x150/ffffff/1e3a8a?text=EL+HOUSSINE+TAQI&font=Montserrat'">
             </div>
             <div class="loader-line"></div>
         </div>
     </div>
 
-    <div id="home-view" class="min-h-screen-custom flex flex-col transition-opacity duration-500 opacity-0">
+    <!-- Header Global (Visible sur Accueil et Formations) -->
+    <header id="main-header" class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200/80 transition-opacity duration-500 opacity-0 hidden-on-course">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 md:py-4 flex justify-between items-center">
+            
+            <!-- Lien du logo du site (Header) -->
+            <a href="#" class="flex items-center gap-3 cursor-pointer group flex-shrink-0" onclick="showHome()">
+                <!-- LOGO EN HAUT À GAUCHE (Agrandissement : h-14 md:h-20 et augmentation de max-w) -->
+                <img src="https://www.image2url.com/r2/default/images/1778019605066-13be66fc-af4f-427b-84cf-1f01c028765f.png" alt="Logo El Houssine Taqi" class="h-14 md:h-20 w-auto max-w-[250px] md:max-w-[400px] object-contain group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/300x80/ffffff/1e3a8a?text=ET+Solutions&font=Montserrat'">
+            </a>
 
-        <header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/80">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-                <div class="flex items-center gap-3">
-                    <div class="bg-gradient-to-br from-indigo-600 to-blue-500 p-2.5 rounded-xl shadow-lg shadow-indigo-200">
-                        <i data-lucide="graduation-cap" class="w-6 h-6 text-white"></i>
-                    </div>
-                    <div>
-                        <h1 class="text-xl font-extrabold text-gray-900 tracking-tight leading-tight">HT<span class="text-indigo-600">Learning</span></h1>
-                        <p class="text-xs text-gray-500 font-medium uppercase tracking-wider" data-i18n="instructor-name">El Houssine Taqi</p>
-                    </div>
-                </div>
+            <nav class="hidden md:flex items-center gap-8">
+                <button onclick="showHome()" class="text-sm font-semibold text-gray-600 hover:text-blue-600 transition-colors" data-i18n="nav-home">Accueil</button>
+                <button onclick="showServices()" class="text-sm font-semibold text-gray-600 hover:text-blue-600 transition-colors" data-i18n="nav-services">Solutions de Gestion</button>
+                <button onclick="showFormations()" class="text-sm font-semibold text-gray-600 hover:text-blue-600 transition-colors" data-i18n="nav-courses">Formations</button>
 
-                <nav class="hidden md:flex items-center gap-8">
-                    <a href="#" class="text-sm font-semibold text-gray-600 hover:text-indigo-600 transition-colors" data-i18n="nav-home">Accueil</a>
-                    <a href="#formations" class="text-sm font-semibold text-gray-600 hover:text-indigo-600 transition-colors" data-i18n="nav-courses">Formations</a>
+                <button onclick="openCourse('formateur')" class="flex items-center gap-2 bg-blue-50 text-blue-700 hover:bg-blue-100 px-4 py-2 rounded-lg text-sm font-bold transition-all border border-blue-100">
+                    <i data-lucide="user-cog" class="w-4 h-4"></i>
+                    <span data-i18n="nav-formateur">Espace Formateur</span>
+                </button>
 
-                    <button onclick="openCourse('formateur')" class="flex items-center gap-2 bg-indigo-50 text-indigo-700 hover:bg-indigo-100 px-4 py-2 rounded-lg text-sm font-bold transition-all border border-indigo-100">
-                        <i data-lucide="user-cog" class="w-4 h-4"></i>
-                        <span data-i18n="nav-formateur">Espace Formateur</span>
-                    </button>
+                <button onclick="toggleLanguage()" class="flex items-center gap-2 bg-gray-100 hover:bg-gray-200 px-3 py-1.5 rounded-full text-sm font-bold transition-all border border-gray-200">
+                    <i data-lucide="languages" class="w-4 h-4 text-blue-600"></i>
+                    <span id="lang-label">العربية</span>
+                </button>
+            </nav>
 
-                    <button onclick="toggleLanguage()" class="flex items-center gap-2 bg-gray-100 hover:bg-gray-200 px-3 py-1.5 rounded-full text-sm font-bold transition-all border border-gray-200">
-                        <i data-lucide="languages" class="w-4 h-4 text-indigo-600"></i>
-                        <span id="lang-label">العربية</span>
-                    </button>
-                </nav>
-
-                <div class="flex items-center gap-2 md:hidden">
-                    <button onclick="toggleLanguage()" class="p-2 text-gray-600 hover:text-indigo-600">
-                        <i data-lucide="languages" class="w-5 h-5"></i>
-                    </button>
-                    <button id="mobile-menu-btn" class="flex items-center justify-center p-2 text-gray-600 hover:text-indigo-600 focus:outline-none">
-                        <i data-lucide="menu" id="mobile-menu-icon" class="w-6 h-6"></i>
-                    </button>
-                </div>
+            <div class="flex items-center gap-2 md:hidden">
+                <button onclick="toggleLanguage()" class="p-2 text-gray-600 hover:text-blue-600">
+                    <i data-lucide="languages" class="w-5 h-5"></i>
+                </button>
+                <button id="mobile-menu-btn" class="flex items-center justify-center p-2 text-gray-600 hover:text-blue-600 focus:outline-none">
+                    <i data-lucide="menu" id="mobile-menu-icon" class="w-6 h-6"></i>
+                </button>
             </div>
+        </div>
 
-            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-b border-gray-200 shadow-lg z-40">
-                <div class="px-6 pt-4 pb-8 flex flex-col gap-5">
-                    <a href="#" class="mobile-link flex items-center gap-3 text-base font-semibold text-gray-700" data-i18n="nav-home">Accueil</a>
-                    <a href="#formations" class="mobile-link flex items-center gap-3 text-base font-semibold text-gray-700" data-i18n="nav-courses">Formations</a>
-                    <button onclick="openCourse('formateur')" class="flex items-center gap-3 text-base font-bold text-indigo-600">
-                        <i data-lucide="user-cog" class="w-5 h-5"></i>
-                        <span data-i18n="nav-formateur">Espace Formateur</span>
-                    </button>
-                </div>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-b border-gray-200 shadow-lg z-40">
+            <div class="px-6 pt-4 pb-8 flex flex-col gap-5">
+                <button onclick="showHome()" class="mobile-link flex items-center gap-3 text-base font-semibold text-gray-700 text-start hover:text-blue-600 transition-colors" data-i18n="nav-home">Accueil</button>
+                <button onclick="showServices()" class="mobile-link flex items-center gap-3 text-base font-semibold text-gray-700 text-start hover:text-blue-600 transition-colors" data-i18n="nav-services">Solutions de Gestion</button>
+                <button onclick="showFormations()" class="mobile-link flex items-center gap-3 text-base font-semibold text-gray-700 text-start hover:text-blue-600 transition-colors" data-i18n="nav-courses">Formations</button>
+                <button onclick="openCourse('formateur')" class="flex items-center gap-3 text-base font-bold text-blue-600 text-start">
+                    <i data-lucide="user-cog" class="w-5 h-5"></i>
+                    <span data-i18n="nav-formateur">Espace Formateur</span>
+                </button>
             </div>
-        </header>
+        </div>
+    </header>
 
-        <main class="flex-1 pt-24">
+    <!-- Conteneur Principal -->
+    <main class="flex-1 pt-16 md:pt-20 transition-opacity duration-500 opacity-0" id="main-wrapper">
+        
+        <!-- VUE : ACCUEIL (Développement & Solutions) -->
+        <div id="home-view" class="view-section">
+            <!-- Hero Section -->
             <div class="relative overflow-hidden bg-white pt-16 pb-24 sm:pt-24 sm:pb-32 border-b border-gray-100">
                 <div class="absolute inset-y-0 left-1/2 -z-10 -ml-[38rem] w-[81.25rem] opacity-20" style="mask-image: radial-gradient(64rem 64rem at top, white, transparent);">
-                    <div class="absolute inset-0 bg-gradient-to-r from-indigo-400 to-blue-400" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%);"></div>
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-cyan-400" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%);"></div>
                 </div>
 
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 text-indigo-700 font-semibold text-sm mb-8 border border-indigo-100">
-                        <span class="flex h-2 w-2 rounded-full bg-indigo-600"></span>
-                        <span data-i18n="hero-badge">Apprentissage 100% pratique</span>
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 text-blue-700 font-semibold text-sm mb-8 border border-blue-100">
+                        <span class="flex h-2 w-2 rounded-full bg-blue-600"></span>
+                        <span data-i18n="hero-badge-dev">Solutions Digitales Sur Mesure</span>
                     </div>
-                    <h2 class="text-4xl sm:text-6xl font-extrabold text-gray-900 mb-6 tracking-tight max-w-4xl mx-auto leading-tight">
-                        <span data-i18n="hero-title-1">Développez vos compétences</span> <br class="hidden md:block" />
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500" data-i18n="hero-title-2">professionnelles</span>
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 tracking-tight max-w-5xl mx-auto leading-tight">
+                        <span data-i18n="hero-title-dev-1">Transformez votre façon de gérer</span> <br class="hidden md:block" />
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500" data-i18n="hero-title-dev-2">votre activité</span>
                     </h2>
-                    <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed" data-i18n="hero-desc">
-                        Accédez à nos programmes de formation en ligne conçus pour vous apporter une expertise directement applicable en entreprise.
+                    <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed" data-i18n="hero-desc-dev">
+                        Des applications intelligentes et intuitives pour une gestion globale. Que vous soyez une entreprise, un établissement ou un commerçant, nos solutions vous permettent de centraliser toutes vos opérations et d'optimiser vos performances.
                     </p>
-                    <div class="flex justify-center gap-4">
-                        <a href="#formations" class="bg-gray-900 hover:bg-indigo-600 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-indigo-500/30" data-i18n="hero-btn">
-                            Explorer les formations
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="#services-dev" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-blue-500/30 text-center" data-i18n="hero-btn-dev">
+                            Découvrir nos solutions
                         </a>
+                        <button onclick="showFormations()" class="bg-white hover:bg-gray-50 text-gray-900 border border-gray-200 font-semibold px-8 py-4 rounded-full transition-all duration-300 shadow-sm text-center" data-i18n="hero-btn-formations">
+                            Voir nos formations
+                        </button>
                     </div>
                 </div>
             </div>
 
-            <div id="formations" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 scroll-mt-28">
-                <div class="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-4">
-                    <div>
-                        <h2 class="text-3xl font-bold text-gray-900" data-i18n="sec-courses-title">Nos Formations</h2>
-                        <p class="text-gray-500 mt-2" data-i18n="sec-courses-subtitle">Programmes conçus pour l'excellence professionnelle</p>
+            <!-- Services & Accompagnement -->
+            <div id="services-dev" class="py-24 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-i18n="services-title">Passez à une gestion digitale efficace et professionnelle</h2>
+                        <p class="text-lg text-gray-600" data-i18n="services-subtitle">Nous développons et commercialisons des applications de gestion avec un accompagnement dédié pour garantir votre succès.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                            <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+                                <i data-lucide="smartphone" class="w-7 h-7 text-blue-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="feat-1-title">Applications Intelligentes</h3>
+                            <p class="text-gray-600" data-i18n="feat-1-desc">Des interfaces intuitives conçues spécifiquement pour répondre aux besoins de votre secteur d'activité.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                            <div class="w-14 h-14 bg-cyan-100 rounded-2xl flex items-center justify-center mb-6">
+                                <i data-lucide="network" class="w-7 h-7 text-cyan-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="feat-2-title">Centralisation des Opérations</h3>
+                            <p class="text-gray-600" data-i18n="feat-2-desc">Regroupez vos ressources, finances, opérations et facturation dans un seul outil puissant et sécurisé.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                            <div class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center mb-6">
+                                <i data-lucide="handshake" class="w-7 h-7 text-emerald-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="feat-3-title">Accompagnement Sur Mesure</h3>
+                            <p class="text-gray-600" data-i18n="feat-3-desc">Nous accompagnons les professionnels et les entreprises de A à Z : installation, formation et support technique.</p>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Grid Formations -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Nos Clients (Logos sans liens) -->
+            <div class="py-24 bg-white border-t border-gray-100">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-2" data-i18n="clients-title">Ils nous font confiance</h2>
+                        <p class="text-gray-500" data-i18n="clients-subtitle">Découvrez les entreprises et professionnels qui utilisent nos applications de gestion globale.</p>
+                    </div>
                     
-                    <!-- Carte 1 : Comptabilité -->
-                    <div class="group bg-white rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('compta')">
-                        <div class="h-48 bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center">
-                            <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500">
-                                <i data-lucide="calculator" class="w-10 h-10 text-white"></i>
-                            </div>
+                    <div class="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5 items-center justify-items-center opacity-70">
+                        <div class="col-span-1 flex justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100 p-4 rounded-xl cursor-default">
+                            <img class="h-16 md:h-20 object-contain" src="https://www.image2url.com/r2/default/images/1778020899733-1c26fdc4-32d7-4e7e-9428-3c4b218f2967.png" alt="Client 1">
                         </div>
-                        <div class="p-8 flex flex-col flex-1">
-                            <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors" data-i18n="course-1-title">Comptabilité pratique</h3>
-                            <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed" data-i18n="course-1-desc">Un parcours essentiel pour maîtriser l’ensemble des opérations de la comptabilité complète.</p>
-                            <div class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-6 bg-slate-50 w-fit px-3 py-1.5 rounded-lg border border-slate-100">
-                                <i data-lucide="clock" class="w-4 h-4 text-indigo-500"></i>
-                                <span data-i18n="course-duration">36 heures</span>
-                            </div>
-                            <div class="pt-6 border-t border-gray-100 mt-auto">
-                                <button class="w-full flex justify-between items-center text-indigo-600 font-semibold">
-                                    <span data-i18n="course-btn">Accéder à la formation</span>
-                                    <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
-                                </button>
-                            </div>
+                        
+                        <div class="col-span-1 flex justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100 p-4 rounded-xl cursor-default">
+                            <img class="h-12 md:h-16 object-contain" src="https://image2url.com/r2/default/images/1769967730671-de511dbd-7f92-44ff-bff5-ea5ba0252a63.png" alt="Client 2">
                         </div>
-                    </div>
 
-                    <!-- Carte 2 : Informatique -->
-                    <div class="group bg-white rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('informatique')">
-                        <div class="h-48 bg-gradient-to-br from-fuchsia-600 to-purple-700 flex items-center justify-center">
-                            <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500">
-                                <i data-lucide="monitor" class="w-10 h-10 text-white"></i>
-                            </div>
+                        <div class="col-span-1 flex justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100 p-4 rounded-xl cursor-default">
+                            <img class="h-14 md:h-16 object-contain" src="https://www.image2url.com/r2/default/images/1777482925311-96d6aac2-7fd0-4b79-8ea8-2a13c372e468.png" alt="Client 3">
                         </div>
-                        <div class="p-8 flex flex-col flex-1">
-                            <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors" data-i18n="course-2-title">Informatique bureautique</h3>
-                            <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed" data-i18n="course-2-desc">Développez des compétences solides sur les outils essentiels : Word, Excel, PowerPoint.</p>
-                            <div class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-6 bg-slate-50 w-fit px-3 py-1.5 rounded-lg border border-slate-100">
-                                <i data-lucide="clock" class="w-4 h-4 text-purple-500"></i>
-                                <span data-i18n="course-duration">36 heures</span>
-                            </div>
-                            <div class="pt-6 border-t border-gray-100 mt-auto">
-                                <button class="w-full flex justify-between items-center text-purple-600 font-semibold">
-                                    <span data-i18n="course-btn">Accéder à la formation</span>
-                                    <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Carte 3 : Gestion -->
-                    <div class="group bg-white rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('gestion')">
-                        <div class="h-48 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-                            <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500">
-                                <i data-lucide="briefcase" class="w-10 h-10 text-white"></i>
-                            </div>
+                        <div class="col-span-1 flex justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100 p-4 rounded-xl cursor-default">
+                            <img class="h-14 md:h-16 object-contain" src="https://www.image2url.com/r2/default/images/1778021717657-a61a2a66-88f9-49c7-98c7-82e0bbaf6d2f.png" alt="Client 3">
                         </div>
-                        <div class="p-8 flex flex-col flex-1">
-                            <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors" data-i18n="course-3-title">Gestion commerciale</h3>
-                            <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed" data-i18n="course-3-desc">Apprenez à gérer efficacement le cycle de vente, les achats, la facturation et la relation client.</p>
-                            <div class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-6 bg-slate-50 w-fit px-3 py-1.5 rounded-lg border border-slate-100">
-                                <i data-lucide="clock" class="w-4 h-4 text-emerald-500"></i>
-                                <span data-i18n="course-duration">36 heures</span>
-                            </div>
-                            <div class="pt-6 border-t border-gray-100 mt-auto">
-                                <button class="w-full flex justify-between items-center text-emerald-600 font-semibold">
-                                    <span data-i18n="course-btn">Accéder à la formation</span>
-                                    <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Carte 4 : Excel Professionnel -->
-                    <div class="group bg-white rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('excel')">
-                        <div class="h-48 bg-gradient-to-br from-green-500 to-emerald-700 flex items-center justify-center">
-                            <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500">
-                                <i data-lucide="file-spreadsheet" class="w-10 h-10 text-white"></i>
-                            </div>
-                        </div>
-                        <div class="p-8 flex flex-col flex-1">
-                            <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors" data-i18n="course-4-title">Excel professionnel</h3>
-                            <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed" data-i18n="course-4-desc">Maîtriser les fonctions essentielles d’Excel pour automatiser les calculs, analyser les données et créer des rapports professionnels clairs.</p>
-                            <div class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-6 bg-slate-50 w-fit px-3 py-1.5 rounded-lg border border-slate-100">
-                                <i data-lucide="clock" class="w-4 h-4 text-green-500"></i>
-                                <span data-i18n="course-duration-excel">24 heures</span>
-                            </div>
-                            <div class="pt-6 border-t border-gray-100 mt-auto">
-                                <button class="w-full flex justify-between items-center text-green-600 font-semibold">
-                                    <span data-i18n="course-btn">Accéder à la formation</span>
-                                    <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="bg-slate-900 py-24 relative overflow-hidden">
-                <div class="absolute inset-0 pointer-events-none">
-                    <div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-indigo-600/20 blur-[120px]"></div>
-                </div>
-                <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
-                    <h2 class="text-3xl font-extrabold text-white mb-16" data-i18n="sec-stats-title">L'impact en chiffres</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-                        <div>
-                            <p class="text-5xl font-black text-blue-400 mb-3">+50</p>
-                            <p class="text-slate-300 font-medium uppercase text-sm" data-i18n="stat-1">Stagiaires formés</p>
-                        </div>
-                        <div>
-                            <p class="text-5xl font-black text-indigo-400 mb-3">+150h</p>
-                            <p class="text-slate-300 font-medium uppercase text-sm" data-i18n="stat-2">De contenu pratique</p>
-                        </div>
-                        <div>
-                            <p class="text-5xl font-black text-emerald-400 mb-3">98%</p>
-                            <p class="text-slate-300 font-medium uppercase text-sm" data-i18n="stat-3">Taux de satisfaction</p>
+                        <div class="col-span-1 flex justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100 p-4 rounded-xl cursor-default">
+                            <img class="h-14 md:h-16 object-contain" src="https://www.image2url.com/r2/default/images/1778068036444-4278f164-605b-4302-bb71-fd78b4625f41.png" alt="Client 3">
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div id="apropos" class="max-w-5xl mx-auto px-4 py-24 scroll-mt-28">
+            
+            <!-- Section A Propos du Formateur/Developpeur -->
+            <div class="max-w-5xl mx-auto px-4 py-24">
                 <div class="bg-white rounded-[2rem] shadow-xl border border-gray-100 overflow-hidden relative">
-                    <div class="h-40 bg-gradient-to-r from-indigo-600 via-blue-600 to-blue-400"></div>
-                    <div class="px-8 pb-12 flex flex-col md:flex-row gap-8 relative">
+                    <div class="h-40 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-400"></div>
+                    <div class="px-6 md:px-8 pb-12 flex flex-col md:flex-row gap-8 relative">
                         <div class="-mt-20 shrink-0 flex flex-col items-center mx-auto md:mx-0">
-                            <div class="w-40 h-40 rounded-full border-8 border-white shadow-lg bg-white overflow-hidden">
-                                <img src="https://image2url.com/r2/default/images/1775307048677-44df2c02-c6b4-42f8-b1e0-fa448b5b6caa.png" alt="Formateur" onerror="this.src='https://ui-avatars.com/api/?name=El+Houssine+Taqi&background=4f46e5&color=fff&size=200'">
+                            <div class="w-32 h-32 md:w-40 md:h-40 rounded-full border-8 border-white shadow-lg bg-white overflow-hidden">
+                                <img src="https://image2url.com/r2/default/images/1775307048677-44df2c02-c6b4-42f8-b1e0-fa448b5b6caa.png" alt="El Houssine Taqi" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=El+Houssine+Taqi&background=2563eb&color=fff&size=200'">
                             </div>
                         </div>
                         <div class="flex-1 text-center md:text-start mt-4">
-                            <h2 class="text-sm font-bold text-indigo-600 uppercase mb-1" data-i18n="about-badge">Votre Formateur</h2>
                             <h3 class="text-3xl font-extrabold text-gray-900 mb-2" data-i18n="instructor-name">El Houssine Taqi</h3>
-                            <p class="text-lg text-gray-500 mb-6" data-i18n="about-job">Formateur en Comptabilité et Gestion</p>
+                            <p class="text-lg text-gray-500 mb-6" data-i18n="about-job">Entrepreneur et Formateur</p>
                             <div class="inline-flex flex-col sm:flex-row items-center gap-4 mb-8 bg-gray-50 p-4 rounded-2xl border border-gray-100 text-start">
-                                <i data-lucide="award" class="w-6 h-6 text-indigo-600 shrink-0"></i>
+                                <i data-lucide="award" class="w-6 h-6 text-blue-600 shrink-0"></i>
                                 <span class="text-sm text-gray-600" data-i18n="about-edu">
                                     Master spécialisé en Finance-Contrôle de Gestion<br>
                                     <span class="font-bold text-gray-900">ISIAM Business School d'Agadir</span>
@@ -335,28 +283,156 @@
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
 
-        <footer class="bg-white border-t border-gray-200 mt-auto py-10">
-            <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 text-gray-600 text-sm">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center shadow-md shadow-indigo-100">
-                        <i data-lucide="graduation-cap" class="w-5 h-5 text-white"></i>
-                    </div>
-                    <div class="flex flex-col">
-                        <span class="font-bold text-gray-900 text-base">HTLearning</span>
-                        <span class="text-xs text-gray-400" data-i18n="nav-courses">Formations</span>
-                    </div>
-                </div>
-                <div class="text-center md:text-end">
-                    <p data-i18n="copyright" class="font-medium">© 2026 El Houssine Taqi. Tous droits réservés.</p>
+        <!-- VUE : FORMATIONS -->
+        <div id="formations-view" class="hidden view-section bg-gray-50 pb-20">
+            <!-- Entête Formations -->
+            <div class="bg-slate-900 py-16 mb-12 relative overflow-hidden">
+                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.05]"></div>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                    <h2 class="text-4xl font-extrabold text-white mb-4" data-i18n="sec-courses-title">Nos Formations</h2>
+                    <p class="text-slate-300 text-lg max-w-2xl mx-auto" data-i18n="sec-courses-subtitle">Programmes conçus pour l'excellence professionnelle. Développez vos compétences avec nos parcours 100% pratiques.</p>
                 </div>
             </div>
-        </footer>
-    </div>
 
-    <div id="course-view" class="hidden h-screen flex flex-col bg-slate-50">
-        <header class="bg-white shadow-sm border-b px-4 py-3 flex items-center justify-between z-30 shrink-0 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Grid Formations -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Carte 1 -->
+                    <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('compta')">
+                        <div class="h-48 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center relative overflow-hidden">
+                            <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500 z-10">
+                                <i data-lucide="calculator" class="w-10 h-10 text-white"></i>
+                            </div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-1">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors" data-i18n="course-1-title">Comptabilité pratique</h3>
+                            <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed" data-i18n="course-1-desc">Un parcours essentiel pour maîtriser l’ensemble des opérations de la comptabilité complète.</p>
+                            <div class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-6 bg-slate-50 w-fit px-3 py-1.5 rounded-lg border border-slate-100">
+                                <i data-lucide="clock" class="w-4 h-4 text-blue-500"></i>
+                                <span data-i18n="course-duration">36 heures</span>
+                            </div>
+                            <div class="pt-6 border-t border-gray-100 mt-auto">
+                                <button class="w-full flex justify-between items-center text-blue-600 font-semibold group-hover:translate-x-1 transition-transform">
+                                    <span data-i18n="course-btn">Accéder à la formation</span>
+                                    <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carte 2 -->
+                    <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('informatique')">
+                        <div class="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center relative overflow-hidden">
+                            <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500 z-10">
+                                <i data-lucide="monitor" class="w-10 h-10 text-white"></i>
+                            </div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-1">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors" data-i18n="course-2-title">Informatique bureautique</h3>
+                            <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed" data-i18n="course-2-desc">Développez des compétences solides sur les outils essentiels : Word, Excel, PowerPoint.</p>
+                            <div class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-6 bg-slate-50 w-fit px-3 py-1.5 rounded-lg border border-slate-100">
+                                <i data-lucide="clock" class="w-4 h-4 text-purple-500"></i>
+                                <span data-i18n="course-duration">36 heures</span>
+                            </div>
+                            <div class="pt-6 border-t border-gray-100 mt-auto">
+                                <button class="w-full flex justify-between items-center text-purple-600 font-semibold group-hover:translate-x-1 transition-transform">
+                                    <span data-i18n="course-btn">Accéder à la formation</span>
+                                    <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carte 3 -->
+                    <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('gestion')">
+                        <div class="h-48 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center relative overflow-hidden">
+                            <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500 z-10">
+                                <i data-lucide="briefcase" class="w-10 h-10 text-white"></i>
+                            </div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-1">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors" data-i18n="course-3-title">Gestion commerciale</h3>
+                            <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed" data-i18n="course-3-desc">Apprenez à gérer efficacement le cycle de vente, les achats, la facturation et la relation client.</p>
+                            <div class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-6 bg-slate-50 w-fit px-3 py-1.5 rounded-lg border border-slate-100">
+                                <i data-lucide="clock" class="w-4 h-4 text-emerald-500"></i>
+                                <span data-i18n="course-duration">36 heures</span>
+                            </div>
+                            <div class="pt-6 border-t border-gray-100 mt-auto">
+                                <button class="w-full flex justify-between items-center text-emerald-600 font-semibold group-hover:translate-x-1 transition-transform">
+                                    <span data-i18n="course-btn">Accéder à la formation</span>
+                                    <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carte 4 -->
+                    <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('excel')">
+                        <div class="h-48 bg-gradient-to-br from-green-500 to-emerald-700 flex items-center justify-center relative overflow-hidden">
+                            <div class="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500 z-10">
+                                <i data-lucide="file-spreadsheet" class="w-10 h-10 text-white"></i>
+                            </div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-1">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors" data-i18n="course-4-title">Excel professionnel</h3>
+                            <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed" data-i18n="course-4-desc">Maîtriser les fonctions essentielles d’Excel pour automatiser les calculs, analyser les données et créer des rapports professionnels clairs.</p>
+                            <div class="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-6 bg-slate-50 w-fit px-3 py-1.5 rounded-lg border border-slate-100">
+                                <i data-lucide="clock" class="w-4 h-4 text-green-500"></i>
+                                <span data-i18n="course-duration-excel">24 heures</span>
+                            </div>
+                            <div class="pt-6 border-t border-gray-100 mt-auto">
+                                <button class="w-full flex justify-between items-center text-green-600 font-semibold group-hover:translate-x-1 transition-transform">
+                                    <span data-i18n="course-btn">Accéder à la formation</span>
+                                    <i data-lucide="arrow-right" class="w-4 h-4 rtl:rotate-180"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Formations -->
+                <div class="bg-white rounded-3xl border border-gray-100 shadow-sm mt-16 p-10 md:p-16">
+                    <h3 class="text-2xl font-bold text-center text-gray-900 mb-12" data-i18n="sec-stats-title">L'impact de nos formations</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x rtl:md:divide-x-reverse divide-gray-100">
+                        <div class="py-4">
+                            <p class="text-5xl font-black text-blue-500 mb-3">+50</p>
+                            <p class="text-gray-500 font-medium uppercase text-sm" data-i18n="stat-1">Stagiaires formés</p>
+                        </div>
+                        <div class="py-4">
+                            <p class="text-5xl font-black text-blue-400 mb-3">+150h</p>
+                            <p class="text-gray-500 font-medium uppercase text-sm" data-i18n="stat-2">De contenu pratique</p>
+                        </div>
+                        <div class="py-4">
+                            <p class="text-5xl font-black text-emerald-500 mb-3">98%</p>
+                            <p class="text-gray-500 font-medium uppercase text-sm" data-i18n="stat-3">Taux de satisfaction</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Global -->
+    <footer id="main-footer" class="bg-white border-t border-gray-200 mt-auto py-10 transition-opacity duration-500 hidden-on-course">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 text-gray-600 text-sm">
+            <div class="flex items-center gap-3">
+                <!-- LOGO DU FOOTER (Agrandissement : h-12 md:h-16) -->
+                <img src="https://www.image2url.com/r2/default/images/1778019605066-13be66fc-af4f-427b-84cf-1f01c028765f.png" alt="Logo El Houssine Taqi" class="h-12 md:h-16 w-auto max-w-[250px] object-contain" onerror="this.src='https://placehold.co/150x50/ffffff/1e3a8a?text=Logo&font=Montserrat'">
+                <div class="flex flex-col border-l border-gray-200 pl-3 ml-1">
+                    <span class="text-xs text-gray-400 font-semibold" data-i18n="footer-sub">Gestion & Formations</span>
+                </div>
+            </div>
+            <div class="text-center md:text-end">
+                <p data-i18n="copyright" class="font-medium">© 2026 El Houssine Taqi. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- VUE : LECTEUR DE COURS (Plein écran) -->
+    <div id="course-view" class="hidden fixed inset-0 z-[100] flex flex-col bg-slate-50 view-section">
+        <header class="bg-white shadow-sm border-b px-4 py-3 flex items-center justify-between shrink-0 relative">
             <div class="flex items-center gap-4 w-full">
                 <button onclick="closeCourse()" class="flex items-center gap-2 text-gray-600 hover:bg-gray-100 border px-4 py-2 rounded-lg text-sm transition-all">
                     <i data-lucide="arrow-left" class="w-4 h-4 rtl:rotate-180"></i>
@@ -372,14 +448,14 @@
         <main class="flex-1 w-full bg-white relative overflow-hidden">
             <!-- Loading -->
             <div class="absolute inset-0 flex flex-col items-center justify-center z-0 bg-slate-50">
-                <i data-lucide="loader-2" class="w-10 h-10 text-indigo-600 animate-spin mb-4"></i>
+                <i data-lucide="loader-2" class="w-10 h-10 text-blue-600 animate-spin mb-4"></i>
                 <p class="text-slate-500 font-medium text-sm" data-i18n="reader-loading">Chargement de l'espace...</p>
             </div>
             
             <!-- Espace en maintenance -->
             <div id="course-maintenance" class="hidden absolute inset-0 flex-col items-center justify-center z-20 bg-white">
-                <div class="bg-indigo-50 p-6 rounded-full mb-6">
-                    <i data-lucide="settings" class="w-12 h-12 text-indigo-600 animate-[spin_4s_linear_infinite]"></i>
+                <div class="bg-blue-50 p-6 rounded-full mb-6">
+                    <i data-lucide="settings" class="w-12 h-12 text-blue-600 animate-[spin_4s_linear_infinite]"></i>
                 </div>
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-3" data-i18n="maintenance-title">Espace en maintenance</h2>
                 <p class="text-gray-500 text-center max-w-md px-4 leading-relaxed" data-i18n="maintenance-desc">Ce module est actuellement en cours de mise à jour. Il sera bientôt disponible.</p>
@@ -396,27 +472,43 @@
         const translations = {
             'fr': {
                 'nav-home': 'Accueil',
+                'nav-services': 'Solutions de Gestion',
                 'nav-courses': 'Formations',
-                'nav-about': 'Le formateur',
                 'nav-formateur': 'Espace Formateur',
                 'instructor-name': 'El Houssine Taqi',
-                'hero-badge': 'Apprentissage 100% pratique',
-                'hero-title-1': 'Développez vos compétences',
-                'hero-title-2': 'professionnelles',
-                'hero-desc': 'Accédez à nos programmes de formation en ligne conçus pour vous apporter une expertise directement applicable en entreprise.',
-                'hero-btn': 'Explorer les formations',
+                
+                'hero-badge-dev': 'Solutions Digitales Sur Mesure',
+                'hero-title-dev-1': 'Transformez votre façon de gérer',
+                'hero-title-dev-2': 'votre activité',
+                'hero-desc-dev': 'Des applications intelligentes et intuitives pour une gestion globale. Que vous soyez une entreprise, un établissement ou un commerçant, nos solutions vous permettent de centraliser toutes vos opérations et d\'optimiser vos performances.',
+                'hero-btn-dev': 'Découvrir nos solutions',
+                'hero-btn-formations': 'Voir nos formations',
+                
+                'services-title': 'Passez à une gestion digitale efficace et professionnelle',
+                'services-subtitle': 'Nous développons et commercialisons des applications de gestion avec un accompagnement dédié pour garantir votre succès.',
+                'feat-1-title': 'Applications Intelligentes',
+                'feat-1-desc': 'Des interfaces intuitives conçues spécifiquement pour répondre aux besoins de votre secteur d\'activité.',
+                'feat-2-title': 'Centralisation des Opérations',
+                'feat-2-desc': 'Regroupez vos ressources, finances, opérations et facturation dans un seul outil puissant et sécurisé.',
+                'feat-3-title': 'Accompagnement Sur Mesure',
+                'feat-3-desc': 'Nous accompagnons les professionnels et les entreprises de A à Z : installation, formation et support technique.',
+                
+                'clients-title': 'Ils nous font confiance',
+                'clients-subtitle': 'Découvrez les entreprises et professionnels qui utilisent nos applications de gestion globale.',
+                
                 'sec-courses-title': 'Nos Formations',
-                'sec-courses-subtitle': 'Programmes conçus pour l\'excellence professionnelle',
+                'sec-courses-subtitle': 'Programmes conçus pour l\'excellence professionnelle. Développez vos compétences avec nos parcours 100% pratiques.',
                 'course-duration': '36 heures',
                 'course-duration-excel': '24 heures',
                 'course-btn': 'Accéder à la formation',
-                'sec-stats-title': 'L\'impact en chiffres',
+                'sec-stats-title': 'L\'impact de nos formations',
                 'stat-1': 'Stagiaires formés',
                 'stat-2': 'De contenu pratique',
                 'stat-3': 'Taux de satisfaction',
-                'about-badge': 'Votre Formateur',
-                'about-job': 'Fondateur TAJIRXO et formateur indépendant',
+                
+                'about-job': 'Entrepreneur et Formateur',
                 'about-edu': 'Master spécialisé en Finance-Contrôle de Gestion <br> <b>ISIAM Business School d\'Agadir</b>',
+                
                 'reader-back': 'Quitter',
                 'reader-loading': 'Chargement de l\'espace', 
                 'course-1-title': 'Comptabilité pratique',
@@ -429,45 +521,61 @@
                 'course-4-desc': 'Maîtriser les fonctions essentielles d’Excel pour automatiser les calculs, analyser les données et créer des rapports professionnels clairs.',
                 'maintenance-title': 'Espace en maintenance',
                 'maintenance-desc': 'Ce module est actuellement en cours de mise à jour. Il sera bientôt disponible.',
-                'lang-btn': 'العربية',
+                'footer-sub': 'Gestion & Formations',
                 'copyright': `© ${currentYear} El Houssine Taqi. Tous droits réservés.`
             },
             'ar': {
                 'nav-home': 'الرئيسية',
-                'nav-courses': 'الدورات',
-                'nav-about': 'المكون',
+                'nav-services': 'حلول الإدارة',
+                'nav-courses': 'التكوينات',
                 'nav-formateur': 'فضاء المكون',
                 'instructor-name': 'الحسين تاقي',
-                'hero-badge': 'تعلم تطبيقي 100%',
-                'hero-title-1': 'طور مهاراتك',
-                'hero-title-2': 'المهنية',
-                'hero-desc': 'ولوج برامجنا التدريبية عبر الإنترنت المصممة لتزويدك بخبرة عملية قابلة للتطبيق مباشرة في سوق الشغل.',
-                'hero-btn': 'استكشف الدورات',
-                'sec-courses-title': 'دوراتنا التدريبية',
-                'sec-courses-subtitle': 'برامج مصممة للتميز المهني',
+                
+                'hero-badge-dev': 'حلول رقمية مخصصة',
+                'hero-title-dev-1': 'غيّر طريقة إدارة',
+                'hero-title-dev-2': 'أعمالك',
+                'hero-desc-dev': 'تطبيقات ذكية وسهلة الاستخدام لإدارة شاملة. سواء كنت شركة، مؤسسة أو تاجرًا، حلولنا تمكنك من مركزة جميع عملياتك وتحسين أدائك.',
+                'hero-btn-dev': 'اكتشف حلولنا',
+                'hero-btn-formations': 'اطلع على دوراتنا',
+                
+                'services-title': 'انتقل إلى إدارة رقمية فعالة واحترافية',
+                'services-subtitle': 'نقوم بتطوير وتسويق تطبيقات إدارة مع مرافقة مخصصة لضمان نجاحك.',
+                'feat-1-title': 'تطبيقات ذكية',
+                'feat-1-desc': 'واجهات سهلة الاستخدام مصممة خصيصًا لتلبية احتياجات قطاع عملك.',
+                'feat-2-title': 'مركزة العمليات',
+                'feat-2-desc': 'اجمع مواردك، شؤونك المالية، عملياتك اليومية وفواتيرك في أداة واحدة قوية وآمنة.',
+                'feat-3-title': 'مرافقة مخصصة',
+                'feat-3-desc': 'نرافق المهنيين والشركات خطوة بخطوة: التثبيت، التكوين والدعم التقني.',
+                
+                'clients-title': 'يثقون بنا',
+                'clients-subtitle': 'اكتشف الشركات والمهنيين الذين يستخدمون تطبيقاتنا للإدارة الشاملة.',
+
+                'sec-courses-title': 'دوراتنا التكوينية',
+                'sec-courses-subtitle': 'برامج مصممة للتميز المهني. طور مهاراتك من خلال مساراتنا التطبيقية 100%.',
                 'course-duration': '36 ساعة',
                 'course-duration-excel': '24 ساعة',
                 'course-btn': 'الدخول للدورة',
-                'sec-stats-title': 'تأثيرنا بالأرقام',
+                'sec-stats-title': 'تأثير دوراتنا',
                 'stat-1': 'متدرب مكون',
                 'stat-2': 'من المحتوى التطبيقي',
                 'stat-3': 'نسبة الرضا',
-                'about-badge': 'مكونكم',
-                'about-job': 'مؤسس TAJIRXO ومكون مستقل',
+                
+                'about-job': 'مقاول ومكون',
                 'about-edu': 'ماستر متخصص في المالية ومراقبة التسيير <br> <b>ISIAM Business School d\'Agadir</b>',
+                
                 'reader-back': 'رجوع',
                 'reader-loading': 'جاري التحميل ...',
                 'course-1-title': 'المحاسبة التطبيقية',
-                'course-1-desc': 'مسار أساسي لإتقان جميع عمليات المحاسبة الكاملة والتصاريح الضريبية.',
+                'course-1-desc': 'مسار أساسي لإتقان جميع عمليات المحاسبة الكاملة.',
                 'course-2-title': 'المعلوميات المكتبية',
                 'course-2-desc': 'تطوير مهارات قوية في الأدوات الأساسية: Word و Excel و PowerPoint.',
                 'course-3-title': 'التدبير التجاري',
                 'course-3-desc': 'تعلم كيفية إدارة دورة المبيعات والمشتريات والفواتير وعلاقات العملاء بفعالية.',
                 'course-4-title': 'إكسيل الاحترافي',
-                'course-4-desc': 'إتقان وظائف إكسيل الأساسية لأتمتة الحسابات وتحليل البيانات وإنشاء تقارير مهنية واضحة.',
+                'course-4-desc': 'إتقان وظائف إكسيل الأساسية لأتمتة الحسابات وتحليل البيانات وإنشاء تقارير مهنية.',
                 'maintenance-title': 'فضاء قيد الصيانة',
                 'maintenance-desc': 'هذه الوحدة قيد التحديث حالياً. ستتوفر قريباً.',
-                'lang-btn': 'Français',
+                'footer-sub': 'الإدارة والتكوين',
                 'copyright': `© ${currentYear} الحسين تاقي. جميع الحقوق محفوظة.`
             }
         };
@@ -516,8 +624,14 @@
 
             document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
             document.documentElement.lang = currentLang;
-            document.getElementById('lang-label').textContent = currentLang === 'fr' ? 'العربية' : 'Français';
-            lucide.createIcons();
+            
+            const langLabel = document.getElementById('lang-label');
+            if (langLabel) {
+                langLabel.textContent = currentLang === 'fr' ? 'العربية' : 'Français';
+            }
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
         }
 
         function toggleLanguage() {
@@ -525,81 +639,141 @@
             updateContent();
         }
 
+        /* --- SYSTÈME DE NAVIGATION SPA --- */
+        function showHome() {
+            const homeView = document.getElementById('home-view');
+            const formationsView = document.getElementById('formations-view');
+            const mainWrapper = document.getElementById('main-wrapper');
+
+            if(homeView) homeView.classList.remove('hidden');
+            if(formationsView) formationsView.classList.add('hidden');
+            if(mainWrapper) mainWrapper.classList.remove('hidden');
+            
+            window.scrollTo(0, 0);
+            closeMobileMenu();
+        }
+
+        function showFormations() {
+            const homeView = document.getElementById('home-view');
+            const formationsView = document.getElementById('formations-view');
+            const mainWrapper = document.getElementById('main-wrapper');
+
+            if(homeView) homeView.classList.add('hidden');
+            if(formationsView) formationsView.classList.remove('hidden');
+            if(mainWrapper) mainWrapper.classList.remove('hidden');
+
+            window.scrollTo(0, 0);
+            closeMobileMenu();
+        }
+
+        function showServices() {
+            // Afficher l'accueil si on est ailleurs
+            showHome();
+            
+            // Attendre un instant que l'affichage soit actualisé puis défiler
+            setTimeout(() => {
+                const servicesSection = document.getElementById('services-dev');
+                if (servicesSection) {
+                    // Calcul de la position (en prenant en compte la hauteur du header fixe d'environ 80px)
+                    const y = servicesSection.getBoundingClientRect().top + window.scrollY - 80;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                }
+            }, 50);
+        }
+
         function openCourse(courseId) {
             const course = coursesData[courseId];
+            if (!course) return;
+
             const iframe = document.getElementById('course-iframe');
             const maintenanceView = document.getElementById('course-maintenance');
+            const courseTitle = document.getElementById('course-title');
 
-            document.getElementById('course-title').textContent = currentLang === 'fr' ? course.title_fr : course.title_ar;
+            if (courseTitle) {
+                courseTitle.textContent = currentLang === 'fr' ? course.title_fr : course.title_ar;
+            }
 
-            // Vérifier si le cours est en maintenance
             if (course.maintenance) {
-                iframe.classList.add('hidden');
-                maintenanceView.classList.remove('hidden');
-                maintenanceView.classList.add('flex'); // Assure que les classes flexbox fonctionnent
-                iframe.src = '';
+                if(iframe) iframe.classList.add('hidden');
+                if(maintenanceView) {
+                    maintenanceView.classList.remove('hidden');
+                    maintenanceView.classList.add('flex');
+                }
+                if(iframe) iframe.src = '';
             } else {
-                iframe.classList.remove('hidden');
-                maintenanceView.classList.add('hidden');
-                maintenanceView.classList.remove('flex');
-                iframe.src = course.url;
+                if(iframe) iframe.classList.remove('hidden');
+                if(maintenanceView) {
+                    maintenanceView.classList.add('hidden');
+                    maintenanceView.classList.remove('flex');
+                }
+                if(iframe) iframe.src = course.url;
             }
 
-            document.getElementById('home-view').classList.add('hidden');
-            document.getElementById('course-view').classList.remove('hidden');
-            window.scrollTo(0, 0);
-
-            // Fermer le menu mobile si ouvert
-            if (isMenuOpen) {
-                isMenuOpen = false;
-                mobileMenu.classList.add('hidden');
-                mobileMenuIcon.setAttribute('data-lucide', 'menu');
-                lucide.createIcons();
-            }
+            document.querySelectorAll('.hidden-on-course').forEach(el => el.classList.add('hidden'));
+            const mainWrapper = document.getElementById('main-wrapper');
+            const courseView = document.getElementById('course-view');
+            
+            if(mainWrapper) mainWrapper.classList.add('hidden');
+            if(courseView) courseView.classList.remove('hidden');
+            
+            closeMobileMenu();
         }
 
         function closeCourse() {
-            document.getElementById('course-view').classList.add('hidden');
-            document.getElementById('home-view').classList.remove('hidden');
-            document.getElementById('course-iframe').src = '';
-            window.scrollTo(0, 0);
+            const courseView = document.getElementById('course-view');
+            const mainWrapper = document.getElementById('main-wrapper');
+            const iframe = document.getElementById('course-iframe');
+
+            if(courseView) courseView.classList.add('hidden');
+            if(mainWrapper) mainWrapper.classList.remove('hidden');
+            
+            document.querySelectorAll('.hidden-on-course').forEach(el => el.classList.remove('hidden'));
+            
+            if(iframe) iframe.src = '';
         }
 
-        window.addEventListener('load', () => {
-            const splash = document.getElementById('splash-screen');
-            const home = document.getElementById('home-view');
-            setTimeout(() => {
-                splash.style.opacity = '0';
-                splash.style.visibility = 'hidden';
-                home.classList.remove('opacity-0');
-                document.body.classList.remove('overflow-hidden');
-            }, 1500);
-        });
-
+        /* --- MENU MOBILE --- */
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileMenuIcon = document.getElementById('mobile-menu-icon');
         let isMenuOpen = false;
 
-        mobileMenuBtn.addEventListener('click', () => {
-            isMenuOpen = !isMenuOpen;
-            mobileMenu.classList.toggle('hidden');
-            mobileMenuIcon.setAttribute('data-lucide', isMenuOpen ? 'x' : 'menu');
-            lucide.createIcons();
-        });
+        function closeMobileMenu() {
+            if (isMenuOpen && mobileMenu) {
+                isMenuOpen = false;
+                mobileMenu.classList.add('hidden');
+                if(mobileMenuIcon) mobileMenuIcon.setAttribute('data-lucide', 'menu');
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            }
+        }
 
-        // Fermer le menu mobile au clic sur un lien
-        document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', () => {
-                if (isMenuOpen) {
-                    isMenuOpen = false;
-                    mobileMenu.classList.add('hidden');
-                    mobileMenuIcon.setAttribute('data-lucide', 'menu');
-                    lucide.createIcons();
-                }
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                isMenuOpen = !isMenuOpen;
+                if(mobileMenu) mobileMenu.classList.toggle('hidden');
+                if(mobileMenuIcon) mobileMenuIcon.setAttribute('data-lucide', isMenuOpen ? 'x' : 'menu');
+                if (typeof lucide !== 'undefined') lucide.createIcons();
             });
+        }
+
+        /* --- CHARGEMENT --- */
+        window.addEventListener('load', () => {
+            const splash = document.getElementById('splash-screen');
+            const mainContent = document.getElementById('main-wrapper');
+            const header = document.getElementById('main-header');
+            
+            setTimeout(() => {
+                if (splash) {
+                    splash.style.opacity = '0';
+                    splash.style.visibility = 'hidden';
+                }
+                if (mainContent) mainContent.classList.remove('opacity-0');
+                if (header) header.classList.remove('opacity-0');
+                document.body.classList.remove('overflow-hidden');
+            }, 1200);
         });
 
+        // Init
         updateContent();
     </script>
 </body>
