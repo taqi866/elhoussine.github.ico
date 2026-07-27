@@ -16,8 +16,8 @@ const translations = {
         'sec-courses-title': 'Nos Formations',
         'sec-courses-subtitle': 'Programmes conçus pour l\'excellence professionnelle. Développez vos compétences avec nos parcours 100% pratiques.',
         
-        'course-1-title': 'Comptabilité pratique (Aide comptable)',
-        'course-1-desc': 'Devenez un aide-comptable opérationnel en travaillant directement sur le dossier comptable réel d\'une entreprise.',
+        'course-1-title': 'Aide comptable',
+        'course-1-desc': 'Devenez aide-comptable opérationnel en travaillant directement sur le dossier comptable réel d\'une entreprise.',
         'course-2-title': 'Informatique bureautique',
         'course-2-desc': 'Maîtrise des outils essentiels : Word, Excel et PowerPoint.',
         'course-3-title': 'Gestion commerciale',
@@ -66,7 +66,7 @@ const translations = {
         'sec-courses-title': 'دوراتنا التكوينية',
         'sec-courses-subtitle': 'برامج مصممة للتميز المهني. طور مهاراتك من خلال مساراتنا التطبيقية 100%.',
         
-        'course-1-title': 'المحاسبة العملية (مساعد محاسب)',
+        'course-1-title': 'مساعد محاسب',
         'course-1-desc': 'كن مساعد محاسب مؤهلاً للعمل من خلال التطبيق المباشر على ملف محاسبي حقيقي للمقاولة.',
         'course-2-title': 'المعلوميات المكتبية',
         'course-2-desc': 'إتقان الأدوات الأساسية: Word و Excel و PowerPoint.',
