@@ -8,7 +8,8 @@ const translations = {
         
         'instructor-name': 'El Houssine TAQI',
         'hero-badge-form': 'Formations 100% Pratiques',
-        'hero-title-form-1': 'Formations Pratiques & Professionnelles',
+        'hero-title-form-1': 'Formations Pratiques',
+        'hero-title-form-2': '& Professionnelles',
         'hero-desc-form': 'Accélérez votre carrière avec des formations pratiques ciblées pour acquérir des compétences directement opérationnelles.',
         'hero-btn-formations': 'Voir nos formations',
         
@@ -50,7 +51,8 @@ const translations = {
         
         'instructor-name': 'الحسين تاقي',
         'hero-badge-form': 'تكوينات تطبيقية 100%',
-        'hero-title-form-1': 'تكوينات تطبيقية و مهنية',
+        'hero-title-form-1': 'تكوينات تطبيقية',
+        'hero-title-form-2': 'ومهنية',
         'hero-desc-form': 'سرّع مسارك المهني مع دورات تطبيقية مصممة خصيصاً لاكتساب مهارات عملية مباشرة.',
         'hero-btn-formations': 'اطلع على دوراتنا',
         
