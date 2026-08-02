@@ -17,7 +17,7 @@ const translations = {
         'sec-courses-subtitle': 'Programmes conçus pour l\'excellence professionnelle. Développez vos compétences avec nos parcours 100% pratiques.',
         
         'course-1-title': 'Comptabilité pratique (Aide comptable)',
-        'course-1-desc': 'Devenez un aide-comptable opérationnel en travaillant directement sur le dossier comptable réel d\'une entreprise.',
+        'course-1-desc': 'Devenez aide-comptable opérationnel en travaillant directement sur le dossier comptable réel d\'une entreprise.',
         'course-2-title': 'Informatique bureautique',
         'course-2-desc': 'Maîtrise des outils essentiels : Word, Excel et PowerPoint.',
         'course-duration': '36 heures',
