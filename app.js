@@ -8,24 +8,18 @@ const translations = {
         
         'instructor-name': 'El Houssine TAQI',
         'hero-badge-form': 'Formations 100% Pratiques',
-        'hero-title-form-1': 'Formations Pratiques',
-        'hero-title-form-2': 'en Comptabilité & Gestion',
+        'hero-title-form-1': 'Formations Pratiques & Professionnelles',
         'hero-desc-form': 'Accélérez votre carrière avec des formations pratiques ciblées pour acquérir des compétences directement opérationnelles.',
         'hero-btn-formations': 'Voir nos formations',
         
         'sec-courses-title': 'Nos Formations',
         'sec-courses-subtitle': 'Programmes conçus pour l\'excellence professionnelle. Développez vos compétences avec nos parcours 100% pratiques.',
         
-        'course-1-title': 'Aide comptable',
-        'course-1-desc': 'Devenez aide-comptable opérationnel en travaillant directement sur le dossier comptable réel d\'une entreprise.',
+        'course-1-title': 'Comptabilité pratique (Aide comptable)',
+        'course-1-desc': 'Devenez un aide-comptable opérationnel en travaillant directement sur le dossier comptable réel d\'une entreprise.',
         'course-2-title': 'Informatique bureautique',
         'course-2-desc': 'Maîtrise des outils essentiels : Word, Excel et PowerPoint.',
-        'course-3-title': 'Gestion commerciale',
-        'course-3-desc': 'Gérez le cycle de vente, les stocks et la facturation client.',
-        'course-4-title': 'Excel professionnel',
-        'course-4-desc': 'Développez des compétences Excel adaptées aux exigences du monde professionnel.',
         'course-duration': '36 heures',
-        'course-duration-excel': '24 à 36 heures',
         'course-btn': 'Accéder',
         'course-program-btn': 'Voir le programme',
         'modal-badge': 'Plan de formation',
@@ -36,17 +30,15 @@ const translations = {
         'stat-2': 'De contenu pratique',
         'stat-3': 'Taux de satisfaction',
 
-
-        
         /* Profil Modifié */
-        'about-job': 'Fondateur TAJIROX | Formateur en Comptabilité et Gestion',
+        'about-job': 'Fondateur du système TAJIROX | Formateur en Comptabilité et Gestion',
         'about-edu': 'Master spécialisé en Finance-Contrôle de Gestion <br> <b>ISIAM Business School d\'Agadir</b>',
         'contact-catchphrase': 'Prêt à démarrer ou besoin d\'infos ? Contactez-moi :',
         'contact-phone-label': 'Téléphone',
         'contact-email-label': 'Email',
         
-        'reader-back': 'Quitter',
-        'reader-loading': 'Chargement de l\'espace', 
+        'reader-back': 'Retour',
+        'reader-loading': 'Chargement de l\'espace...', 
         
         'footer-sub': 'Fondateur du système TAJIROX | Formateur',
         'copyright': `© 2026 EL HOUSSINE TAQI. Tous droits réservés.`
@@ -58,24 +50,18 @@ const translations = {
         
         'instructor-name': 'الحسين تاقي',
         'hero-badge-form': 'تكوينات تطبيقية 100%',
-        'hero-title-form-1': 'تكوينات تطبيقية',
-        'hero-title-form-2': 'في المحاسبة والتدبير',
+        'hero-title-form-1': 'تكوينات تطبيقية و مهنية',
         'hero-desc-form': 'سرّع مسارك المهني مع دورات تطبيقية مصممة خصيصاً لاكتساب مهارات عملية مباشرة.',
         'hero-btn-formations': 'اطلع على دوراتنا',
         
         'sec-courses-title': 'دوراتنا التكوينية',
         'sec-courses-subtitle': 'برامج مصممة للتميز المهني. طور مهاراتك من خلال مساراتنا التطبيقية 100%.',
         
-        'course-1-title': 'مساعد محاسب',
+        'course-1-title': 'المحاسبة العملية (مساعد محاسب)',
         'course-1-desc': 'كن مساعد محاسب مؤهلاً للعمل من خلال التطبيق المباشر على ملف محاسبي حقيقي للمقاولة.',
         'course-2-title': 'المعلوميات المكتبية',
         'course-2-desc': 'إتقان الأدوات الأساسية: Word و Excel و PowerPoint.',
-        'course-3-title': 'التدبير التجاري',
-        'course-3-desc': 'تعلم كيفية إدارة المبيعات، المخزون والفواتير بفعالية.',
-        'course-4-title': 'إكسيل الاحترافي',
-        'course-4-desc': 'طوّر مهاراتك في Excel بما يتوافق مع متطلبات سوق العمل.',
         'course-duration': '36 ساعة',
-        'course-duration-excel': 'من 24 إلى 36 ساعة',
         'course-btn': 'الدخول',
         'course-program-btn': 'عرض البرنامج',
         'modal-badge': 'برنامج التكوين',
@@ -86,10 +72,8 @@ const translations = {
         'stat-2': 'من المحتوى التطبيقي',
         'stat-3': 'نسبة الرضا',
         
-
-        
         /* Profil Modifié Arabe */
-        'about-job': 'مؤسس TAJIROX | مكون في المحاسبة والتدبير',
+        'about-job': 'مؤسس نظام TAJIROX | مكون في المحاسبة والتدبير',
         'about-edu': 'ماستر متخصص في المالية ومراقبة التسيير <br> <b>ISIAM Business School d\'Agadir</b>',
         'contact-catchphrase': 'هل أنت جاهز للبدء أو تحتاج لمعلومات؟ اتصل بي:',
         'contact-phone-label': 'الهاتف',
@@ -145,30 +129,6 @@ const coursesData = {
             "برنامج Microsoft Excel (إدارة البيانات والصيغ الأساسية).",
             "برنامج Microsoft PowerPoint (إنشاء عروض تقديمية ديناميكية)."
         ]
-    },
-    'gestion': {
-        title_fr: 'Gestion commerciale',
-        title_ar: 'التدبير التجاري',
-        url: '' 
-    },
-    'excel': {
-        title_fr: 'Excel professionnel',
-        title_ar: 'إكسيل الاحترافي',
-        url: '',
-        program_fr: [
-            "Calculs de base, fonctions de base et fonctions conditionnelles.",
-            "Formules avancées et fonctions logiques (RECHERCHEV/X, SI, SOMME.SI.ENS).",
-            "Analyse de données avec les Tableaux Croisés Dynamiques (TCD) et segments.",
-            "Graphiques avancés et création de Tableaux de Bord (Dashboards).",
-            "Validation des données, protection des feuilles et gestion des erreurs."
-        ],
-        program_ar: [
-            "الحسابات الأساسية، الدوال الأساسية والدوال الشرطية.",
-            "الصيغ المتقدمة والدوال المنطقية (VLOOKUP, XLOOKUP, IF, SUMIFS).",
-            "تحليل البيانات باستخدام الجداول المحورية (TCD) والمجزئات (Slicers).",
-            "الرسوم البيانية المتقدمة وإنشاء لوحات التحكم (Dashboards).",
-            "التحقق من صحة البيانات، حماية أوراق العمل وإدارة الأخطاء."
-        ]
     }
 };
 
@@ -219,8 +179,6 @@ function showFormations() {
     }, 50);
     closeMobileMenu();
 }
-
-
 
 function showContact() {
     ensureHomeView();
