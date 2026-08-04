@@ -1,427 +1,438 @@
-const currentYear = new Date().getFullYear();
+        const currentYear = new Date().getFullYear();
 
-const translations = {
-    'fr': {
-        'nav-home': 'Accueil',
-        'nav-courses': 'Formations',
-        'nav-contact': 'Contact',
-        
-        'instructor-name': 'El Houssine TAQI',
-        'hero-badge-form': 'Formations 100% Pratiques',
-        'hero-title-form-1': 'Formations Pratiques',
-        'hero-title-form-2': '& Professionnelles',
-        'hero-desc-form': 'Accélérez votre carrière avec des formations pratiques ciblées pour acquérir des compétences directement opérationnelles.',
-        'hero-btn-formations': 'Voir nos formations',
-        
-        'sec-courses-title': 'Nos Formations',
-        'sec-courses-subtitle': 'Programmes conçus pour l\'excellence professionnelle. Développez vos compétences avec nos parcours 100% pratiques.',
-        
-        'course-1-title': 'Comptabilité pratique (Aide comptable)',
-        'course-1-desc': 'Devenez aide-comptable opérationnel en travaillant directement sur le dossier comptable réel d\'une entreprise.',
-        'course-2-title': 'Informatique bureautique',
-        'course-2-desc': 'Maîtrise des outils essentiels : Word, Excel et PowerPoint.',
-        'course-duration': '36 heures',
-        'course-btn': 'Accéder',
-        'course-program-btn': 'Voir le programme',
-        'modal-badge': 'Plan de formation',
-        'modal-close-btn': 'Fermer',
-        
-        /* Stats */
-        'stat-1': 'Stagiaires formés',
-        'stat-2': 'De contenu pratique',
-        'stat-3': 'Taux de satisfaction',
-
-        /* Profil Modifié */
-        'about-job': 'Fondateur du système TAJIROX | Formateur en Comptabilité et Gestion',
-        'about-edu': 'Master spécialisé en Finance-Contrôle de Gestion <br> <b>ISIAM Business School d\'Agadir</b>',
-        'contact-catchphrase': 'Prêt à démarrer ou besoin d\'infos ? Contactez-moi :',
-        'contact-phone-label': 'Téléphone',
-        'contact-email-label': 'Email',
-        
-        'reader-back': 'Retour',
-        'reader-loading': 'Chargement de l\'espace...', 
-        
-        'footer-sub': 'Fondateur du système TAJIROX | Formateur',
-        'copyright': `© 2026 EL HOUSSINE TAQI. Tous droits réservés.`
-    },
-    'ar': {
-        'nav-home': 'الرئيسية',
-        'nav-courses': 'التكوينات',
-        'nav-contact': 'اتصل بنا',
-        
-        'instructor-name': 'الحسين تاقي',
-        'hero-badge-form': 'تكوينات تطبيقية 100%',
-        'hero-title-form-1': 'تكوينات تطبيقية',
-        'hero-title-form-2': 'ومهنية',
-        'hero-desc-form': 'سرّع مسارك المهني مع دورات تطبيقية مصممة خصيصاً لاكتساب مهارات عملية مباشرة.',
-        'hero-btn-formations': 'اطلع على دوراتنا',
-        
-        'sec-courses-title': 'دوراتنا التكوينية',
-        'sec-courses-subtitle': 'برامج مصممة للتميز المهني. طور مهاراتك من خلال مساراتنا التطبيقية 100%.',
-        
-        'course-1-title': 'المحاسبة العملية (مساعد محاسب)',
-        'course-1-desc': 'كن مساعد محاسب مؤهلاً للعمل من خلال التطبيق المباشر على ملف محاسبي حقيقي للمقاولة.',
-        'course-2-title': 'المعلوميات المكتبية',
-        'course-2-desc': 'إتقان الأدوات الأساسية: Word و Excel و PowerPoint.',
-        'course-duration': '36 ساعة',
-        'course-btn': 'الدخول',
-        'course-program-btn': 'عرض البرنامج',
-        'modal-badge': 'برنامج التكوين',
-        'modal-close-btn': 'إغلاق',
-
-        /* Stats Arabic */
-        'stat-1': 'متدرب مكون',
-        'stat-2': 'من المحتوى التطبيقي',
-        'stat-3': 'نسبة الرضا',
-        
-        /* Profil Modifié Arabe */
-        'about-job': 'مؤسس نظام TAJIROX | مكون في المحاسبة والتدبير',
-        'about-edu': 'ماستر متخصص في المالية ومراقبة التسيير <br> <b>ISIAM Business School d\'Agadir</b>',
-        'contact-catchphrase': 'هل أنت جاهز للبدء أو تحتاج لمعلومات؟ اتصل بي:',
-        'contact-phone-label': 'الهاتف',
-        'contact-email-label': 'البريد الإلكتروني',
-        
-        'reader-back': 'رجوع',
-        'reader-loading': 'جاري التحميل ...',
-        
-        'footer-sub': 'مؤسس نظام TAJIROX | مكون',
-        'copyright': `© 2026 EL HOUSSINE TAQI . جميع الحقوق محفوظة.`
-    }
-};
-
-let currentLang = 'fr';
-
-const coursesData = {
-    'compta': {
-        title_fr: 'Comptabilité pratique (Aide comptable)',
-        title_ar: 'المحاسبة العملية (مساعد محاسب)',
-        url: 'https://script.google.com/macros/s/AKfycbx0B52BtYBUlGynjevO__2l4XY0XRTQod4hD6JlBvAucefJwWNgn5zaKDLy0ubFxrIUwQ/exec',
-        program_fr: [
-            "Introduction générale.",
-            "Installation de logiciel sage 100.",
-            "Paramétrage de l’entreprise sur Sage 100.",
-            "Classement des pièces comptables.",
-            "L’enregistrement des opérations courantes.",
-            "Lettrage des comptes et rapprochement bancaire.",
-            "Préparation et déclaration de la TVA.",
-            "Déclaration du droit de timbre."
-        ],
-        program_ar: [
-            "مقدمة عامة.",
-            "تثبيت برنامج Sage 100.",
-            "إعداد المقاولة على برنامج Sage 100.",
-            "تصنيف وفرز الوثائق المحاسبية.",
-            "تسجيل العمليات الجارية.",
-            "مطابقة الحسابات والتسوية البنكية.",
-            "إعداد والتصريح بالضريبة على القيمة المضافة (TVA).",
-            "التصريح بواجب التمبر."
-        ]
-    },
-    'informatique': {
-        title_fr: 'Informatique bureautique',
-        title_ar: 'المعلوميات المكتبية',
-        url: 'https://script.google.com/macros/s/AKfycbxHyTZ7kFnJoHd_ALZvPqRJ_TA-NwlO2Z9XNeXw98EjK-TyAm8DUWwm_5Sx_ULk1rwT/exec',
-        program_fr: [
-            "Microsoft Word (Traitement de texte professionnel).",
-            "Microsoft Excel (Gestion de données et formules de base).",
-            "Microsoft PowerPoint (Création de présentations dynamiques)."
-        ],
-        program_ar: [
-            "برنامج Microsoft Word (معالجة النصوص الاحترافية).",
-            "برنامج Microsoft Excel (إدارة البيانات والصيغ الأساسية).",
-            "برنامج Microsoft PowerPoint (إنشاء عروض تقديمية ديناميكية)."
-        ]
-    }
-};
-
-function updateContent() {
-    const content = translations[currentLang];
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (content[key]) el.innerHTML = content[key];
-    });
-
-    document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-    document.documentElement.lang = currentLang;
-    
-    const langLabel = document.getElementById('lang-label');
-    if (langLabel) langLabel.textContent = currentLang === 'fr' ? 'العربية' : 'Français';
-    if (typeof lucide !== 'undefined') lucide.createIcons();
-}
-
-function toggleLanguage() {
-    currentLang = currentLang === 'fr' ? 'ar' : 'fr';
-    updateContent();
-}
-
-function ensureHomeView() {
-    const homeView = document.getElementById('home-view');
-    const mainWrapper = document.getElementById('main-wrapper');
-    const courseView = document.getElementById('course-view');
-
-    if(courseView && !courseView.classList.contains('hidden')) closeCourse();
-    if(homeView) homeView.classList.remove('hidden');
-    if(mainWrapper) mainWrapper.classList.remove('hidden');
-}
-
-function showHome() {
-    ensureHomeView();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    closeMobileMenu();
-}
-
-function showFormations() {
-    ensureHomeView();
-    setTimeout(() => {
-        const section = document.getElementById('formations-section');
-        if (section) {
-            const y = section.getBoundingClientRect().top + window.scrollY - 80;
-            window.scrollTo({ top: y, behavior: 'smooth' });
-        }
-    }, 50);
-    closeMobileMenu();
-}
-
-function showContact() {
-    ensureHomeView();
-    setTimeout(() => {
-        const contactSection = document.getElementById('about-section');
-        if (contactSection) {
-            const y = contactSection.getBoundingClientRect().top + window.scrollY - 80;
-            window.scrollTo({ top: y, behavior: 'smooth' });
-        }
-    }, 50);
-    closeMobileMenu();
-}
-
-function openProgram(courseId) {
-    const course = coursesData[courseId];
-    if (!course) return;
-
-    const modal = document.getElementById('program-modal');
-    const modalContent = document.getElementById('program-modal-content');
-    const titleEl = document.getElementById('program-modal-title');
-    const listEl = document.getElementById('program-modal-list');
-    const accessBtn = document.getElementById('program-modal-access-btn');
-
-    if (!modal || !modalContent) return;
-
-    titleEl.textContent = currentLang === 'fr' ? course.title_fr : course.title_ar;
-
-    listEl.innerHTML = '';
-    const program = currentLang === 'fr' ? course.program_fr : course.program_ar;
-    if (program && program.length > 0) {
-        program.forEach((item, index) => {
-            const li = document.createElement('li');
-            li.className = 'flex items-start gap-3 text-gray-700 text-sm sm:text-base py-2 border-b border-gray-100 last:border-0 hover:bg-slate-50/50 rounded-lg px-2 -mx-2 transition-colors';
-            
-            const iconSpan = document.createElement('span');
-            iconSpan.className = 'flex-shrink-0 w-6 h-6 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mt-0.5 font-bold text-xs';
-            iconSpan.textContent = index + 1;
-            
-            const textSpan = document.createElement('span');
-            textSpan.className = 'font-semibold leading-relaxed text-gray-800';
-            textSpan.textContent = item;
-            
-            li.appendChild(iconSpan);
-            li.appendChild(textSpan);
-            listEl.appendChild(li);
-        });
-    } else {
-        const li = document.createElement('li');
-        li.className = 'text-gray-500 text-sm italic text-center py-6';
-        li.textContent = currentLang === 'fr' ? 'Le programme détaillé sera disponible bientôt.' : 'سيكون البرنامج التفصيلي متاحاً قريباً.';
-        listEl.appendChild(li);
-    }
-
-    if (accessBtn) {
-        if (course.url) {
-            accessBtn.classList.remove('hidden');
-            accessBtn.onclick = () => {
-                closeProgram();
-                openCourse(courseId);
-            };
-        } else {
-            accessBtn.classList.add('hidden');
-        }
-    }
-
-    modal.classList.remove('pointer-events-none', 'opacity-0');
-    modal.classList.add('opacity-100');
-    modalContent.classList.remove('scale-95', 'opacity-0');
-    modalContent.classList.add('scale-100', 'opacity-100');
-
-    if (typeof lucide !== 'undefined') lucide.createIcons();
-}
-
-function closeProgram() {
-    const modal = document.getElementById('program-modal');
-    const modalContent = document.getElementById('program-modal-content');
-
-    if (!modal || !modalContent) return;
-
-    modalContent.classList.remove('scale-100', 'opacity-100');
-    modalContent.classList.add('scale-95', 'opacity-0');
-    modal.classList.remove('opacity-100');
-    modal.classList.add('opacity-0', 'pointer-events-none');
-}
-
-function openCourse(courseId) {
-    const course = coursesData[courseId];
-    if (!course || !course.url) return;
-
-    const iframe = document.getElementById('course-iframe');
-    const courseTitle = document.getElementById('course-title');
-
-    if (courseTitle) courseTitle.textContent = currentLang === 'fr' ? course.title_fr : course.title_ar;
-    if (iframe) iframe.src = course.url;
-
-    document.querySelectorAll('.hidden-on-course').forEach(el => el.classList.add('hidden'));
-    const mainWrapper = document.getElementById('main-wrapper');
-    const courseView = document.getElementById('course-view');
-    
-    if(mainWrapper) mainWrapper.classList.add('hidden');
-    if(courseView) courseView.classList.remove('hidden');
-    
-    closeMobileMenu();
-}
-
-function closeCourse() {
-    const courseView = document.getElementById('course-view');
-    const mainWrapper = document.getElementById('main-wrapper');
-    const iframe = document.getElementById('course-iframe');
-
-    if(courseView) courseView.classList.add('hidden');
-    if(mainWrapper) mainWrapper.classList.remove('hidden');
-    
-    document.querySelectorAll('.hidden-on-course').forEach(el => el.classList.remove('hidden'));
-    if(iframe) iframe.src = '';
-}
-
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-const mobileMenuIcon = document.getElementById('mobile-menu-icon');
-let isMenuOpen = false;
-
-function closeMobileMenu() {
-    if (isMenuOpen && mobileMenu) {
-        isMenuOpen = false;
-        mobileMenu.classList.add('hidden');
-        if(mobileMenuIcon) mobileMenuIcon.setAttribute('data-lucide', 'menu');
-        if (typeof lucide !== 'undefined') lucide.createIcons();
-    }
-}
-
-if (mobileMenuBtn) {
-    mobileMenuBtn.addEventListener('click', () => {
-        isMenuOpen = !isMenuOpen;
-        if(mobileMenu) mobileMenu.classList.toggle('hidden');
-        if(mobileMenuIcon) mobileMenuIcon.setAttribute('data-lucide', isMenuOpen ? 'x' : 'menu');
-        if (typeof lucide !== 'undefined') lucide.createIcons();
-    });
-}
-
-// Scroll Logic for Header
-window.addEventListener('scroll', () => {
-    const header = document.getElementById('main-header');
-    if (window.scrollY > 20) {
-        header.classList.add('header-scrolled');
-        header.classList.remove('border-transparent');
-        header.classList.add('border-gray-200');
-    } else {
-        header.classList.remove('header-scrolled');
-        header.classList.remove('border-gray-200');
-        header.classList.add('border-transparent');
-    }
-});
-
-// Intersection Observer for scroll animations
-function initScrollAnimations() {
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
+        const translations = {
+            'fr': {
+                'nav-home': 'Accueil',
+                'nav-courses': 'Formations',
+                'nav-contact': 'Contact',
                 
-                // Handle number counter animation
-                if(entry.target.classList.contains('reveal-scale')) {
-                    const numbers = entry.target.querySelectorAll('.stat-number');
-                    numbers.forEach(num => {
-                        if(!num.classList.contains('counted')) {
-                            animateValue(num, 0, parseInt(num.getAttribute('data-target')), 2000);
-                            num.classList.add('counted');
-                        }
-                    });
+                'instructor-name': 'El Houssine TAQI',
+                'hero-badge-form': 'Formations 100% Pratiques',
+                'hero-title-form-1': 'Formations Pratiques',
+                'hero-title-form-2': '& Professionnelles',
+                'hero-desc-form': 'Accélérez votre carrière avec des formations pratiques ciblées pour acquérir des compétences directement opérationnelles.',
+                'hero-btn-formations': 'Voir nos formations',
+                
+                'sec-courses-title': 'Nos Formations',
+                'sec-courses-subtitle': 'Programmes conçus pour l\'excellence professionnelle. Développez vos compétences avec nos parcours 100% pratiques.',
+                
+                'course-1-title': 'Comptabilité pratique (Aide comptable)',
+                'course-1-desc': 'Devenez aide-comptable opérationnel en travaillant directement sur le dossier comptable réel d\'une entreprise.',
+                'course-2-title': 'Informatique bureautique',
+                'course-2-desc': 'Maîtrise des outils essentiels : Word, Excel et PowerPoint.',
+                
+                'course-1-duration': '72 heures',
+                'course-2-duration': '36 heures',
+                
+                'course-btn': 'Accéder',
+                'course-program-btn': 'Voir le programme',
+                'modal-badge': 'Plan de formation',
+                'modal-close-btn': 'Fermer',
+                
+                /* Stats */
+                'stat-1': 'Stagiaires formés',
+                'stat-2': 'De contenu pratique',
+                'stat-3': 'Taux de satisfaction',
+
+                /* Profil Modifié */
+                'about-job': 'Fondateur du système TAJIROX | Formateur en Comptabilité et Gestion',
+                'about-edu': 'Master spécialisé en Finance-Contrôle de Gestion <br> <b>ISIAM Business School d\'Agadir</b>',
+                'contact-catchphrase': 'Prêt à démarrer ou besoin d\'infos ? Contactez-moi :',
+                'contact-phone-label': 'Téléphone',
+                'contact-email-label': 'Email',
+                
+                'reader-back': 'Retour',
+                'reader-loading': 'Chargement de l\'espace...', 
+                
+                'footer-sub': 'Fondateur du système TAJIROX | Formateur',
+                'copyright': `© ${currentYear} EL HOUSSINE TAQI. Tous droits réservés.`
+            },
+            'ar': {
+                'nav-home': 'الرئيسية',
+                'nav-courses': 'التكوينات',
+                'nav-contact': 'اتصل بنا',
+                
+                'instructor-name': 'الحسين تاقي',
+                'hero-badge-form': 'تكوينات تطبيقية 100%',
+                'hero-title-form-1': 'تكوينات تطبيقية',
+                'hero-title-form-2': 'ومهنية',
+                'hero-desc-form': 'سرّع مسارك المهني مع دورات تطبيقية مصممة خصيصاً لاكتساب مهارات عملية مباشرة.',
+                'hero-btn-formations': 'اطلع على دوراتنا',
+                
+                'sec-courses-title': 'دوراتنا التكوينية',
+                'sec-courses-subtitle': 'برامج مصممة للتميز المهني. طور مهاراتك من خلال مساراتنا التطبيقية 100%.',
+                
+                'course-1-title': 'المحاسبة العملية (مساعد محاسب)',
+                'course-1-desc': 'كن مساعد محاسب مؤهلاً للعمل من خلال التطبيق المباشر على ملف محاسبي حقيقي للمقاولة.',
+                'course-2-title': 'المعلوميات المكتبية',
+                'course-2-desc': 'إتقان الأدوات الأساسية: Word و Excel و PowerPoint.',
+                
+                'course-1-duration': '72 ساعة',
+                'course-2-duration': '36 ساعة',
+                
+                'course-btn': 'الدخول',
+                'course-program-btn': 'عرض البرنامج',
+                'modal-badge': 'برنامج التكوين',
+                'modal-close-btn': 'إغلاق',
+
+                /* Stats Arabic */
+                'stat-1': 'متدرب مكون',
+                'stat-2': 'من المحتوى التطبيقي',
+                'stat-3': 'نسبة الرضا',
+                
+                /* Profil Modifié Arabe */
+                'about-job': 'مؤسس نظام TAJIROX | مكون في المحاسبة والتدبير',
+                'about-edu': 'ماستر متخصص في المالية ومراقبة التسيير <br> <b>ISIAM Business School d\'Agadir</b>',
+                'contact-catchphrase': 'هل أنت جاهز للبدء أو تحتاج لمعلومات؟ اتصل بي:',
+                'contact-phone-label': 'الهاتف',
+                'contact-email-label': 'البريد الإلكتروني',
+                
+                'reader-back': 'رجوع',
+                'reader-loading': 'جاري التحميل ...',
+                
+                'footer-sub': 'مؤسس نظام TAJIROX | مكون',
+                'copyright': `© ${currentYear} EL HOUSSINE TAQI . جميع الحقوق محفوظة.`
+            }
+        };
+
+        let currentLang = 'fr';
+
+        const coursesData = {
+            'compta': {
+                title_fr: 'Comptabilité pratique (Aide comptable)',
+                title_ar: 'المحاسبة العملية (مساعد محاسب)',
+                url: 'https://script.google.com/macros/s/AKfycbx0B52BtYBUlGynjevO__2l4XY0XRTQod4hD6JlBvAucefJwWNgn5zaKDLy0ubFxrIUwQ/exec',
+                program_fr: [
+                    "Création d'une SARL.",
+                    "Organisation comptable de l'entreprise.",
+                    "Les documents commerciaux et leur utilisation.",
+                    "Classement et archivage des pièces comptables.",
+                    "Installation et prise en main du logiciel Sage 100.",
+                    "Paramétrage de l'entreprise sur Sage 100.",
+                    "Enregistrement des opérations comptables courantes (achats, ventes, banque, caisse et opérations diverses).",
+                    "Lettrage des comptes tiers et réalisation du rapprochement bancaire.",
+                    "Préparation et déclaration de la TVA.",
+                    "Traitement comptable et fiscale du droit de timbre.",
+                    "Traitement des salaires."
+                ],
+                program_ar: [
+                    "تأسيس شركة ذات مسؤولية محدودة (SARL).",
+                    "التنظيم المحاسبي للمقاولة.",
+                    "الوثائق التجارية واستخدامها.",
+                    "تصنيف وأرشفة الوثائق المحاسبية.",
+                    "تثبيت واستخدام برنامج Sage 100.",
+                    "إعداد المقاولة على برنامج Sage 100.",
+                    "تسجيل العمليات المحاسبية الجارية (مشتريات، مبيعات، بنك، صندوق وعمليات متنوعة).",
+                    "مطابقة حسابات الأغيار وإنجاز التقارب البنكي.",
+                    "إعداد والتصريح بالضريبة على القيمة المضافة (TVA).",
+                    "المعالجة المحاسبية والضريبية لواجب التمبر.",
+                    "معالجة الأجور."
+                ]
+            },
+            'informatique': {
+                title_fr: 'Informatique bureautique',
+                title_ar: 'المعلوميات المكتبية',
+                url: 'https://script.google.com/macros/s/AKfycbxHyTZ7kFnJoHd_ALZvPqRJ_TA-NwlO2Z9XNeXw98EjK-TyAm8DUWwm_5Sx_ULk1rwT/exec',
+                program_fr: [
+                    "Microsoft Word (Traitement de texte professionnel).",
+                    "Microsoft Excel (Gestion de données et formules de base).",
+                    "Microsoft PowerPoint (Création de présentations dynamiques)."
+                ],
+                program_ar: [
+                    "برنامج Microsoft Word (معالجة النصوص الاحترافية).",
+                    "برنامج Microsoft Excel (إدارة البيانات والصيغ الأساسية).",
+                    "برنامج Microsoft PowerPoint (إنشاء عروض تقديمية ديناميكية)."
+                ]
+            }
+        };
+
+        function updateContent() {
+            const content = translations[currentLang];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (content[key]) el.innerHTML = content[key];
+            });
+
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.lang = currentLang;
+            
+            const langLabel = document.getElementById('lang-label');
+            if (langLabel) langLabel.textContent = currentLang === 'fr' ? 'العربية' : 'Français';
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'fr' ? 'ar' : 'fr';
+            updateContent();
+        }
+
+        function ensureHomeView() {
+            const homeView = document.getElementById('home-view');
+            const mainWrapper = document.getElementById('main-wrapper');
+            const courseView = document.getElementById('course-view');
+
+            if(courseView && !courseView.classList.contains('hidden')) closeCourse();
+            if(homeView) homeView.classList.remove('hidden');
+            if(mainWrapper) mainWrapper.classList.remove('hidden');
+        }
+
+        function showHome() {
+            ensureHomeView();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            closeMobileMenu();
+        }
+
+        function showFormations() {
+            ensureHomeView();
+            setTimeout(() => {
+                const section = document.getElementById('formations-section');
+                if (section) {
+                    const y = section.getBoundingClientRect().top + window.scrollY - 80;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
                 }
-                
-                observer.unobserve(entry.target); // Animate only once
+            }, 50);
+            closeMobileMenu();
+        }
+
+        function showContact() {
+            ensureHomeView();
+            setTimeout(() => {
+                const contactSection = document.getElementById('about-section');
+                if (contactSection) {
+                    const y = contactSection.getBoundingClientRect().top + window.scrollY - 80;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                }
+            }, 50);
+            closeMobileMenu();
+        }
+
+        function openProgram(courseId) {
+            const course = coursesData[courseId];
+            if (!course) return;
+
+            const modal = document.getElementById('program-modal');
+            const modalContent = document.getElementById('program-modal-content');
+            const titleEl = document.getElementById('program-modal-title');
+            const listEl = document.getElementById('program-modal-list');
+            const accessBtn = document.getElementById('program-modal-access-btn');
+
+            if (!modal || !modalContent) return;
+
+            titleEl.textContent = currentLang === 'fr' ? course.title_fr : course.title_ar;
+
+            listEl.innerHTML = '';
+            const program = currentLang === 'fr' ? course.program_fr : course.program_ar;
+            if (program && program.length > 0) {
+                program.forEach((item, index) => {
+                    const li = document.createElement('li');
+                    li.className = 'flex items-start gap-3 text-gray-700 text-sm sm:text-base py-2 border-b border-gray-100 last:border-0 hover:bg-slate-50/50 rounded-lg px-2 -mx-2 transition-colors';
+                    
+                    const iconSpan = document.createElement('span');
+                    iconSpan.className = 'flex-shrink-0 w-6 h-6 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mt-0.5 font-bold text-xs';
+                    iconSpan.textContent = index + 1;
+                    
+                    const textSpan = document.createElement('span');
+                    textSpan.className = 'font-semibold leading-relaxed text-gray-800';
+                    textSpan.textContent = item;
+                    
+                    li.appendChild(iconSpan);
+                    li.appendChild(textSpan);
+                    listEl.appendChild(li);
+                });
+            } else {
+                const li = document.createElement('li');
+                li.className = 'text-gray-500 text-sm italic text-center py-6';
+                li.textContent = currentLang === 'fr' ? 'Le programme détaillé sera disponible bientôt.' : 'سيكون البرنامج التفصيلي متاحاً قريباً.';
+                listEl.appendChild(li);
+            }
+
+            if (accessBtn) {
+                if (course.url) {
+                    accessBtn.classList.remove('hidden');
+                    accessBtn.onclick = () => {
+                        closeProgram();
+                        openCourse(courseId);
+                    };
+                } else {
+                    accessBtn.classList.add('hidden');
+                }
+            }
+
+            modal.classList.remove('pointer-events-none', 'opacity-0');
+            modal.classList.add('opacity-100');
+            modalContent.classList.remove('scale-95', 'opacity-0');
+            modalContent.classList.add('scale-100', 'opacity-100');
+
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
+
+        function closeProgram() {
+            const modal = document.getElementById('program-modal');
+            const modalContent = document.getElementById('program-modal-content');
+
+            if (!modal || !modalContent) return;
+
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            modal.classList.remove('opacity-100');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        function openCourse(courseId) {
+            const course = coursesData[courseId];
+            if (!course || !course.url) return;
+
+            const iframe = document.getElementById('course-iframe');
+            const courseTitle = document.getElementById('course-title');
+
+            if (courseTitle) courseTitle.textContent = currentLang === 'fr' ? course.title_fr : course.title_ar;
+            if (iframe) iframe.src = course.url;
+
+            document.querySelectorAll('.hidden-on-course').forEach(el => el.classList.add('hidden'));
+            const mainWrapper = document.getElementById('main-wrapper');
+            const courseView = document.getElementById('course-view');
+            
+            if(mainWrapper) mainWrapper.classList.add('hidden');
+            if(courseView) courseView.classList.remove('hidden');
+            
+            closeMobileMenu();
+        }
+
+        function closeCourse() {
+            const courseView = document.getElementById('course-view');
+            const mainWrapper = document.getElementById('main-wrapper');
+            const iframe = document.getElementById('course-iframe');
+
+            if(courseView) courseView.classList.add('hidden');
+            if(mainWrapper) mainWrapper.classList.remove('hidden');
+            
+            document.querySelectorAll('.hidden-on-course').forEach(el => el.classList.remove('hidden'));
+            if(iframe) iframe.src = '';
+        }
+
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+        let isMenuOpen = false;
+
+        function closeMobileMenu() {
+            if (isMenuOpen && mobileMenu) {
+                isMenuOpen = false;
+                mobileMenu.classList.add('hidden');
+                if(mobileMenuIcon) mobileMenuIcon.setAttribute('data-lucide', 'menu');
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            }
+        }
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                isMenuOpen = !isMenuOpen;
+                if(mobileMenu) mobileMenu.classList.toggle('hidden');
+                if(mobileMenuIcon) mobileMenuIcon.setAttribute('data-lucide', isMenuOpen ? 'x' : 'menu');
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            });
+        }
+
+        // Scroll Logic for Header
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 20) {
+                header.classList.add('header-scrolled');
+                header.classList.remove('border-transparent');
+                header.classList.add('border-gray-200');
+            } else {
+                header.classList.remove('header-scrolled');
+                header.classList.remove('border-gray-200');
+                header.classList.add('border-transparent');
             }
         });
-    }, observerOptions);
 
-    document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
-        observer.observe(el);
-    });
-}
+        // Intersection Observer for scroll animations
+        function initScrollAnimations() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
 
-// Number Counter Animation Function
-function animateValue(obj, start, end, duration) {
-    let startTimestamp = null;
-    const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        // Ease out Expo formula
-        const easeOut = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-        obj.innerHTML = Math.floor(easeOut * (end - start) + start);
-        if (progress < 1) {
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active'); // Changed to 'active' pour correspondre au CSS actuel de la plateforme
+                        
+                        // Handle number counter animation
+                        if(entry.target.classList.contains('reveal-scale')) {
+                            const numbers = entry.target.querySelectorAll('.stat-number');
+                            numbers.forEach(num => {
+                                if(!num.classList.contains('counted')) {
+                                    animateValue(num, 0, parseInt(num.getAttribute('data-target')), 2000);
+                                    num.classList.add('counted');
+                                }
+                            });
+                        }
+                        
+                        observer.unobserve(entry.target); // Animate only once
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-up, .reveal-scale').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Number Counter Animation Function
+        function animateValue(obj, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const easeOut = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+                obj.innerHTML = Math.floor(easeOut * (end - start) + start);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
             window.requestAnimationFrame(step);
         }
-    };
-    window.requestAnimationFrame(step);
-}
 
-// Deactivate splash screen safely and show main content
-let isSplashDeactivated = false;
-function deactivateSplashScreen() {
-    if (isSplashDeactivated) return;
-    isSplashDeactivated = true;
+        // Deactivate splash screen safely and show main content
+        let isSplashDeactivated = false;
+        function deactivateSplashScreen() {
+            if (isSplashDeactivated) return;
+            isSplashDeactivated = true;
 
-    const splash = document.getElementById('splash-screen');
-    const mainContent = document.getElementById('main-wrapper');
-    const header = document.getElementById('main-header');
-    
-    if (splash) {
-        splash.style.opacity = '0';
-        splash.style.visibility = 'hidden';
-    }
-    if (mainContent) mainContent.classList.remove('opacity-0');
-    if (header) header.classList.remove('opacity-0');
-    document.body.classList.remove('overflow-hidden');
-    
-    // Initialize animations after splash screen
-    setTimeout(initScrollAnimations, 100);
-}
+            const splash = document.getElementById('splash-screen');
+            const mainContent = document.getElementById('main-wrapper');
+            const header = document.getElementById('main-header');
+            
+            if (splash) {
+                splash.style.opacity = '0';
+                setTimeout(() => splash.style.display = 'none', 500); // Wait for opacity transition
+            }
+            if (mainContent) mainContent.classList.remove('opacity-0');
+            if (header) header.classList.remove('opacity-0');
+            document.body.classList.remove('overflow-hidden');
+            
+            // Initialize animations after splash screen
+            setTimeout(initScrollAnimations, 100);
+        }
 
-// Trigger splash screen deactivation as soon as DOM is interactive
-if (document.readyState === 'complete' || document.readyState === 'interactive') {
-    setTimeout(deactivateSplashScreen, 800);
-} else {
-    document.addEventListener('DOMContentLoaded', () => {
-        setTimeout(deactivateSplashScreen, 800);
-    });
-}
+        // Trigger splash screen deactivation
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            setTimeout(deactivateSplashScreen, 800);
+        } else {
+            document.addEventListener('DOMContentLoaded', () => {
+                setTimeout(deactivateSplashScreen, 800);
+            });
+        }
 
-// Secondary trigger on window load event
-window.addEventListener('load', () => {
-    setTimeout(deactivateSplashScreen, 500);
-});
+        window.addEventListener('load', () => {
+            setTimeout(deactivateSplashScreen, 500);
+        });
 
-// Fail-safe: Force hide splash screen after 1.5s in case of network delays or failures
-setTimeout(deactivateSplashScreen, 1500);
+        // Fail-safe
+        setTimeout(deactivateSplashScreen, 1500);
 
-updateContent();
+        // Initialisation de la langue par défaut au chargement
+        updateContent();
