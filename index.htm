@@ -12,11 +12,56 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Base typography */
+        body { font-family: 'Inter', sans-serif; }
+        [dir="rtl"] body { font-family: 'Cairo', sans-serif; }
+
+        /* Splash Screen & Loader */
+        #splash-screen {
+            position: fixed; inset: 0; background: white; z-index: 9999;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            transition: opacity 0.5s ease;
+        }
+        .loader-line {
+            width: 100%; height: 3px; background: #e2e8f0; border-radius: 3px;
+            overflow: hidden; position: relative; margin-top: 20px; max-width: 200px;
+        }
+        .loader-line::after {
+            content: ''; position: absolute; left: -50%; top: 0; height: 100%; width: 50%;
+            background: #2563eb; animation: loading 1.5s ease-in-out infinite;
+        }
+        @keyframes loading {
+            0% { left: -50%; }
+            100% { left: 100%; }
+        }
+
+        /* Animations */
+        .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+        .reveal-up.active { opacity: 1; transform: translateY(0); }
+        
+        .reveal-scale { opacity: 0; transform: scale(0.95); transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+        .reveal-scale.active { opacity: 1; transform: scale(1); }
+        
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* UI Utilities */
+        .btn-press:active { transform: scale(0.95); }
+        .blob { animation: blob-bounce 10s infinite alternate; }
+        .animation-delay-2000 { animation-delay: 2s; }
+        
+        @keyframes blob-bounce {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased selection:bg-blue-100 selection:text-blue-900 overflow-hidden flex flex-col min-h-screen">
 
-    <!-- Splash Screen -->
     <div id="splash-screen">
         <div class="flex flex-col items-center px-4 w-full max-w-lg">
             <div class="logo-pulse flex justify-center items-center w-full">
@@ -26,7 +71,6 @@
         </div>
     </div>
 
-    <!-- Header Global -->
     <header id="main-header" class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-transparent transition-all duration-300 opacity-0 hidden-on-course">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 md:py-4 flex justify-between items-center">
             
@@ -63,7 +107,6 @@
             </div>
         </div>
 
-        <!-- Menu Mobile -->
         <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-b border-gray-200 shadow-xl z-40 transform origin-top transition-transform duration-300">
             <div class="px-6 pt-4 pb-8 flex flex-col gap-5">
                 <button onclick="showHome()" class="mobile-link flex items-center gap-3 text-base font-semibold text-gray-700 text-start hover:text-blue-600 transition-colors" data-i18n="nav-home">Accueil</button>
@@ -73,7 +116,6 @@
         </div>
     </header>
 
-    <!-- Conteneur Principal -->
     <main class="flex-1 pt-16 md:pt-20 transition-opacity duration-500 opacity-0" id="main-wrapper">
         
         <!-- VUE : ACCUEIL -->
@@ -95,7 +137,6 @@
                     </div>
                     <h2 class="reveal-up delay-100 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 tracking-tight max-w-5xl mx-auto leading-tight">
                         <span data-i18n="hero-title-form-1">Formations Pratiques</span> <br class="hidden md:block" />
-                
                     </h2>
                     <p class="reveal-up delay-200 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed" data-i18n="hero-desc-form">
                         Accélérez votre carrière avec des formations pratiques ciblées pour acquérir des compétences directement opérationnelles.
@@ -108,12 +149,11 @@
                 </div>
             </div>
 
-            <!-- SECTION : FORMATIONS -->
             <div id="formations-section" class="bg-gray-50 pb-20 pt-10">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <!-- Ajustement de la grille pour afficher 2 éléments centrés (max-w-5xl) -->
                     <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-                        <!-- Carte 1 -->
+                        
+                        <!-- Carte 1 : Aide Comptable -->
                         <div class="reveal-up delay-100 group bg-white rounded-3xl shadow-sm hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-2 transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('compta')">
                             <div class="h-40 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center relative overflow-hidden">
                                 <div class="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
@@ -124,7 +164,8 @@
                                 <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed" data-i18n="course-1-desc">Devenez un aide-comptable opérationnel en travaillant directement sur le dossier comptable réel d'une entreprise.</p>
                                 <div class="flex items-center gap-2 text-xs font-bold text-blue-600 bg-blue-50 w-fit px-3 py-1 rounded-lg mb-4">
                                     <i data-lucide="clock" class="w-3 h-3"></i>
-                                    <span data-i18n="course-duration">36 heures</span>
+                                    <!-- MODIFICATION: 36 heures changé en 72 heures -->
+                                    <span data-i18n="course-duration">72 heures</span>
                                 </div>
                                 <div class="w-full flex items-center gap-3 border-t pt-4 mt-auto">
                                     <button onclick="event.stopPropagation(); openProgram('compta')" class="flex-1 flex justify-center items-center gap-2 border border-blue-200 hover:border-blue-300 text-blue-600 hover:bg-blue-50/50 font-bold text-xs py-2.5 rounded-xl transition-all btn-press">
@@ -139,7 +180,7 @@
                             </div>
                         </div>
 
-                        <!-- Carte 2 -->
+                        <!-- Carte 2 : Informatique -->
                         <div class="reveal-up delay-200 group bg-white rounded-3xl shadow-sm hover:shadow-2xl hover:shadow-purple-500/10 hover:-translate-y-2 transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('informatique')">
                             <div class="h-40 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center relative overflow-hidden">
                                 <div class="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
@@ -166,7 +207,6 @@
                         </div>
                     </div>
 
-                    <!-- Stats Dynamic -->
                     <div class="reveal-scale bg-white rounded-3xl border border-gray-100 shadow-sm p-10 md:p-16 overflow-hidden relative">
                         <div class="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-full filter blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x rtl:md:divide-x-reverse divide-gray-100 relative z-10">
@@ -187,10 +227,8 @@
                 </div>
             </div>
 
-            <!-- Section Formateur & Contact (Juste avant le Footer) -->
             <div id="about-section" class="max-w-6xl mx-auto px-4 py-24 bg-transparent reveal-scale">
                 <div class="bg-white rounded-[2.5rem] shadow-2xl border border-gray-100 overflow-hidden relative group">
-                    <!-- Dynamic Top Gradient -->
                     <div class="h-48 bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-400 bg-[length:200%_auto] animate-pulse"></div>
                     <div class="px-6 md:px-12 pb-16 flex flex-col md:flex-row gap-12 relative">
                         <div class="-mt-24 shrink-0 flex flex-col items-center">
@@ -266,7 +304,6 @@
         </div>
     </footer>
 
-    <!-- VUE : LECTEUR DE COURS -->
     <div id="course-view" class="hidden fixed inset-0 z-[100] flex flex-col bg-slate-50 view-section">
         <header class="bg-white shadow-sm border-b px-4 py-3 flex items-center justify-between shrink-0 relative">
             <div class="flex items-center gap-4 w-full">
@@ -290,7 +327,6 @@
         </main>
     </div>
 
-    <!-- MODAL : PLAN DE FORMATION -->
     <div id="program-modal" class="fixed inset-0 z-[150] flex items-center justify-center bg-slate-900/50 backdrop-blur-sm p-4 opacity-0 pointer-events-none transition-opacity duration-300" onclick="closeProgram()">
         <div id="program-modal-content" class="bg-white rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden transform scale-95 opacity-0 transition-all duration-300 flex flex-col max-h-[90vh]" onclick="event.stopPropagation()">
             <!-- Header -->
@@ -322,6 +358,204 @@
         </div>
     </div>
 
-    <script src="app.js"></script>
+    <script>
+        // Data injected based on the requested modifications
+        const coursesData = {
+            compta: {
+                title: "Comptabilité pratique (Aide comptable)",
+                program: [
+                    "Création d'une SARL.",
+                    "Organisation comptable de l'entreprise.",
+                    "Les documents commerciaux et leur utilisation.",
+                    "Classement et archivage des pièces comptables.",
+                    "Installation et prise en main du logiciel Sage 100.",
+                    "Paramétrage de l'entreprise sur Sage 100.",
+                    "Enregistrement des opérations comptables courantes (achats, ventes, banque, caisse et opérations diverses).",
+                    "Lettrage des comptes tiers et réalisation du rapprochement bancaire.",
+                    "Préparation et déclaration de la TVA.",
+                    "Traitement comptable et fiscale du droit de timbre.",
+                    "Traitement des salaires."
+                ]
+            },
+            informatique: {
+                title: "Informatique bureautique",
+                program: [
+                    "Environnement Windows et gestion des fichiers.",
+                    "Microsoft Word : Traitement de texte professionnel.",
+                    "Microsoft Excel : Tableaux, formules et graphiques.",
+                    "Microsoft PowerPoint : Création de présentations dynamiques."
+                ]
+            }
+        };
+
+        let isArabic = false;
+
+        // Navigation Functions
+        function showHome() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            closeMobileMenu();
+        }
+
+        function showFormations() {
+            const el = document.getElementById('formations-section');
+            if (el) {
+                const y = el.getBoundingClientRect().top + window.scrollY - 80;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+            closeMobileMenu();
+        }
+
+        function showContact() {
+            const el = document.getElementById('about-section');
+            if (el) {
+                const y = el.getBoundingClientRect().top + window.scrollY - 80;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+            closeMobileMenu();
+        }
+
+        function closeMobileMenu() {
+            document.getElementById('mobile-menu').classList.add('hidden');
+        }
+
+        function toggleLanguage() {
+            isArabic = !isArabic;
+            const label = document.getElementById('lang-label');
+            const html = document.documentElement;
+            if (isArabic) {
+                label.innerText = 'Français';
+                html.setAttribute('dir', 'rtl');
+            } else {
+                label.innerText = 'العربية';
+                html.setAttribute('dir', 'ltr');
+            }
+        }
+
+        // Program Modal Logic
+        function openProgram(courseId) {
+            const course = coursesData[courseId];
+            if (!course) return;
+            
+            document.getElementById('program-modal-title').innerText = course.title;
+            const list = document.getElementById('program-modal-list');
+            list.innerHTML = '';
+            
+            course.program.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.className = "flex items-start gap-3 p-3 rounded-xl hover:bg-gray-50 border border-transparent hover:border-gray-100 transition-colors";
+                li.innerHTML = `
+                    <div class="w-8 h-8 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm shrink-0">
+                        ${index + 1}
+                    </div>
+                    <p class="text-gray-700 text-sm font-medium mt-1.5 leading-snug">${item}</p>
+                `;
+                list.appendChild(li);
+            });
+
+            const modal = document.getElementById('program-modal');
+            const content = document.getElementById('program-modal-content');
+            
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                content.classList.remove('scale-95', 'opacity-0');
+                content.classList.add('scale-100', 'opacity-100');
+            }, 10);
+            
+            document.getElementById('program-modal-access-btn').onclick = () => {
+                closeProgram();
+                openCourse(courseId);
+            };
+        }
+
+        function closeProgram() {
+            const modal = document.getElementById('program-modal');
+            const content = document.getElementById('program-modal-content');
+            
+            content.classList.remove('scale-100', 'opacity-100');
+            content.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+            }, 300);
+        }
+
+        // Course Viewer Logic
+        function openCourse(id) {
+            const course = coursesData[id];
+            if (course) {
+                document.getElementById('course-title').innerText = course.title;
+            }
+            
+            document.getElementById('main-header').classList.add('hidden');
+            document.getElementById('main-wrapper').classList.add('hidden');
+            document.getElementById('main-footer').classList.add('hidden');
+            document.getElementById('course-view').classList.remove('hidden');
+        }
+
+        function closeCourse() {
+            document.getElementById('main-header').classList.remove('hidden');
+            document.getElementById('main-wrapper').classList.remove('hidden');
+            document.getElementById('main-footer').classList.remove('hidden');
+            document.getElementById('course-view').classList.add('hidden');
+        }
+
+        // Initialization
+        document.addEventListener('DOMContentLoaded', () => {
+            // Splash screen disappearance
+            setTimeout(() => {
+                const splash = document.getElementById('splash-screen');
+                splash.style.opacity = '0';
+                setTimeout(() => {
+                    splash.style.display = 'none';
+                    document.getElementById('main-header').classList.remove('opacity-0');
+                    document.getElementById('main-wrapper').classList.remove('opacity-0');
+                    // Enable scrolling once loaded
+                    document.body.classList.remove('overflow-hidden');
+                }, 500);
+            }, 1500);
+
+            lucide.createIcons();
+
+            // Mobile menu event listener
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Intersection Observer for scroll animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Counters animation logic
+                        if (entry.target.classList.contains('reveal-scale')) {
+                            const numbers = entry.target.querySelectorAll('.stat-number');
+                            numbers.forEach(el => {
+                                const target = parseInt(el.getAttribute('data-target'));
+                                let count = 0;
+                                const speed = target / 30; // 30 frames
+                                const interval = setInterval(() => {
+                                    count += speed;
+                                    if (count >= target) {
+                                        el.innerText = target;
+                                        clearInterval(interval);
+                                    } else {
+                                        el.innerText = Math.floor(count);
+                                    }
+                                }, 30);
+                                // Prevent re-triggering
+                                el.removeAttribute('data-target'); 
+                            });
+                        }
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal-up, .reveal-scale').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>
