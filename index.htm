@@ -13,11 +13,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        /* Base typography */
         body { font-family: 'Inter', sans-serif; }
         [dir="rtl"] body { font-family: 'Cairo', sans-serif; }
 
-        /* Splash Screen & Loader */
         #splash-screen {
             position: fixed; inset: 0; background: white; z-index: 9999;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -36,7 +34,6 @@
             100% { left: 100%; }
         }
 
-        /* Animations */
         .reveal-up { opacity: 0; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
         .reveal-up.active { opacity: 1; transform: translateY(0); }
         
@@ -48,7 +45,6 @@
         .delay-300 { transition-delay: 300ms; }
         .delay-400 { transition-delay: 400ms; }
 
-        /* UI Utilities */
         .btn-press:active { transform: scale(0.95); }
         .blob { animation: blob-bounce 10s infinite alternate; }
         .animation-delay-2000 { animation-delay: 2s; }
@@ -119,9 +115,7 @@
 
     <main class="flex-1 pt-16 md:pt-20 transition-opacity duration-500 opacity-0" id="main-wrapper">
         
-        <!-- VUE : ACCUEIL -->
         <div id="home-view" class="view-section">
-            <!-- Hero Section -->
             <div class="relative overflow-hidden bg-white pt-16 pb-24 sm:pt-24 sm:pb-32 border-b border-gray-100">
                 <!-- Background Animated Shapes -->
                 <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
@@ -180,7 +174,6 @@
                             </div>
                         </div>
 
-                        <!-- Carte 2 : Gestion Commerciale (Nouvelle formation - Boutons désactivés/bientôt disponible) -->
                         <div class="reveal-up delay-200 group bg-white rounded-3xl shadow-sm hover:shadow-2xl hover:shadow-amber-500/10 hover:-translate-y-2 transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer relative" onclick="openCourse('gestion-commerciale')">
                             <div class="absolute top-3 right-3 z-20 bg-amber-500 text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full shadow-md tracking-wider" data-i18n="course-badge-soon">
                                 Bientôt disponible
@@ -205,7 +198,6 @@
                             </div>
                         </div>
 
-                        <!-- Carte 3 : Informatique -->
                         <div class="reveal-up delay-300 group bg-white rounded-3xl shadow-sm hover:shadow-2xl hover:shadow-purple-500/10 hover:-translate-y-2 transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('informatique')">
                             <div class="h-40 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center relative overflow-hidden">
                                 <div class="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
@@ -231,7 +223,6 @@
                             </div>
                         </div>
 
-                        <!-- Carte 4 : La bureautique avec l'IA -->
                         <div class="reveal-up delay-400 group bg-white rounded-3xl shadow-sm hover:shadow-2xl hover:shadow-emerald-500/10 hover:-translate-y-2 transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer relative" onclick="openCourse('bureautique-ia')">
                             <div class="absolute top-3 right-3 z-20 bg-emerald-500 text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full shadow-md tracking-wider" data-i18n="course-badge-soon">
                                 Bientôt disponible
@@ -400,7 +391,6 @@
                     <!-- Les chapitres seront insérés ici par JS -->
                 </ul>
             </div>
-            <!-- Footer -->
             <div class="p-6 border-t border-gray-100 flex gap-3 shrink-0 bg-gray-50/50">
                 <button onclick="closeProgram()" class="flex-1 py-3 px-4 border border-gray-200 hover:bg-gray-100 font-bold text-sm text-gray-600 rounded-xl transition-all btn-press" data-i18n="modal-close-btn">
                     Fermer
@@ -844,7 +834,6 @@
             });
         }
 
-        // Scroll Logic for Header
         window.addEventListener('scroll', () => {
             const header = document.getElementById('main-header');
             if (window.scrollY > 20) {
@@ -870,7 +859,6 @@
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
                         
-                        // Handle number counter animation
                         if(entry.target.classList.contains('reveal-scale')) {
                             const numbers = entry.target.querySelectorAll('.stat-number');
                             numbers.forEach(num => {
@@ -891,7 +879,6 @@
             });
         }
 
-        // Number Counter Animation Function
         function animateValue(obj, start, end, duration) {
             let startTimestamp = null;
             const step = (timestamp) => {
@@ -906,7 +893,6 @@
             window.requestAnimationFrame(step);
         }
 
-        // Deactivate splash screen safely and show main content
         let isSplashDeactivated = false;
         function deactivateSplashScreen() {
             if (isSplashDeactivated) return;
@@ -926,8 +912,6 @@
             
             setTimeout(initScrollAnimations, 100);
         }
-
-        // Trigger splash screen deactivation
         if (document.readyState === 'complete' || document.readyState === 'interactive') {
             setTimeout(deactivateSplashScreen, 800);
         } else {
@@ -939,11 +923,8 @@
         window.addEventListener('load', () => {
             setTimeout(deactivateSplashScreen, 500);
         });
-
-        // Fail-safe
         setTimeout(deactivateSplashScreen, 1500);
 
-        // Initialisation de la langue par défaut au chargement
         updateContent();
     </script>
 </body>
