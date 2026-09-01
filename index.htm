@@ -46,6 +46,7 @@
         .delay-100 { transition-delay: 100ms; }
         .delay-200 { transition-delay: 200ms; }
         .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
 
         /* UI Utilities */
         .btn-press:active { transform: scale(0.95); }
@@ -179,8 +180,33 @@
                             </div>
                         </div>
 
-                        <!-- Carte 2 : Informatique -->
-                        <div class="reveal-up delay-200 group bg-white rounded-3xl shadow-sm hover:shadow-2xl hover:shadow-purple-500/10 hover:-translate-y-2 transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('informatique')">
+                        <!-- Carte 2 : Gestion Commerciale (Nouvelle formation - Boutons désactivés/bientôt disponible) -->
+                        <div class="reveal-up delay-200 group bg-white rounded-3xl shadow-sm hover:shadow-2xl hover:shadow-amber-500/10 hover:-translate-y-2 transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer relative" onclick="openCourse('gestion-commerciale')">
+                            <div class="absolute top-3 right-3 z-20 bg-amber-500 text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full shadow-md tracking-wider" data-i18n="course-badge-soon">
+                                Bientôt disponible
+                            </div>
+                            <div class="h-40 bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+                                <i data-lucide="shopping-cart" class="w-12 h-12 text-white/90 group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500 relative z-10"></i>
+                            </div>
+                            <div class="p-6 flex flex-col flex-1">
+                                <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-amber-600 transition-colors" data-i18n="course-gc-title">Gestion commerciale</h3>
+                                <p class="text-gray-500 mb-4 flex-1 text-sm leading-relaxed" data-i18n="course-gc-desc">Maîtrisez la gestion des ventes, des achats, des stocks, de la facturation et du suivi client/fournisseur.</p>
+                                <div class="flex items-center gap-2 text-xs font-bold text-amber-600 bg-amber-50 w-fit px-3 py-1 rounded-lg mb-4">
+                                    <i data-lucide="clock" class="w-3 h-3"></i>
+                                    <span data-i18n="course-gc-duration">24 heures</span>
+                                </div>
+                                <div class="w-full border-t pt-4 mt-auto">
+                                    <div class="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-500 font-bold text-xs">
+                                        <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-500"></i>
+                                        <span data-i18n="course-badge-soon">Bientôt disponible</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Carte 3 : Informatique -->
+                        <div class="reveal-up delay-300 group bg-white rounded-3xl shadow-sm hover:shadow-2xl hover:shadow-purple-500/10 hover:-translate-y-2 transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer" onclick="openCourse('informatique')">
                             <div class="h-40 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center relative overflow-hidden">
                                 <div class="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
                                 <i data-lucide="monitor" class="w-12 h-12 text-white/90 group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500 relative z-10"></i>
@@ -205,8 +231,8 @@
                             </div>
                         </div>
 
-                        <!-- Carte 3 : La bureautique avec l'IA -->
-                        <div class="reveal-up delay-300 group bg-white rounded-3xl shadow-sm hover:shadow-2xl hover:shadow-emerald-500/10 hover:-translate-y-2 transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer relative" onclick="openCourse('bureautique-ia')">
+                        <!-- Carte 4 : La bureautique avec l'IA -->
+                        <div class="reveal-up delay-400 group bg-white rounded-3xl shadow-sm hover:shadow-2xl hover:shadow-emerald-500/10 hover:-translate-y-2 transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden cursor-pointer relative" onclick="openCourse('bureautique-ia')">
                             <div class="absolute top-3 right-3 z-20 bg-emerald-500 text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full shadow-md tracking-wider" data-i18n="course-badge-soon">
                                 Bientôt disponible
                             </div>
@@ -273,7 +299,7 @@
                         <div class="flex-1 mt-6">
                             <div class="mb-10 text-center md:text-start">
                                 <h3 class="text-4xl font-black text-gray-900 mb-2" data-i18n="instructor-name">El Houssine TAQI</h3>
-                                <p class="text-xl text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 font-bold mb-6" data-i18n="about-job">Fondateur du système TAJIROX | Formateur en Comptabilité et Gestion</p>
+                                <p class="text-xl text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 font-bold mb-6" data-i18n="about-job">Fondateur de TJAIROX | Formateur en Comptabilité et Gestion</p>
                                 
                                 <div class="inline-flex flex-col sm:flex-row items-center gap-4 bg-blue-50/50 p-5 rounded-2xl border border-blue-100 text-start w-full md:w-fit hover:shadow-md transition-shadow">
                                     <i data-lucide="award" class="w-8 h-8 text-blue-600 shrink-0"></i>
@@ -324,7 +350,7 @@
             <div class="flex items-center gap-3">
                 <img src="https://www.image2url.com/r2/default/images/1778132049916-43861ad3-063d-4365-a5a0-a5d6abf9dc4b.png" alt="Logo El Houssine TAQI" class="h-12 md:h-16 w-auto max-w-[250px] object-contain hover:scale-105 transition-transform">
                 <div class="flex flex-col border-l border-gray-200 pl-3 ml-1">
-                    <span class="text-xs text-gray-500 font-bold" data-i18n="footer-sub">Fondateur du système TAJIROX | Formateur</span>
+                    <span class="text-xs text-gray-500 font-bold" data-i18n="footer-sub">Fondateur de TJAIROX | Formateur</span>
                 </div>
             </div>
             <div class="text-center md:text-end">
@@ -371,7 +397,7 @@
             <!-- Content -->
             <div class="p-6 overflow-y-auto flex-1">
                 <ul id="program-modal-list" class="space-y-3.5">
-                    <!-- Les chaptires seront insérés ici par JS -->
+                    <!-- Les chapitres seront insérés ici par JS -->
                 </ul>
             </div>
             <!-- Footer -->
@@ -422,6 +448,8 @@
                 
                 'course-1-title': 'Comptabilité pratique (Aide comptable)',
                 'course-1-desc': 'Devenez aide-comptable opérationnel en travaillant directement sur le dossier comptable réel d\'une entreprise.',
+                'course-gc-title': 'Gestion commerciale',
+                'course-gc-desc': 'Maîtrisez la gestion des ventes, des achats, des stocks, de la facturation et du suivi client/fournisseur.',
                 'course-2-title': 'Informatique bureautique',
                 'course-2-desc': 'Maîtrise des outils essentiels : Word, Excel et PowerPoint.',
                 'course-3-title': 'La bureautique avec l\'intelligence artificielle IA',
@@ -429,6 +457,7 @@
                 'course-badge-soon': 'Bientôt disponible',
                 
                 'course-1-duration': '72 heures',
+                'course-gc-duration': '24 heures',
                 'course-2-duration': '36 heures',
                 'course-3-duration': '36 heures',
                 
@@ -442,8 +471,8 @@
                 'stat-2': 'De contenu pratique',
                 'stat-3': 'Taux de satisfaction',
 
-                /* Profil Modifié */
-                'about-job': 'Formateur en Comptabilité et Gestion',
+                /* Profil */
+                'about-job': 'Fondateur de TJAIROX | Formateur en Comptabilité et Gestion',
                 'about-edu': 'Master spécialisé en Finance-Contrôle de Gestion <br> <b>ISIAM Business School d\'Agadir</b>',
                 'contact-catchphrase': 'Prêt à démarrer ou besoin d\'infos ? Contactez-moi :',
                 'contact-phone-label': 'Téléphone',
@@ -452,7 +481,7 @@
                 'reader-back': 'Retour',
                 'reader-loading': 'Chargement de l\'espace...', 
                 
-                'footer-sub': 'Fondateur du système TAJIROX | Formateur',
+                'footer-sub': 'Fondateur de TJAIROX | Formateur',
                 'copyright': `© ${currentYear} EL HOUSSINE TAQI. Tous droits réservés.`
             },
             'ar': {
@@ -472,6 +501,8 @@
                 
                 'course-1-title': 'المحاسبة العملية (مساعد محاسب)',
                 'course-1-desc': 'كن مساعد محاسب مؤهلاً للعمل من خلال التطبيق المباشر على ملف محاسبي حقيقي للمقاولة.',
+                'course-gc-title': 'التدبير التجاري',
+                'course-gc-desc': 'إتقان تدبير المبيعات، المشتريات، المخزون، الفوترة ومتابعة الزبناء والموردين.',
                 'course-2-title': 'المعلوميات المكتبية',
                 'course-2-desc': 'إتقان الأدوات الأساسية: Word و Excel و PowerPoint.',
                 'course-3-title': 'المعلوميات المكتبية مع الذكاء الاصطناعي IA',
@@ -479,6 +510,7 @@
                 'course-badge-soon': 'قريباً',
                 
                 'course-1-duration': '72 ساعة',
+                'course-gc-duration': '24 ساعة',
                 'course-2-duration': '36 ساعة',
                 'course-3-duration': '36 ساعة',
                 
@@ -493,7 +525,7 @@
                 'stat-3': 'نسبة الرضا',
                 
                 /* Profil Modifié Arabe */
-                'about-job': 'مكون في المحاسبة والتدبير',
+                'about-job': 'مؤسس TJAIROX | مكون في المحاسبة والتدبير',
                 'about-edu': 'ماستر متخصص في المالية ومراقبة التسيير <br> <b>ISIAM Business School d\'Agadir</b>',
                 'contact-catchphrase': 'هل أنت جاهز للبدء أو تحتاج لمعلومات؟ اتصل بي:',
                 'contact-phone-label': 'الهاتف',
@@ -502,7 +534,7 @@
                 'reader-back': 'رجوع',
                 'reader-loading': 'جاري التحميل ...',
                 
-                'footer-sub': 'مؤسس نظام TAJIROX | مكون',
+                'footer-sub': 'مؤسس TJAIROX | مكون',
                 'copyright': `© ${currentYear} EL HOUSSINE TAQI . جميع الحقوق محفوظة.`
             }
         };
@@ -540,6 +572,14 @@
                     "المعالجة المحاسبية والضريبية لواجب التمبر.",
                     "معالجة الأجور."
                 ]
+            },
+            'gestion-commerciale': {
+                title_fr: 'Gestion commerciale',
+                title_ar: 'التدبير التجاري',
+                url: null,
+                isComingSoon: true,
+                program_fr: [],
+                program_ar: []
             },
             'informatique': {
                 title_fr: 'Informatique bureautique',
@@ -668,6 +708,11 @@
             const course = coursesData[courseId];
             if (!course) return;
 
+            if (course.isComingSoon && (!course.program_fr || course.program_fr.length === 0)) {
+                showToast();
+                return;
+            }
+
             const modal = document.getElementById('program-modal');
             const modalContent = document.getElementById('program-modal-content');
             const titleEl = document.getElementById('program-modal-title');
@@ -705,11 +750,15 @@
             }
 
             if (accessBtn) {
-                accessBtn.classList.remove('hidden');
-                accessBtn.onclick = () => {
-                    closeProgram();
-                    openCourse(courseId);
-                };
+                if (!course.url) {
+                    accessBtn.classList.add('hidden');
+                } else {
+                    accessBtn.classList.remove('hidden');
+                    accessBtn.onclick = () => {
+                        closeProgram();
+                        openCourse(courseId);
+                    };
+                }
             }
 
             modal.classList.remove('pointer-events-none', 'opacity-0');
